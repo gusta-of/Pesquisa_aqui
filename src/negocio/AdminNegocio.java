@@ -1,10 +1,16 @@
 package negocio;
 
-import java.text.ParseException;
-
 public class AdminNegocio {
 
-	public void salvar() throws ParseException {
-		
+	public String salvar() {
+		return null;
+	}
+	
+	public boolean validarIdade() {
+		return true;
+	}
+	
+	public String validarCampos() {
+		return null;
 	}
 }
