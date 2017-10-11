@@ -1,18 +1,13 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-
-
-/**
- * @author GustavoOliveira
- * @version v1.0.0 11/10/2017	
- * @since v1.0.0
- */
 public class Admin {
 
 	private String nome;
 	private String sobrenome;
+	private Date dataNascimento;
 	private String email;
 	private String senha;
 	ArrayList<Admin> ListaAdm;
@@ -21,9 +16,10 @@ public class Admin {
 		ListaAdm = new ArrayList<>();
 	}
 
-	public Admin(String nome, String sobrenome, String email, String senha) {
+	public Admin(String nome, String sobrenome, Date dataNasimento, String email, String senha) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
+		this.dataNascimento = dataNasimento;
 		this.email = email;
 		this.senha = senha;
 		ListaAdm = new ArrayList<>();
@@ -43,6 +39,14 @@ public class Admin {
 
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
+	}
+	
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getEmail() {
@@ -77,19 +81,9 @@ public class Admin {
 		System.out.println("ADMIN");
 		System.out.println("\tNome:" + this.getNome());
 		System.out.println("\tSobrenome:" + this.getSobrenome());
+		System.out.println("\tData de Nascimento:" + this.getDataNascimento());
 		System.out.println("\tEmail:" + this.getEmail());
 		System.out.println("\tSenha:" + this.getSenha());
-	}
-
-	public static Admin newInstance(Admin admin) {
-		if(admin != null) {
-			admin.getNome();
-			admin.getSobrenome();
-			admin.getEmail();
-			admin.getSenha();
-			admin.addAdm(admin);
-		}
-		return admin;
 	}
 
 }

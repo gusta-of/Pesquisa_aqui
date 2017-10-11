@@ -2,11 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-/**
- * @author GustavoOliveira
- * @version v1.0.0 11/10/2017	
- * @since v1.0.0
- */
 public class Produto {
 
 	private int codigo;
