@@ -84,6 +84,7 @@ public class Admin {
 		System.out.println("\tData de Nascimento:" + this.getDataNascimento());
 		System.out.println("\tEmail:" + this.getEmail());
 		System.out.println("\tSenha:" + this.getSenha());
+		System.out.println("");
 	}
 
 }
