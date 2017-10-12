@@ -10,6 +10,7 @@ public class Admin {
 	private Date dataNascimento;
 	private String email;
 	private String senha;
+	private String local;
 	ArrayList<Admin> ListaAdm;
 
 	public Admin() {
@@ -84,6 +85,7 @@ public class Admin {
 		System.out.println("\tData de Nascimento:" + this.getDataNascimento());
 		System.out.println("\tEmail:" + this.getEmail());
 		System.out.println("\tSenha:" + this.getSenha());
+		System.out.println("");
 	}
 
 }
