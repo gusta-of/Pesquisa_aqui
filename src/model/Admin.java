@@ -10,6 +10,7 @@ public class Admin {
 	private Date dataNascimento;
 	private String email;
 	private String senha;
+	private String local;
 	ArrayList<Admin> ListaAdm;
 
 	public Admin() {
