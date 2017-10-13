@@ -9,6 +9,7 @@ import model.Admin;
 
 public class AdminNegocio {
 
+
 	// ====================
 	// Metodo Salvar
 	// ====================

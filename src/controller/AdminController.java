@@ -76,9 +76,9 @@ public class AdminController implements Serializable {
 		admin.setSenha(txsenha.getText());
 		admin.setConfirmarSenha(txsConfirm.getText());
 		admin.setDataNascimento(dpData.getValue());
-		
 	}
 	
+	@FXML
 	public void salvar() throws ParseException {
 		setarDadosAdmin();
 		AdminNegocio adminNegocio = new AdminNegocio();
