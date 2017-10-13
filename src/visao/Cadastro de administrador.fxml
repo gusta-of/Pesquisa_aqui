@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar fx:id="mbMenuBar" layoutY="-1.0" prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu fx:id="mPesquisa" mnemonicParsing="false" text="Pesquisar" />
+          <Menu fx:id="mAjuda" mnemonicParsing="false" text="Ajuda">
+            <items>
+              <MenuItem fx:id="miSobre" mnemonicParsing="false" text="Sobre" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label fx:id="ldTitulo" layoutX="148.0" layoutY="24.0" text="Cadastro de administrador">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbnome" layoutX="12.0" layoutY="63.0" text="Nome:" />
+      <Label fx:id="lbsobrenome" layoutX="188.0" layoutY="63.0" text="Sobrenome:" />
+      <Label fx:id="lbuser" layoutX="6.0" layoutY="96.0" text="Usuario:" />
+      <Label fx:id="lbsenha" layoutX="364.0" layoutY="129.0" text="Senha:" />
+      <TextField fx:id="txnome" layoutX="53.0" layoutY="59.0" prefHeight="25.0" prefWidth="122.0" promptText="Campo obrigatório" />
+      <TextField fx:id="txsobrenome" layoutX="262.0" layoutY="59.0" prefHeight="25.0" prefWidth="317.0" promptText="Campo obrigatório" />
+      <TextField fx:id="txuser" layoutX="53.0" layoutY="92.0" prefHeight="25.0" prefWidth="162.0" promptText="Campo obrigatório" />
+      <PasswordField fx:id="txsenha" layoutX="417.0" layoutY="124.0" prefHeight="25.0" prefWidth="162.0" promptText="Campo obrigatório" />
+      <Button fx:id="btCancelar" layoutX="354.0" layoutY="194.0" mnemonicParsing="false" text="Cancelar" />
+      <Button fx:id="btSalvar" layoutX="441.0" layoutY="194.0" mnemonicParsing="false" text="Salvar" />
+      <Label fx:id="lbConfirm" layoutX="306.0" layoutY="165.0" text="Confirmar Senha:" />
+      <PasswordField fx:id="txsConfirm" layoutX="417.0" layoutY="159.0" prefHeight="25.0" prefWidth="162.0" promptText="Campo obrigatório" />
+      <Label fx:id="lbCpf" layoutX="16.0" layoutY="129.0" text="CPF:" />
+      <TextField fx:id="txCpf" layoutX="54.0" layoutY="124.0" prefHeight="25.0" prefWidth="226.0" promptText="Campo obrigatório" />
+      <Label fx:id="lbemail" layoutX="306.0" layoutY="96.0" text="Email:" />
+      <TextField fx:id="txemail" layoutX="352.0" layoutY="92.0" prefHeight="25.0" prefWidth="226.0" promptText="Campo obrigatório" />
+      <TableView fx:id="tvTable" layoutY="224.0" prefHeight="176.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+          <TableColumn fx:id="colNome" prefWidth="132.0" text="Nome" />
+            <TableColumn fx:id="colSobre" prefWidth="122.0" text="Sobrenome" />
+            <TableColumn fx:id="colEmail" prefWidth="105.0" text="Email" />
+            <TableColumn fx:id="colCpf" minWidth="0.0" prefWidth="89.0" text="CPF" />
+            <TableColumn fx:id="colUser" prefWidth="101.0" text="Usuario" />
+        </columns>
+      </TableView>
+      <DatePicker fx:id="dpData" layoutX="79.0" layoutY="159.0" prefHeight="25.0" prefWidth="201.0" />
+      <Label fx:id="lbdata" layoutX="18.0" layoutY="165.0" prefHeight="17.0" prefWidth="61.0" text="Data Nasc:" />
+   </children>
+</Pane>

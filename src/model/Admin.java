@@ -7,8 +7,10 @@ public class Admin {
 
 	private String nome;
 	private String sobrenome;
+	private String cpf;
 	private Date dataNascimento;
 	private String email;
+	private String user;
 	private String senha;
 	private String confirmarSenha;
 	ArrayList<Admin> ListaAdm;
@@ -26,6 +28,22 @@ public class Admin {
 		ListaAdm = new ArrayList<>();
 	}
 
+	public String getCpf() {
+		return cpf;
+	}
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public String getUser() {
+		return user;
+	}
+	
+	public void setUser(String user) {
+		this.user = user;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
