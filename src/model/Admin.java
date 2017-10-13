@@ -1,14 +1,14 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Admin {
 
 	private String nome;
 	private String sobrenome;
 	private String cpf;
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	private String email;
 	private String user;
 	private String senha;
@@ -19,7 +19,7 @@ public class Admin {
 		ListaAdm = new ArrayList<>();
 	}
 
-	public Admin(String nome, String sobrenome, Date dataNasimento, String email, String senha) {
+	public Admin(String nome, String sobrenome, LocalDate dataNasimento, String email, String senha) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.dataNascimento = dataNasimento;
@@ -60,11 +60,11 @@ public class Admin {
 		this.sobrenome = sobrenome;
 	}
 	
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

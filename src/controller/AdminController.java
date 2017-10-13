@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.Serializable;
+import java.text.ParseException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import model.Admin;
+import negocio.AdminNegocio;
 
 public class AdminController implements Serializable {
 
@@ -63,5 +65,25 @@ public class AdminController implements Serializable {
 	@FXML
 	private DatePicker dpData;
 	
+	public void setarDadosAdmin() {
+		
+		Admin admin = new Admin();
+		admin.setNome(txnome.getText());
+		admin.setSobrenome(txsobrenome.getText());
+		admin.setUser(txuser.getText());
+		admin.setEmail(txemail.getText());
+		admin.setCpf(txCpf.getText());
+		admin.setSenha(txsenha.getText());
+		admin.setConfirmarSenha(txsConfirm.getText());
+		admin.setDataNascimento(dpData.getValue());
+		
+	}
+	
+	public void salvar() throws ParseException {
+		setarDadosAdmin();
+		AdminNegocio adminNegocio = new AdminNegocio();
+		String salvo = adminNegocio .salvar(AdminController.admin);
+		System.out.println(salvo);
+	}
 	
 }
