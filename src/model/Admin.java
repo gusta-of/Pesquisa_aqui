@@ -10,7 +10,7 @@ public class Admin {
 	private Date dataNascimento;
 	private String email;
 	private String senha;
-	private String local;
+	private String confirmarSenha;
 	ArrayList<Admin> ListaAdm;
 
 	public Admin() {
@@ -76,6 +76,14 @@ public class Admin {
 	
 	public void addAdm(Admin a) {
 		ListaAdm.add(a);
+	}
+	
+	public String getConfirmarSenha() {
+		return confirmarSenha;
+	}
+	
+	public void setConfirmarSenha(String confirmarSenha) {
+		this.confirmarSenha = confirmarSenha;
 	}
 	
 	public void info() {
