@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lbproduto" layoutX="5.0" layoutY="100.0" text="Produto:" />
+      <MenuBar prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Pesquisar" />
+          <Menu mnemonicParsing="false" text="Ajuda">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Sobre" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="176.0" layoutY="44.0" text="Cadastro de Produto">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbcodigo" layoutX="412.0" layoutY="100.0" text="Código:" />
+      <TextField fx:id="txproduto" layoutX="60.0" layoutY="96.0" prefHeight="25.0" prefWidth="207.0" />
+      <Label fx:id="lbdescricao" layoutX="4.0" layoutY="146.0" text="Descrição:" />
+      <Label fx:id="lbvalor" layoutX="275.0" layoutY="100.0" text="Valor:" />
+      <TextField fx:id="txdescricao" layoutX="61.0" layoutY="142.0" prefHeight="25.0" prefWidth="534.0" />
+      <TextField fx:id="txvalor" layoutX="312.0" layoutY="96.0" prefHeight="25.0" prefWidth="93.0" />
+      <TextField fx:id="txcodigo" layoutX="458.0" layoutY="96.0" prefHeight="25.0" prefWidth="137.0" />
+      <TableView fx:id="tbtabela" layoutY="209.0" prefHeight="191.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="tbproduto" prefWidth="116.0" text="Produto" />
+          <TableColumn fx:id="tbvalor" prefWidth="96.0" text="Valor" />
+            <TableColumn fx:id="tbdescricao" prefWidth="122.0" text="Descrição" />
+            <TableColumn fx:id="tbcodigo" prefWidth="101.0" text="Código" />
+        </columns>
+      </TableView>
+      <Button fx:id="btcancelar" layoutX="463.0" layoutY="175.0" mnemonicParsing="false" text="Cancelar" />
+      <Button fx:id="btsalvar" layoutX="540.0" layoutY="175.0" mnemonicParsing="false" text="Salvar" />
+   </children>
+</Pane>

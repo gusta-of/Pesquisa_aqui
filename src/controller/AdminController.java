@@ -21,8 +21,7 @@ import negocio.AdminNegocio;
 public class AdminController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	static Admin admin;
-	
+
 	@FXML
 	private Pane pnPane;
 	
@@ -64,10 +63,14 @@ public class AdminController implements Serializable {
 	
 	@FXML
 	private DatePicker dpData;
+
+
+
+	private Admin admin;
 	
 	public void setarDadosAdmin() {
 		
-		Admin admin = new Admin();
+		this.admin = new Admin();
 		admin.setNome(txnome.getText());
 		admin.setSobrenome(txsobrenome.getText());
 		admin.setUser(txuser.getText());
@@ -76,13 +79,14 @@ public class AdminController implements Serializable {
 		admin.setSenha(txsenha.getText());
 		admin.setConfirmarSenha(txsConfirm.getText());
 		admin.setDataNascimento(dpData.getValue());
+		
 	}
 	
 	@FXML
 	public void salvar() throws ParseException {
 		setarDadosAdmin();
 		AdminNegocio adminNegocio = new AdminNegocio();
-		String salvo = adminNegocio .salvar(AdminController.admin);
+		String salvo = adminNegocio .salvar(this.admin);
 		System.out.println(salvo);
 	}
 	
