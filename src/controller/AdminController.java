@@ -1,14 +1,17 @@
 package controller;
 
 import java.io.Serializable;
+import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -23,7 +26,7 @@ import javafx.scene.layout.Pane;
 import model.Admin;
 import negocio.AdminNegocio;
 
-public class AdminController implements Serializable {
+public class AdminController implements Serializable, Initializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -70,11 +73,18 @@ public class AdminController implements Serializable {
 	private DatePicker dpData;
 
 	private Admin admin;
-	
-    List<Admin> adminList = new ArrayList<Admin>();
-    Main main = null;
-    ObservableList<Admin> adminsView = null;
-    AdminNegocio adminNegocio = new AdminNegocio();
+
+	List<Admin> adminList = new ArrayList<Admin>();
+	Main main = null;
+	ObservableList<Admin> adminsView = null;
+	AdminNegocio adminNegocio = new AdminNegocio();
+
+	// Esse método é chamado ao inicializar a aplicação, igual um construtor.
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		List<Admin> adminList = listarAdmin();
+		populaView(adminList);
+	}
 
 	public void setarDadosAdmin() {
 
@@ -97,9 +107,9 @@ public class AdminController implements Serializable {
 		String salvo = adminNegocio.salvar(this.admin);
 		System.out.println(salvo);
 	}
-	
+
 	ObservableList<Admin> adminView = null;
-	
+
 	public void populaView(List<Admin> admin) {
 
 		colNome.setCellValueFactory(new PropertyValueFactory<Admin, String>("nome"));
@@ -111,10 +121,10 @@ public class AdminController implements Serializable {
 		tvTable.setItems(adminsView);
 
 	}
-	
-	 public List<Admin> listarClientes(){
-		 adminList = adminNegocio.listarAdmin();
-	        return adminList;
-	    }
+
+	public List<Admin> listarAdmin() {
+		adminList = adminNegocio.listarAdmin();
+		return adminList;
+	}
 
 }
