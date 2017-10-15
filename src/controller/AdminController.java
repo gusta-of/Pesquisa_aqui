@@ -26,7 +26,7 @@ import javafx.scene.layout.Pane;
 import model.Admin;
 import negocio.AdminNegocio;
 
-public class AdminController implements Serializable, Initializable {
+public class AdminController implements  Initializable, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -99,6 +99,26 @@ public class AdminController implements Serializable, Initializable {
 		admin.setDataNascimento(dpData.getValue());
 
 	}
+	
+	private List<Admin> listarAdmin() {
+		//Aqui eu populo uma lista de objetos admin
+		List<Admin> list = new ArrayList<Admin>();
+		Admin admin = new Admin();
+		admin.setNome("teste");
+		admin.setSobrenome("testeSobrenome");
+		admin.setCpf("11111111111");
+		admin.setEmail("teste@teste.com");
+		admin.setUser("Gustavo");
+		list.add(admin);
+		Admin admin2 = new Admin();
+		admin2.setNome("teste2");
+		admin2.setSobrenome("testeSobrenome2");
+		admin2.setCpf("22222222222");
+		admin2.setEmail("teste2@teste2.com");
+		admin.setUser("Gustavo2");
+		list.add(admin2);
+		return list;
+	}
 
 	@FXML
 	public void salvar() throws ParseException {
@@ -120,11 +140,6 @@ public class AdminController implements Serializable, Initializable {
 		adminsView = FXCollections.observableArrayList(admin);
 		tvTable.setItems(adminsView);
 
-	}
-
-	public List<Admin> listarAdmin() {
-		adminList = adminNegocio.listarAdmin();
-		return adminList;
 	}
 
 }
