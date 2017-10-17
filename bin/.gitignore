@@ -1,4 +1,8 @@
+/SQL/
+/application/
 /controller/
+/dao/
+/model/
 /negocio/
 /test/
-/dao/
+/visao/

@@ -23,6 +23,7 @@ public class Main extends Application {
 		principal.setTitle("Cadastro Admin");
 		principal.setScene(cena);
 		principal.setResizable(true);
+		
 		principal.show();
 
 	}
