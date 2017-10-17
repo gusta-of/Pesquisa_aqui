@@ -11,9 +11,8 @@ import dao.AdminDao;
 import model.Admin;
 
 public class AdminNegocio {
-	
 	AdminDao adminDao = new AdminDao();
-
+	
 	// ====================
 	// Metodo Salvar
 	// ====================
@@ -26,7 +25,7 @@ public class AdminNegocio {
         	sb.append("CPF invalido \n");
         }
         if (sb.toString().isEmpty()) {
-            salvo = adminDao.editar(admin);
+            salvo = adminDao.salvar(admin);
         } else {
             sb.append(salvo);
             return sb.toString();

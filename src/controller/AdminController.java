@@ -2,6 +2,7 @@ package controller;
 
 import java.io.Serializable;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -77,8 +78,7 @@ public class AdminController implements  Initializable, Serializable {
 
 	private Admin admin;
 
-	List<Admin> adminList = new ArrayList<Admin>();
-	List<Admin> admins = new ArrayList();
+	List<Admin> admins = new ArrayList<Admin>();
 	Main main = null;
 	ObservableList<Admin> adminsView = null;
 	AdminNegocio adminNegocio = new AdminNegocio();
