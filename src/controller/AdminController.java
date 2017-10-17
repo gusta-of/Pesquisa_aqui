@@ -2,6 +2,7 @@ package controller;
 
 import java.io.Serializable;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +13,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -46,7 +49,7 @@ public class AdminController implements  Initializable, Serializable {
 	private Label ldTitulo, lbnome, lbsobrenome, lbuser, lbsenha, lbConfirm, lbCpf, lbemail, lbdata;
 
 	@FXML
-	private TextField txnome, txsobrenome, txuser, txsenha, txsConfirm, txCpf, txemail;
+	private TextField txnome, txCpf, txsobrenome, txuser, txsenha, txsConfirm, txemail;
 
 	@FXML
 	private Button btCancelar, btSalvar;
@@ -75,6 +78,7 @@ public class AdminController implements  Initializable, Serializable {
 	private Admin admin;
 
 	List<Admin> adminList = new ArrayList<Admin>();
+	List<Admin> admins = new ArrayList();
 	Main main = null;
 	ObservableList<Admin> adminsView = null;
 	AdminNegocio adminNegocio = new AdminNegocio();
@@ -86,6 +90,12 @@ public class AdminController implements  Initializable, Serializable {
 		populaView(adminList);
 	}
 
+	private List<Admin> listarAdmin() {
+		admins = adminNegocio.listarAdmin();
+		return admins;
+	}
+
+	@FXML
 	public void setarDadosAdmin() {
 
 		this.admin = new Admin();
@@ -99,42 +109,46 @@ public class AdminController implements  Initializable, Serializable {
 		admin.setDataNascimento(dpData.getValue());
 
 	}
-	
-	private List<Admin> listarAdmin() {
-		//Aqui eu populo uma lista de objetos admin
-		List<Admin> list = new ArrayList<Admin>();
-		Admin admin = new Admin();
-		admin.setNome(colNome.toString());
-		admin.setSobrenome(colSobre.getStyle());
-		admin.setEmail(colEmail.getStyle());
-		admin.setCpf(colCpf.getStyle());
-		admin.setUser(colUser.getStyle());
-		list.add(admin);
-//		admin.setNome("teste");
-	//	admin.setSobrenome("testeSobrenome");
-//		admin.setCpf("11111111111");
-//		admin.setEmail("teste@teste.com");
-//		admin.setUser("Gustavo");
-//		list.add(admin);
-//		Admin admin2 = new Admin();
-//		admin2.setNome("teste2");
-//		admin2.setSobrenome("testeSobrenome2");
-//		admin2.setCpf("22222222222");
-//		admin2.setEmail("teste2@teste2.com");
-//		admin2.setUser("Gustavo2");
-//		list.add(admin2);
-		return list;
-	}
+		
+	 
 
 	@FXML
-	public void salvar() throws ParseException {
-		setarDadosAdmin();
-		AdminNegocio adminNegocio = new AdminNegocio();
-		String salvo = adminNegocio.salvar(this.admin);
-		System.out.println(salvo);
+	public void salvar() throws SQLException {
+		String validar;
+		boolean validacao = true;
+		admin = new Admin();
+		validacao = validarCampos();
 	}
 
-	ObservableList<Admin> adminView = null;
+	// ====================
+		// Validador Campos
+		// ====================
+		public boolean validarCampos() {
+			StringBuilder inconsistencias = new StringBuilder();
+			if(admin.getNome().equals("") || admin.getNome() == null) {
+				inconsistencias.append("\n Campo obrigatório");
+			}
+			if(admin.getSobrenome().equals("") || admin.getSobrenome() == null) {
+				inconsistencias.append("\n Campo obrigatório");
+			}
+			if(admin.getUser().equals("") || admin.getUser() == null) {
+				inconsistencias.append("\n Campo obrigatório");
+			}
+			if(admin.getEmail().equals("") || admin.getEmail() == null) {
+				inconsistencias.append("\n Campo obrigatório");
+			}
+			if(admin.getCpf().equals("") || admin.getCpf() == null) {
+				inconsistencias.append("\n Campo obrigatório");
+			}
+			if(admin.getSenha().equals("") || admin.getSenha() == null) {
+				inconsistencias.append("\n Campo obrigatório");
+			}
+			if(admin.getConfirmarSenha().equals("") || admin.getConfirmarSenha() == null) {
+				inconsistencias.append("\n Campo obrigatório");
+			}
+			System.out.println(inconsistencias.toString());
+			return  true;
+		}
 
 	public void populaView(List<Admin> admin) {
 
@@ -143,10 +157,11 @@ public class AdminController implements  Initializable, Serializable {
 		colEmail.setCellValueFactory(new PropertyValueFactory<Admin, String>("email"));
 		colCpf.setCellValueFactory(new PropertyValueFactory<Admin, String>("cpf"));
 		colUser.setCellValueFactory(new PropertyValueFactory<Admin, String>("user"));
-
+		
 		adminsView = FXCollections.observableArrayList(admin);
 		tvTable.setItems(adminsView);
 
 	}
+	
 
 }
