@@ -19,10 +19,12 @@ public class Admin {
 		ListaAdm = new ArrayList<>();
 	}
 
-	public Admin(String nome, String sobrenome, LocalDate dataNasimento, String email, String senha) {
+	public Admin(String nome, String sobrenome, LocalDate dataNasimento, String email, String cpf, String user, String senha) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.dataNascimento = dataNasimento;
+		this.cpf = cpf;
+		this.user = user;
 		this.email = email;
 		this.senha = senha;
 		ListaAdm = new ArrayList<>();
@@ -102,6 +104,12 @@ public class Admin {
 	
 	public void setConfirmarSenha(String confirmarSenha) {
 		this.confirmarSenha = confirmarSenha;
+	}
+	
+	public String toString() {
+		String toString = String.format("Admin(nome = %s, sobrenome = %s, email = %s, cpf = %s, user = %s)nome, sobrenome , email, cpf, user");
+		return toString;
+		
 	}
 	
 	public void info() {

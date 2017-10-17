@@ -104,19 +104,25 @@ public class AdminController implements  Initializable, Serializable {
 		//Aqui eu populo uma lista de objetos admin
 		List<Admin> list = new ArrayList<Admin>();
 		Admin admin = new Admin();
-		admin.setNome("teste");
-		admin.setSobrenome("testeSobrenome");
-		admin.setCpf("11111111111");
-		admin.setEmail("teste@teste.com");
-		admin.setUser("Gustavo");
+		admin.setNome(colNome.toString());
+		admin.setSobrenome(colSobre.getStyle());
+		admin.setEmail(colEmail.getStyle());
+		admin.setCpf(colCpf.getStyle());
+		admin.setUser(colUser.getStyle());
 		list.add(admin);
-		Admin admin2 = new Admin();
-		admin2.setNome("teste2");
-		admin2.setSobrenome("testeSobrenome2");
-		admin2.setCpf("22222222222");
-		admin2.setEmail("teste2@teste2.com");
-		admin.setUser("Gustavo2");
-		list.add(admin2);
+//		admin.setNome("teste");
+	//	admin.setSobrenome("testeSobrenome");
+//		admin.setCpf("11111111111");
+//		admin.setEmail("teste@teste.com");
+//		admin.setUser("Gustavo");
+//		list.add(admin);
+//		Admin admin2 = new Admin();
+//		admin2.setNome("teste2");
+//		admin2.setSobrenome("testeSobrenome2");
+//		admin2.setCpf("22222222222");
+//		admin2.setEmail("teste2@teste2.com");
+//		admin2.setUser("Gustavo2");
+//		list.add(admin2);
 		return list;
 	}
 
@@ -135,7 +141,8 @@ public class AdminController implements  Initializable, Serializable {
 		colNome.setCellValueFactory(new PropertyValueFactory<Admin, String>("nome"));
 		colSobre.setCellValueFactory(new PropertyValueFactory<Admin, String>("sobrenome"));
 		colEmail.setCellValueFactory(new PropertyValueFactory<Admin, String>("email"));
-		colCpf.setCellValueFactory(new PropertyValueFactory<Admin, String>("telefone"));
+		colCpf.setCellValueFactory(new PropertyValueFactory<Admin, String>("cpf"));
+		colUser.setCellValueFactory(new PropertyValueFactory<Admin, String>("user"));
 
 		adminsView = FXCollections.observableArrayList(admin);
 		tvTable.setItems(adminsView);
