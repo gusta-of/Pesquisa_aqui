@@ -114,10 +114,16 @@ public class AdminController implements  Initializable, Serializable {
 
 	@FXML
 	public void salvar() throws SQLException {
-		String validar;
+		String validar = "falha";
 		boolean validacao = true;
 		admin = new Admin();
+		setarDadosAdmin();
 		validacao = validarCampos();
+		validar = "salvo";
+		if(validar.equals("salvo")) {
+			admins.add(admin);
+			populaView(admins);
+		}
 	}
 
 	// ====================

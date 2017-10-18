@@ -38,6 +38,7 @@ public class AdminDao {
 		List<Admin> list = new ArrayList<Admin>();
 		ResultSet res = null;
 		try {
+			if(con != null) {
 			stm = con.createStatement();
 			res = stm.executeQuery("SELECT * FROM Admin");
 			while (res.next()) {
@@ -50,6 +51,7 @@ public class AdminDao {
 				admin.setUser(res.getString("user"));
 
 				list.add(admin);
+			}
 			}
 		} catch (SQLException e) {
 			System.out.println("Erro na consulta 1:" + e.getMessage());
