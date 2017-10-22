@@ -21,14 +21,24 @@ public class AdminNegocio {
 	public String salvar(Admin admin) throws ParseException {
 		StringBuilder sb = new StringBuilder();
 		String salvo = "";
+		boolean senha = validarSenha(admin);
+		boolean emailValido = false;
 		boolean cpfValido = validaCPF(admin.getCpf());
 		boolean valido = validarIdade(admin.getDataNascimento());
+		emailValido = validarEmail(admin.getEmail());
 		if (valido != true) {
 			sb.append("Precisa ter mais de 18 anos");
 		}
 		if (cpfValido != true) {
 			sb.append("\nCPF Inválido");
 		}
+		if(emailValido != true) {
+			sb.append("\nEmail Inválido");
+		}
+		if(senha != true) {
+			sb.append("\nSenhas não correspondentes");
+		}
+		
 		if (sb.toString().equals("")) {
 			salvo = "salvo";
 		} else {
@@ -138,6 +148,20 @@ public class AdminNegocio {
 		}
 		return validarE;
 	}
+	
+	public boolean validarSenha(Admin admin) throws ParseException {
+		boolean salvo = false;
+		String senha1 = admin.getSenha();
+		String senha2 = admin.getConfirmarSenha();
+		if(senha1.equals(senha2)) {
+			salvo = true;
+		}else {
+			salvo = false;
+		}
+		return salvo;
+	}
+	
+	
 	
 	   public List<Admin> listarAdmin(){
 	        List<Admin> admins = new ArrayList<Admin>();
