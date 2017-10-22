@@ -6,34 +6,38 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import dao.AdminDao;
 import model.Admin;
 
 public class AdminNegocio {
 	AdminDao adminDao = new AdminDao();
-	
+
 	// ====================
 	// Metodo Salvar
 	// ====================
 	public String salvar(Admin admin) throws ParseException {
-		boolean CPF  = false;
-		String salvo = "falha";
-        StringBuilder sb = new StringBuilder();
-        CPF = validaCPF(admin.getCpf());
-        if(!CPF) {
-        	sb.append("CPF invalido \n");
-        }
-        if (sb.toString().isEmpty()) {
-            salvo = adminDao.salvar(admin);
-        } else {
-            sb.append(salvo);
-            return sb.toString();
-        }
-        sb.append(salvo);
-        return sb.toString();
-	}
+		StringBuilder sb = new StringBuilder();
+		String salvo = "";
+		boolean cpfValido = validaCPF(admin.getCpf());
+		boolean valido = validarIdade(admin.getDataNascimento());
+		if (valido != true) {
+			sb.append("Precisa ter mais de 18 anos");
+		}
+		if (cpfValido != true) {
+			sb.append("\nCPF Inválido");
+		}
+		if (sb.toString().equals("")) {
+			salvo = "salvo";
+		} else {
+			salvo = sb.toString();
+		}
 
+		return salvo;
+
+	}
 
 	// ====================
 	// Validador Idade
@@ -42,14 +46,15 @@ public class AdminNegocio {
 		boolean valido = false;
 		LocalDate dataAtual = LocalDate.now();
 		Period idade = Period.between(nascimento, dataAtual);
-		System.out.println(idade.getYears() + " anos " + idade.getMonths() + " meses e " + idade.getDays() + " dias" );
-		if(idade.getYears() > 18) {
+		// System.out.println(idade.getYears() + " anos " + idade.getMonths() + " meses
+		// e " + idade.getDays() + " dias");
+		if (idade.getYears() > 18) {
 			valido = true;
-		}else if(idade.getYears() == 18) {
-			if(idade.getMonths() > 0) {
+		} else if (idade.getYears() == 18) {
+			if (idade.getMonths() > 0) {
 				valido = true;
-			} else if(idade.getMonths() == 0) {
-				if(idade.getDays() >= 0) {
+			} else if (idade.getMonths() == 0) {
+				if (idade.getDays() >= 0) {
 					valido = true;
 				} else {
 					valido = false;
@@ -59,7 +64,10 @@ public class AdminNegocio {
 		}
 		return valido;
 	}
-	
+
+	// ===============
+	// Validar CPF
+	// ===============
 	
     public boolean validaCPF(String CPF){
 
@@ -118,9 +126,17 @@ public class AdminNegocio {
     }
 
 
-	public String imprimeCPF(String CPF) {
-		return (CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." + CPF.substring(6, 9) + "-"
-				+ CPF.substring(9, 11));
+	public boolean validarEmail(String email) {
+		boolean validarE = false;
+		if (email != null && email.length() > 0) {
+			String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+			Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+			Matcher matcher = pattern.matcher(email);
+			if (matcher.matches()) {
+				validarE = true;
+			}
+		}
+		return validarE;
 	}
 	
 	   public List<Admin> listarAdmin(){
