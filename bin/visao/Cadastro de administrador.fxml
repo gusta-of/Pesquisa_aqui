@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController">
+<Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController">
    <children>
-      <MenuBar fx:id="mbMenuBar" layoutY="-1.0" prefHeight="25.0" prefWidth="600.0">
+      <MenuBar fx:id="mbMenuBar" prefHeight="600.0" prefWidth="800.0">
         <menus>
           <Menu fx:id="mPesquisa" mnemonicParsing="false" text="Pesquisar" />
           <Menu fx:id="mAjuda" mnemonicParsing="false" text="Ajuda">
@@ -17,37 +18,38 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label fx:id="ldTitulo" layoutX="148.0" layoutY="24.0" text="Cadastro de administrador">
+      <Label fx:id="ldTitulo" layoutX="178.0" layoutY="25.0" prefHeight="53.0" prefWidth="437.0" text="Cadastro de Administrador" textAlignment="JUSTIFY" underline="true">
          <font>
-            <Font size="27.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="lbnome" layoutX="12.0" layoutY="63.0" text="Nome:" />
-      <Label fx:id="lbsobrenome" layoutX="188.0" layoutY="63.0" text="Sobrenome:" />
-      <Label fx:id="lbuser" layoutX="6.0" layoutY="96.0" text="Usuario:" />
-      <Label fx:id="lbsenha" layoutX="364.0" layoutY="129.0" text="Senha:" />
-      <TextField fx:id="txnome" layoutX="53.0" layoutY="59.0" prefHeight="25.0" prefWidth="122.0" promptText="Campo obrigatório" />
-      <TextField fx:id="txsobrenome" layoutX="262.0" layoutY="59.0" prefHeight="25.0" prefWidth="317.0" promptText="Campo obrigatório" />
-      <TextField fx:id="txuser" layoutX="53.0" layoutY="92.0" prefHeight="25.0" prefWidth="162.0" promptText="Campo obrigatório" />
-      <PasswordField fx:id="txsenha" layoutX="417.0" layoutY="124.0" prefHeight="25.0" prefWidth="162.0" promptText="Campo obrigatório" />
-      <Button fx:id="btCancelar" layoutX="518.0" layoutY="194.0" mnemonicParsing="false" text="Cancelar" />
-      <Button fx:id="btSalvar" layoutX="460.0" layoutY="194.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
-      <Label fx:id="lbConfirm" layoutX="306.0" layoutY="165.0" text="Confirmar Senha:" />
-      <PasswordField fx:id="txsConfirm" layoutX="417.0" layoutY="159.0" prefHeight="25.0" prefWidth="162.0" promptText="Campo obrigatório" />
-      <Label fx:id="lbCpf" layoutX="16.0" layoutY="129.0" text="CPF:" />
-      <TextField fx:id="txCpf" layoutX="54.0" layoutY="124.0" prefHeight="25.0" prefWidth="226.0" promptText="Campo obrigatório" />
-      <Label fx:id="lbemail" layoutX="306.0" layoutY="96.0" text="Email:" />
-      <TextField fx:id="txemail" layoutX="352.0" layoutY="92.0" prefHeight="25.0" prefWidth="226.0" promptText="Campo obrigatório" />
-      <TableView fx:id="tvTable" layoutY="233.0" prefHeight="176.0" prefWidth="600.0">
+      <Label fx:id="lbnome" layoutX="11.0" layoutY="102.0" prefHeight="17.0" prefWidth="43.0" text="Nome:*" />
+      <Label fx:id="lbsobrenome" layoutX="228.0" layoutY="102.0" text="Sobrenome:*" />
+      <Label fx:id="lbuser" layoutX="12.0" layoutY="239.0" text="Usuario:*" />
+      <Label fx:id="lbsenha" layoutX="11.0" layoutY="274.0" text="Senha:*" />
+      <TextField fx:id="txnome" layoutX="90.0" layoutY="95.0" prefHeight="25.0" prefWidth="128.0" promptText="Campo obrigatório" />
+      <TextField fx:id="txsobrenome" layoutX="303.0" layoutY="95.0" prefHeight="25.0" prefWidth="146.0" promptText="Campo obrigatório" />
+      <TextField fx:id="txCpf" layoutX="88.0" layoutY="130.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+      <DatePicker fx:id="dpData" layoutX="89.0" layoutY="164.0" prefHeight="25.0" prefWidth="201.0" />
+      <TextField fx:id="txemail" layoutX="91.0" layoutY="199.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+      <TextField fx:id="txuser" layoutX="90.0" layoutY="233.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+      <PasswordField fx:id="txsenha" layoutX="89.0" layoutY="267.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+      <PasswordField fx:id="txsConfirm" layoutX="90.0" layoutY="302.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+      <Button fx:id="btSalvar" layoutX="11.0" layoutY="345.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
+      <Button fx:id="btCancelar" layoutX="69.0" layoutY="346.0" mnemonicParsing="false" text="Cancelar" />
+      <Label fx:id="lbConfirm" layoutX="10.0" layoutY="309.0" text="Conf. Senha:*" />
+      <Label fx:id="lbCpf" layoutX="11.0" layoutY="129.0" prefHeight="25.0" prefWidth="31.0" text="CPF:*" />
+      <Label fx:id="lbemail" layoutX="11.0" layoutY="206.0" text="Email:*" />
+      <TableView fx:id="tvTable" onMouseClicked="#edit" layoutY="380.0" prefHeight="220.0" prefWidth="800.0">
         <columns>
-          <TableColumn fx:id="colNome" prefWidth="132.0" text="Nome" />
-            <TableColumn fx:id="colSobre" prefWidth="122.0" text="Sobrenome" />
-            <TableColumn fx:id="colEmail" prefWidth="123.0" text="Email" />
-            <TableColumn fx:id="colCpf" minWidth="0.0" prefWidth="102.0" text="CPF" />
-            <TableColumn fx:id="colUser" prefWidth="120.0" text="Usuario" />
+            <TableColumn fx:id="colUser" prefWidth="141.0" style="aling-center" text="Usuario" />
+            <TableColumn fx:id="colEmail" prefWidth="191.0" text="Email" />
+          <TableColumn fx:id="colNome" prefWidth="141.0" text="Nome" />
+            <TableColumn fx:id="colSobre" prefWidth="178.0" text="Sobrenome" />
+            <TableColumn fx:id="colCpf" minWidth="0.0" prefWidth="148.0" text="CPF" />
         </columns>
       </TableView>
-      <DatePicker fx:id="dpData" layoutX="79.0" layoutY="159.0" prefHeight="25.0" prefWidth="201.0" />
-      <Label fx:id="lbdata" layoutX="18.0" layoutY="165.0" prefHeight="17.0" prefWidth="61.0" text="Data Nasc:" />
+      <Label fx:id="lbdata" layoutX="10.0" layoutY="170.0" prefHeight="17.0" prefWidth="64.0" text="Data Nasc:*" />
+      <Label fx:id="lbMsg" layoutX="299.0" layoutY="198.0" prefHeight="170.0" prefWidth="146.0" />
    </children>
 </Pane>

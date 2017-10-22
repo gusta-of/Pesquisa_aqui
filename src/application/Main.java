@@ -19,7 +19,7 @@ public class Main extends Application {
 		URL arquivoFXML;
 		arquivoFXML = getClass().getResource("/visao/Cadastro de administrador.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFXML);
-		Scene cena = new Scene(fxmlParent, 600, 400);
+		Scene cena = new Scene(fxmlParent, 800, 600);
 		principal.setTitle("Cadastro Admin");
 		principal.setScene(cena);
 		principal.setResizable(true);

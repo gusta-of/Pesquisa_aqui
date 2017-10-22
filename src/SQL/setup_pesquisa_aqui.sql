@@ -6,7 +6,7 @@ create database pesquisa_aqui;
 
 use pesquisa_aqui;
 
-CREATE TABLE ADMIN (
+CREATE TABLE admins (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(100) NOT NULL,
 	sobrenome VARCHAR(100) NOT NULL,
@@ -14,5 +14,6 @@ CREATE TABLE ADMIN (
 	email VARCHAR(100) NOT NULL,
 	cpf VARCHAR(100) NOT NULL,
 	senha VARCHAR(100) NOT NULL,
+	confirmarSenha VARCHAR(100) NOT NULL,
 	dataNascimento DATE NOT NULL
 );

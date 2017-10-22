@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import daoUtil.ConnectionFactory;
 
 import model.Admin;
 
@@ -17,6 +18,13 @@ public class AdminDao {
 
 	private Connection con;
 	private Statement stm;
+	 ConnectionFactory connection = null;
+	
+	 public AdminDao() {
+	        ConnectionFactory cf = new ConnectionFactory();
+	        con = cf.getConnection();
+	    }
+	
 	public String salvar(Admin admin) {
 
 		return "salvo";
@@ -85,5 +93,51 @@ public class AdminDao {
         }
         return salvo;
     }
-	
+
+
+	    public String Editar(Admin admin) {
+        String deletado = "falha";
+        try {
+            con.setAutoCommit(false);
+            stmt = con.prepareStatement(sqlDeletar);
+
+            stmt.setString(1, admin.getCpf());
+
+            stmt.executeUpdate();
+            con.commit();
+            deletado = "deletado";
+
+        } catch (SQLException e) {
+            System.out.println("Erro na exclusão :" + e.getMessage());
+            deletado = e.getMessage();
+        }
+
+        return deletado;
+    }
+	    
+	    public String editar(Admin admin) throws SQLException {
+	        String salvo = "falha";
+	        try {
+	            con.setAutoCommit(false);
+	            stmt = con.prepareStatement(sqlEditar);
+
+	            stmt.setString(1, admin.getNome());
+	            stmt.setString(2, admin.getSobrenome());
+	            stmt.setString(3, admin.getCpf());
+	            stmt.setString(4, admin.getUser());
+	            stmt.setString(5, admin.getEmail());
+	            stmt.setString(6, admin.getSenha());
+	            stmt.setString(7, admin.getConfirmarSenha());
+
+	            stmt.executeUpdate();
+	            con.commit();
+	            salvo = "salvo";
+
+
+	        }catch (Exception e){
+	            System.out.println("erro ao atualizar " + e.getMessage());
+	            salvo = e.getMessage();
+	        }
+	        return salvo;
+	    }
 }

@@ -1,5 +1,6 @@
 package negocio;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -48,6 +49,30 @@ public class AdminNegocio {
 		return salvo;
 
 	}
+	
+	 public String editar(Admin admin) throws SQLException {
+
+	        boolean cpfValido = false;
+	        boolean emailValido = false;
+	        String salvo = "falha";
+	        StringBuilder sb = new StringBuilder();
+	        cpfValido = validaCPF(admin.getCpf());
+	        if (!cpfValido) {
+	            sb.append("cpf invalido. \n");
+	        }
+	        emailValido = validarEmail(admin.getEmail());
+	        if (!emailValido) {
+	            sb.append("email invalido. \n");
+	        }
+	        if (sb.toString().isEmpty()) {
+	            salvo = adminDao.Editar(admin);
+	        } else {
+	            sb.append(salvo);
+	            return sb.toString();
+	        }
+	        sb.append(salvo);
+	        return sb.toString();
+	    }
 
 	// ====================
 	// Validador Idade
@@ -135,7 +160,9 @@ public class AdminNegocio {
         }
     }
 
-
+    //==============
+  	// Validar email
+  	//==============
 	public boolean validarEmail(String email) {
 		boolean validarE = false;
 		if (email != null && email.length() > 0) {
@@ -148,7 +175,9 @@ public class AdminNegocio {
 		}
 		return validarE;
 	}
-	
+	//==============
+	// Validar Senha
+	//==============
 	public boolean validarSenha(Admin admin) throws ParseException {
 		boolean salvo = false;
 		String senha1 = admin.getSenha();

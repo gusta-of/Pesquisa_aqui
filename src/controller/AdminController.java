@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -44,7 +45,7 @@ public class AdminController implements Initializable, Serializable {
 	private MenuItem miSobre;
 
 	@FXML
-	private Label ldTitulo, lbnome, lbsobrenome, lbuser, lbsenha, lbConfirm, lbCpf, lbemail, lbdata;
+	private Label ldTitulo, lbnome, lbsobrenome, lbuser, lbsenha, lbConfirm, lbCpf, lbemail, lbdata, lbMsg;
 
 	@FXML
 	private TextField txnome, txCpf, txsobrenome, txuser, txsenha, txsConfirm, txemail;
@@ -73,7 +74,6 @@ public class AdminController implements Initializable, Serializable {
 	@FXML
 	private DatePicker dpData;
 
-	private Admin admin;
 
 	List<Admin> admins = new ArrayList<Admin>();
 	Main main = null;
@@ -91,6 +91,17 @@ public class AdminController implements Initializable, Serializable {
 		admins = adminNegocio.listarAdmin();
 		return admins;
 	}
+	
+	  @FXML
+	    public void edit(){
+
+	        Admin admin = new Admin();
+	        admin = (Admin) tvTable.getSelectionModel().getSelectedItem();
+	        setarDadosAdmin(admin);
+	        btSalvar.setText("Editar");
+	        btCancelar.setText("Cancelar");
+	    }
+	  
 
 	@FXML
 	public void setarDadosAdmin(Admin admin) {
@@ -117,12 +128,24 @@ public class AdminController implements Initializable, Serializable {
 		if (validar == true) {
 			if (adminN.salvar(admin).equals("salvo")) {
 				populaView(admins);
+				limparCampos();
 				// validarCampos(admin);
 			} else {
-				System.out.println("Algo deu Errado!");
-				System.out.println(adminN.salvar(admin).toString());
+				lbMsg.setText(adminN.salvar(admin).toString());
+				lbMsg.setVisible(true);
 			}
 		}
+	}
+	
+	public void limparCampos() {
+		txnome.setText("");
+		txsobrenome.setText("");
+		txCpf.setText("");
+		dpData.setValue(null);
+		txemail.setText("");
+		txuser.setText("");
+		txsenha.setText("");
+		txsConfirm.setText("");
 	}
 
 	// ====================
