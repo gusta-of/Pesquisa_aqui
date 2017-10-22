@@ -50,6 +50,7 @@ public class AdminNegocio {
 
 	}
 	
+	
 	 public String editar(Admin admin) throws SQLException {
 
 	        boolean cpfValido = false;

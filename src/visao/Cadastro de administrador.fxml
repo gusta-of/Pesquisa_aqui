@@ -36,7 +36,7 @@
       <PasswordField fx:id="txsenha" layoutX="89.0" layoutY="267.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
       <PasswordField fx:id="txsConfirm" layoutX="90.0" layoutY="302.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
       <Button fx:id="btSalvar" layoutX="11.0" layoutY="345.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
-      <Button fx:id="btCancelar" layoutX="69.0" layoutY="346.0" mnemonicParsing="false" text="Cancelar" />
+      <Button fx:id="btCancelar" layoutX="69.0" layoutY="346.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
       <Label fx:id="lbConfirm" layoutX="10.0" layoutY="309.0" text="Conf. Senha:*" />
       <Label fx:id="lbCpf" layoutX="11.0" layoutY="129.0" prefHeight="25.0" prefWidth="31.0" text="CPF:*" />
       <Label fx:id="lbemail" layoutX="11.0" layoutY="206.0" text="Email:*" />

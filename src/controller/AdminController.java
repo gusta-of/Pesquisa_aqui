@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import org.omg.CORBA.ORBPackage.InconsistentTypeCode;
+
 import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -74,7 +76,6 @@ public class AdminController implements Initializable, Serializable {
 	@FXML
 	private DatePicker dpData;
 
-
 	List<Admin> admins = new ArrayList<Admin>();
 	Main main = null;
 	ObservableList<Admin> adminsView = null;
@@ -91,17 +92,16 @@ public class AdminController implements Initializable, Serializable {
 		admins = adminNegocio.listarAdmin();
 		return admins;
 	}
-	
-	  @FXML
-	    public void edit(){
 
-	        Admin admin = new Admin();
-	        admin = (Admin) tvTable.getSelectionModel().getSelectedItem();
-	        setarDadosAdmin(admin);
-	        btSalvar.setText("Editar");
-	        btCancelar.setText("Cancelar");
-	    }
-	  
+	@FXML
+	public void edit() {
+
+		Admin admin = new Admin();
+		admin = (Admin) tvTable.getSelectionModel().getSelectedItem();
+		setarDadosAdmin(admin);
+		btSalvar.setText("Editar");
+		btCancelar.setText("Cancelar");
+	}
 
 	@FXML
 	public void setarDadosAdmin(Admin admin) {
@@ -119,24 +119,33 @@ public class AdminController implements Initializable, Serializable {
 
 	@FXML
 	public void salvar() throws SQLException, ParseException {
+		String validacao = "falha";
 		AdminNegocio adminN = new AdminNegocio();
+		StringBuilder sb = new StringBuilder();
 		boolean validar = false;
 		Admin admin = new Admin();
 		setarDadosAdmin(admin);
 		admins.add(admin);
 		validar = validarCampos(admin);
-		if (validar == true) {
+		if (validar != true) {
+			sb.append(validacao);
+		}
+		if (sb.toString().equals("")) {
+			validarCampos(admin);
+		} else if (sb.toString().equals("falha")) {
 			if (adminN.salvar(admin).equals("salvo")) {
 				populaView(admins);
 				limparCampos();
+				lbMsg.setVisible(false);
 				// validarCampos(admin);
 			} else {
 				lbMsg.setText(adminN.salvar(admin).toString());
 				lbMsg.setVisible(true);
 			}
 		}
+
 	}
-	
+
 	public void limparCampos() {
 		txnome.setText("");
 		txsobrenome.setText("");
@@ -146,6 +155,14 @@ public class AdminController implements Initializable, Serializable {
 		txuser.setText("");
 		txsenha.setText("");
 		txsConfirm.setText("");
+	}
+
+	// =========
+	// Cancelar
+	// =========
+	@FXML
+	public void cancelar() {
+		limparCampos();
 	}
 
 	// ====================
@@ -174,7 +191,7 @@ public class AdminController implements Initializable, Serializable {
 		if (admin.getConfirmarSenha().equals("") || admin.getConfirmarSenha() == null) {
 			inconsistencias.append("\n Campo Confirmar Senha obrigatório");
 		}
-		if (admin.getDataNascimento().equals("")) {
+		if (admin.getDataNascimento() == null) {
 			inconsistencias.append("\n Campo Data obrigatório");
 		}
 
@@ -194,4 +211,5 @@ public class AdminController implements Initializable, Serializable {
 		tvTable.setItems(adminsView);
 
 	}
+
 }

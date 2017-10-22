@@ -31,11 +31,11 @@ public class AdminDao {
 
 	}
 	
-	   String sqlSalvar = "INSERT INTO petshop.clientes" +
+	   String sqlSalvar = "INSERT INTO pesquisa_aqui.admin" +
 	            "(nome,sobrenome, cpf, dataNascimento, email, user, senha, confirmarSenha)" +
 	            "VALUES(?,?,?,?,?,?,?)";
 
-	    String sqlEditar = "UPDATE clientes SET nome = ?, sobrenome = ?," +
+	    String sqlEditar = "UPDATE admin SET nome = ?, sobrenome = ?," +
 	            "cpf = ?, dataNascimento = ?, email = ?, user = ?, senha = ?," +
 	            "confirmarSenha = ?  WHERE id = ?";
 

@@ -1,9 +1,3 @@
-/SQL/
-/application/
-/controller/
-/dao/
-/model/
-/negocio/
-/test/
-/visao/
 /daoUtil/
+/dao/
+/SQL/
