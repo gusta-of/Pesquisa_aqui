@@ -42,7 +42,7 @@
       <Label fx:id="lbemail" layoutX="11.0" layoutY="206.0" text="Email:*" />
       <TableView fx:id="tvTable" onMouseClicked="#edit" layoutY="380.0" prefHeight="220.0" prefWidth="800.0">
         <columns>
-            <TableColumn fx:id="colUser" prefWidth="141.0" style="aling-center" text="Usuario" />
+            <TableColumn fx:id="colUser" prefWidth="141.0" text="Usuario" />
             <TableColumn fx:id="colEmail" prefWidth="191.0" text="Email" />
           <TableColumn fx:id="colNome" prefWidth="141.0" text="Nome" />
             <TableColumn fx:id="colSobre" prefWidth="178.0" text="Sobrenome" />

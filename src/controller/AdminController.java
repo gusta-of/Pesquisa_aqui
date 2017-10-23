@@ -4,12 +4,9 @@ import java.io.Serializable;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import org.omg.CORBA.ORBPackage.InconsistentTypeCode;
 
 import application.Main;
 import javafx.collections.FXCollections;
@@ -103,7 +100,7 @@ public class AdminController implements Initializable, Serializable {
 		btCancelar.setText("Cancelar");
 	}
 
-	@FXML
+	
 	public void setarDadosAdmin(Admin admin) {
 
 		admin.setNome(txnome.getText());

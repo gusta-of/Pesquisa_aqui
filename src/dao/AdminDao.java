@@ -56,7 +56,7 @@ public class AdminDao {
 				admin.setSobrenome(res.getString("sobrenome"));
 				admin.setEmail(res.getString("email"));
 				admin.setCpf(res.getString("cpf"));
-				admin.setUser(res.getString("user"));
+				admin.setUser(res.getString("usuario"));
 
 				list.add(admin);
 			}
