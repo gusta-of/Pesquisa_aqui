@@ -1,7 +1,7 @@
 package dao;
 
 import java.sql.Connection;
-
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,53 +13,46 @@ import daoUtil.ConnectionFactory;
 import model.Admin;
 
 public class AdminDao {
-	
-    private PreparedStatement stmt;
+
+	private PreparedStatement stmt;
 
 	private Connection con;
 	private Statement stm;
-	 ConnectionFactory connection = null;
-	
-	 public AdminDao() {
-	        ConnectionFactory cf = new ConnectionFactory();
-	        con = cf.getConnection();
-	    }
-	
-	public String salvar(Admin admin) {
+	ConnectionFactory connection = null;
 
-		return "salvo";
-
+	public AdminDao() {
+		ConnectionFactory cf = new ConnectionFactory();
+		con = cf.getConnection();
 	}
-	
-	   String sqlSalvar = "INSERT INTO pesquisa_aqui.admin" +
-	            "(nome,sobrenome, cpf, dataNascimento, email, user, senha, confirmarSenha)" +
-	            "VALUES(?,?,?,?,?,?,?)";
 
-	    String sqlEditar = "UPDATE admin SET nome = ?, sobrenome = ?," +
-	            "cpf = ?, dataNascimento = ?, email = ?, user = ?, senha = ?," +
-	            "confirmarSenha = ?  WHERE id = ?";
+	String sqlSalvar = "INSERT INTO pesquisa_aqui.admin"
+			+ "(nome,sobrenome, cpf, dataNascimento, email, user, senha, confirmarSenha)" + "VALUES(?,?,?,?,?,?,?,?)";
 
-	    String sqlDeletar = "DELETE from admins where id = ?";
+	String sqlEditar = "UPDATE admin SET nome = ?, sobrenome = ?,"
+			+ "cpf = ?, dataNascimento = ?, email = ?, user = ?, senha = ?," + "confirmarSenha = ?  WHERE id = ?";
 
+	String sqlDeletar = "DELETE from admins where id = ?";
 
 	public List<Admin> listarAdmin() {
 		List<Admin> list = new ArrayList<Admin>();
 		ResultSet res = null;
 		try {
-			if(con != null) {
-			stm = con.createStatement();
-			res = stm.executeQuery("SELECT * FROM Admin");
-			while (res.next()) {
-				Admin admin = new Admin();
+			if (con != null) {
+				stm = con.createStatement();
+				res = stm.executeQuery("SELECT * FROM Admin");
+				while (res.next()) {
+					Admin admin = new Admin();
 
-				admin.setNome(res.getString("nome"));
-				admin.setSobrenome(res.getString("sobrenome"));
-				admin.setEmail(res.getString("email"));
-				admin.setCpf(res.getString("cpf"));
-				admin.setUser(res.getString("usuario"));
+					admin.setNome(res.getString("nome"));
+					admin.setSobrenome(res.getString("sobrenome"));
+					admin.setCpf(res.getString("cpf"));
+					admin.setEmail(res.getString("email"));
+					admin.setUser(res.getString("usuario"));
+					admin.setSenha(res.getString("senha"));
+					admin.setConfirmarSenha(res.getString("confirmarSenha"));
 
-				list.add(admin);
-			}
+					list.add(admin);
+				}
 			}
 		} catch (SQLException e) {
 			System.out.println("Erro na consulta 1:" + e.getMessage());
@@ -67,77 +60,99 @@ public class AdminDao {
 		return list;
 	}
 
+	public String salvar(Admin admin) throws SQLException {
+		String salvo = "falha";
+		try {
+			con.setAutoCommit(false);
+			stmt = con.prepareStatement(sqlSalvar);
 
-    public String deletar(Admin admin) throws SQLException {
-        String salvo = "falha";
-        try {
-            con.setAutoCommit(false);
-            stmt = con.prepareStatement(sqlEditar);
+			stmt.setString(1, admin.getNome());
+			stmt.setString(2, admin.getSobrenome());
+			stmt.setString(3, admin.getCpf());
+			stmt.setDate(4, Date.valueOf(admin.getDataNascimento()));
+			stmt.setString(6, admin.getEmail());
+			stmt.setString(5, admin.getUser());
+			stmt.setString(7, admin.getSenha());
+			stmt.setString(8, admin.getConfirmarSenha());
 
-            stmt.setString(1, admin.getNome());
-            stmt.setString(2, admin.getSobrenome());
-            stmt.setString(3, admin.getCpf());
-            stmt.setString(4, admin.getEmail());
-            stmt.setString(5, admin.getUser());
-            stmt.setString(6, admin.getSenha());
-            stmt.setNString(7, admin.getConfirmarSenha());
+			stmt.executeUpdate();
+			con.commit();
+			salvo = "salvo";
 
-            stmt.executeUpdate();
-            con.commit();
-            salvo = "salvo";
+		} catch (Exception e) {
+			System.out.println("erro ao atualizar " + e.getMessage());
+			salvo = e.getMessage();
+		}
+		return salvo;
+	}
 
+	public String deletar(Admin admin) throws SQLException {
+		String salvo = "falha";
+		try {
+			con.setAutoCommit(false);
+			stmt = con.prepareStatement(sqlEditar);
 
-        }catch (Exception e){
-            System.out.println("erro ao atualizar " + e.getMessage());
-            salvo = e.getMessage();
-        }
-        return salvo;
-    }
+			stmt.setString(1, admin.getNome());
+			stmt.setString(2, admin.getSobrenome());
+			stmt.setString(3, admin.getCpf());
+			stmt.setString(4, admin.getEmail());
+			stmt.setString(5, admin.getUser());
+			stmt.setString(6, admin.getSenha());
+			stmt.setNString(7, admin.getConfirmarSenha());
 
+			stmt.executeUpdate();
+			con.commit();
+			salvo = "salvo";
 
-	    public String Editar(Admin admin) {
-        String deletado = "falha";
-        try {
-            con.setAutoCommit(false);
-            stmt = con.prepareStatement(sqlDeletar);
+		} catch (Exception e) {
+			System.out.println("erro ao atualizar " + e.getMessage());
+			salvo = e.getMessage();
+		}
+		return salvo;
+	}
 
-            stmt.setString(1, admin.getCpf());
+	public String Editar(Admin admin) {
+		String deletado = "falha";
+		try {
+			con.setAutoCommit(false);
+			stmt = con.prepareStatement(sqlDeletar);
 
-            stmt.executeUpdate();
-            con.commit();
-            deletado = "deletado";
+			stmt.setString(1, admin.getCpf());
 
-        } catch (SQLException e) {
-            System.out.println("Erro na exclusão :" + e.getMessage());
-            deletado = e.getMessage();
-        }
+			stmt.executeUpdate();
+			con.commit();
+			deletado = "deletado";
 
-        return deletado;
-    }
-	    
-	    public String editar(Admin admin) throws SQLException {
-	        String salvo = "falha";
-	        try {
-	            con.setAutoCommit(false);
-	            stmt = con.prepareStatement(sqlEditar);
+		} catch (SQLException e) {
+			System.out.println("Erro na exclusão :" + e.getMessage());
+			deletado = e.getMessage();
+		}
 
-	            stmt.setString(1, admin.getNome());
-	            stmt.setString(2, admin.getSobrenome());
-	            stmt.setString(3, admin.getCpf());
-	            stmt.setString(4, admin.getUser());
-	            stmt.setString(5, admin.getEmail());
-	            stmt.setString(6, admin.getSenha());
-	            stmt.setString(7, admin.getConfirmarSenha());
+		return deletado;
+	}
 
-	            stmt.executeUpdate();
-	            con.commit();
-	            salvo = "salvo";
+	public String editar(Admin admin) throws SQLException {
+		String salvo = "falha";
+		try {
+			con.setAutoCommit(false);
+			stmt = con.prepareStatement(sqlEditar);
 
+			stmt.setString(1, admin.getNome());
+			stmt.setString(2, admin.getSobrenome());
+			stmt.setString(3, admin.getCpf());
+			stmt.setString(4, admin.getUser());
+			stmt.setString(5, admin.getEmail());
+			stmt.setString(6, admin.getSenha());
+			stmt.setString(7, admin.getConfirmarSenha());
 
-	        }catch (Exception e){
-	            System.out.println("erro ao atualizar " + e.getMessage());
-	            salvo = e.getMessage();
-	        }
-	        return salvo;
-	    }
+			stmt.executeUpdate();
+			con.commit();
+			salvo = "salvo";
+
+		} catch (Exception e) {
+			System.out.println("erro ao atualizar " + e.getMessage());
+			salvo = e.getMessage();
+		}
+		return salvo;
+	}
 }

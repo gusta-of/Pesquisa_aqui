@@ -17,3 +17,6 @@ CREATE TABLE admin (
 	confirmarSenha VARCHAR(100) NOT NULL,
 	dataNascimento DATE NOT NULL
 );
+
+INSERT INTO admin (nome, sobrenome, usuario, email, cpf, senha, confirmarSenha, dataNascimento)
+VALUES ("teste", "teste", "teste", "teste@teste.com", "04393906136", "123", "123", "1997-12-09");
