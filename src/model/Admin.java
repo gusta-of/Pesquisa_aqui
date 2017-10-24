@@ -10,7 +10,7 @@ public class Admin {
 	private String cpf;
 	private LocalDate dataNascimento;
 	private String email;
-	private String user;
+	private String usuario;
 	private String senha;
 	private String confirmarSenha;
 	ArrayList<Admin> ListaAdm;
@@ -24,7 +24,7 @@ public class Admin {
 		this.sobrenome = sobrenome;
 		this.dataNascimento = dataNasimento;
 		this.cpf = cpf;
-		this.user = user;
+		this.usuario = user;
 		this.email = email;
 		this.senha = senha;
 		ListaAdm = new ArrayList<>();
@@ -38,12 +38,12 @@ public class Admin {
 		this.cpf = cpf;
 	}
 	
-	public String getUser() {
-		return user;
+	public String getUsuario() {
+		return usuario;
 	}
 	
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsuario(String user) {
+		this.usuario = user;
 	}
 	
 	public String getNome() {
@@ -107,7 +107,7 @@ public class Admin {
 	}
 	
 	public String toString() {
-		String toString = String.format("Admin(nome = %s, sobrenome = %s, email = %s, cpf = %s, user = %s)nome, sobrenome , email, cpf, user");
+		String toString = String.format("Admin(nome = %s, sobrenome = %s, email = %s, cpf = %s, usuario = %s)nome, sobrenome , email, cpf, usuario");
 		return toString;
 		
 	}

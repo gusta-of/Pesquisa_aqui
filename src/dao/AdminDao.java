@@ -26,10 +26,10 @@ public class AdminDao {
 	}
 
 	String sqlSalvar = "INSERT INTO pesquisa_aqui.admin"
-			+ "(nome,sobrenome, cpf, dataNascimento, email, user, senha, confirmarSenha)" + "VALUES(?,?,?,?,?,?,?,?)";
+			+ "(nome,sobrenome, cpf, dataNascimento, email, usuario, senha, confirmarSenha)" + "VALUES(?,?,?,?,?,?,?,?)";
 
 	String sqlEditar = "UPDATE admin SET nome = ?, sobrenome = ?,"
-			+ "cpf = ?, dataNascimento = ?, email = ?, user = ?, senha = ?," + "confirmarSenha = ?  WHERE id = ?";
+			+ "cpf = ?, dataNascimento = ?, email = ?, usuario = ?, senha = ?," + "confirmarSenha = ?  WHERE id = ?";
 
 	String sqlDeletar = "DELETE from admins where id = ?";
 
@@ -39,7 +39,7 @@ public class AdminDao {
 		try {
 			if (con != null) {
 				stm = con.createStatement();
-				res = stm.executeQuery("SELECT * FROM Admin");
+				res = stm.executeQuery("SELECT * FROM admin");
 				while (res.next()) {
 					Admin admin = new Admin();
 
@@ -47,10 +47,9 @@ public class AdminDao {
 					admin.setSobrenome(res.getString("sobrenome"));
 					admin.setCpf(res.getString("cpf"));
 					admin.setEmail(res.getString("email"));
-					admin.setUser(res.getString("usuario"));
+					admin.setUsuario(res.getString("usuario"));
 					admin.setSenha(res.getString("senha"));
 					admin.setConfirmarSenha(res.getString("confirmarSenha"));
-
 					list.add(admin);
 				}
 			}
@@ -71,7 +70,7 @@ public class AdminDao {
 			stmt.setString(3, admin.getCpf());
 			stmt.setDate(4, Date.valueOf(admin.getDataNascimento()));
 			stmt.setString(6, admin.getEmail());
-			stmt.setString(5, admin.getUser());
+			stmt.setString(5, admin.getUsuario());
 			stmt.setString(7, admin.getSenha());
 			stmt.setString(8, admin.getConfirmarSenha());
 
@@ -96,7 +95,7 @@ public class AdminDao {
 			stmt.setString(2, admin.getSobrenome());
 			stmt.setString(3, admin.getCpf());
 			stmt.setString(4, admin.getEmail());
-			stmt.setString(5, admin.getUser());
+			stmt.setString(5, admin.getUsuario());
 			stmt.setString(6, admin.getSenha());
 			stmt.setNString(7, admin.getConfirmarSenha());
 
@@ -140,7 +139,7 @@ public class AdminDao {
 			stmt.setString(1, admin.getNome());
 			stmt.setString(2, admin.getSobrenome());
 			stmt.setString(3, admin.getCpf());
-			stmt.setString(4, admin.getUser());
+			stmt.setString(4, admin.getUsuario());
 			stmt.setString(5, admin.getEmail());
 			stmt.setString(6, admin.getSenha());
 			stmt.setString(7, admin.getConfirmarSenha());

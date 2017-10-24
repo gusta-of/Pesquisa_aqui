@@ -19,7 +19,7 @@ public class AdminNegocio {
 	// ====================
 	// Metodo Salvar
 	// ====================
-	public String salvar(Admin admin) throws ParseException {
+	public String salvar(Admin admin) throws ParseException, SQLException {
 		StringBuilder sb = new StringBuilder();
 		String salvo = "";
 		boolean senha = validarSenha(admin);
@@ -42,6 +42,7 @@ public class AdminNegocio {
 		
 		if (sb.toString().equals("")) {
 			salvo = "salvo";
+			adminDao.salvar(admin);
 		} else {
 			salvo = sb.toString();
 		}

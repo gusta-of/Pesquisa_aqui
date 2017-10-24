@@ -105,7 +105,7 @@ public class AdminController implements Initializable, Serializable {
 
 		admin.setNome(txnome.getText());
 		admin.setSobrenome(txsobrenome.getText());
-		admin.setUser(txuser.getText());
+		admin.setUsuario(txuser.getText());
 		admin.setEmail(txemail.getText());
 		admin.setCpf(txCpf.getText());
 		admin.setSenha(txsenha.getText());
@@ -116,20 +116,15 @@ public class AdminController implements Initializable, Serializable {
 
 	@FXML
 	public void salvar() throws SQLException, ParseException {
-		String validacao = "falha";
 		AdminNegocio adminN = new AdminNegocio();
-		StringBuilder sb = new StringBuilder();
 		boolean validar = false;
 		Admin admin = new Admin();
 		setarDadosAdmin(admin);
 		admins.add(admin);
 		validar = validarCampos(admin);
-		if (validar != true) {
-			sb.append(validacao);
-		}
-		if (sb.toString().equals("")) {
+		if (validar == false) {
 			validarCampos(admin);
-		} else if (sb.toString().equals("falha")) {
+		} else {
 			if (adminN.salvar(admin).equals("salvo")) {
 				populaView(admins);
 				limparCampos();
@@ -173,7 +168,7 @@ public class AdminController implements Initializable, Serializable {
 		if (admin.getSobrenome().equals("") || admin.getSobrenome() == null) {
 			inconsistencias.append("\n Campo Sobrenome obrigatório");
 		}
-		if (admin.getUser().equals("") || admin.getUser() == null) {
+		if (admin.getUsuario().equals("") || admin.getUsuario() == null) {
 			inconsistencias.append("\n Campo Usuario obrigatório");
 		}
 		if (admin.getEmail().equals("") || admin.getEmail() == null) {
@@ -202,7 +197,7 @@ public class AdminController implements Initializable, Serializable {
 		colSobre.setCellValueFactory(new PropertyValueFactory<Admin, String>("sobrenome"));
 		colEmail.setCellValueFactory(new PropertyValueFactory<Admin, String>("email"));
 		colCpf.setCellValueFactory(new PropertyValueFactory<Admin, String>("cpf"));
-		colUser.setCellValueFactory(new PropertyValueFactory<Admin, String>("user"));
+		colUser.setCellValueFactory(new PropertyValueFactory<Admin, String>("usuario"));
 
 		adminsView = FXCollections.observableArrayList(admin);
 		tvTable.setItems(adminsView);
