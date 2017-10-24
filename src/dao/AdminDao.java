@@ -33,6 +33,8 @@ public class AdminDao {
 
 	String sqlDeletar = "DELETE from admins where id = ?";
 
+	
+
 	public List<Admin> listarAdmin() {
 		List<Admin> list = new ArrayList<Admin>();
 		ResultSet res = null;
@@ -46,6 +48,8 @@ public class AdminDao {
 					admin.setNome(res.getString("nome"));
 					admin.setSobrenome(res.getString("sobrenome"));
 					admin.setCpf(res.getString("cpf"));
+					Date dataNascimento = res.getDate("dataNascimento");
+					admin.setDataNascimento(dataNascimento.toLocalDate());
 					admin.setEmail(res.getString("email"));
 					admin.setUsuario(res.getString("usuario"));
 					admin.setSenha(res.getString("senha"));
