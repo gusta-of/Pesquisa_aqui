@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Admin {
 
+	private int id;
 	private String nome;
 	private String sobrenome;
 	private String cpf;
@@ -19,7 +20,8 @@ public class Admin {
 		ListaAdm = new ArrayList<>();
 	}
 
-	public Admin(String nome, String sobrenome, LocalDate dataNasimento, String email, String cpf, String user, String senha) {
+	public Admin(int id, String nome, String sobrenome, LocalDate dataNasimento, String email, String cpf, String user, String senha) {
+		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.dataNascimento = dataNasimento;
@@ -30,6 +32,14 @@ public class Admin {
 		ListaAdm = new ArrayList<>();
 	}
 
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getCpf() {
 		return cpf;
 	}

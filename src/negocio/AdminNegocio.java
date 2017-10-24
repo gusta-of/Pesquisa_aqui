@@ -33,13 +33,13 @@ public class AdminNegocio {
 		if (cpfValido != true) {
 			sb.append("\nCPF Inválido");
 		}
-		if(emailValido != true) {
+		if (emailValido != true) {
 			sb.append("\nEmail Inválido");
 		}
-		if(senha != true) {
+		if (senha != true) {
 			sb.append("\nSenhas não correspondentes");
 		}
-		
+
 		if (sb.toString().equals("")) {
 			salvo = "salvo";
 			adminDao.salvar(admin);
@@ -50,31 +50,25 @@ public class AdminNegocio {
 		return salvo;
 
 	}
-	
-	
-	 public String editar(Admin admin) throws SQLException {
 
-	        boolean cpfValido = false;
-	        boolean emailValido = false;
-	        String salvo = "falha";
-	        StringBuilder sb = new StringBuilder();
-	        cpfValido = validaCPF(admin.getCpf());
-	        if (!cpfValido) {
-	            sb.append("cpf invalido. \n");
-	        }
-	        emailValido = validarEmail(admin.getEmail());
-	        if (!emailValido) {
-	            sb.append("email invalido. \n");
-	        }
-	        if (sb.toString().isEmpty()) {
-	            salvo = adminDao.Editar(admin);
-	        } else {
-	            sb.append(salvo);
-	            return sb.toString();
-	        }
-	        sb.append(salvo);
-	        return sb.toString();
-	    }
+	public String editar(Admin admin) throws SQLException {
+
+		boolean cpfValido = false;
+		String salvo = "falha";
+		StringBuilder sb = new StringBuilder();
+		cpfValido = validaCPF(admin.getCpf());
+		if (!cpfValido) {
+			sb.append("cpf invalido. \n");
+		}
+		if (sb.toString().isEmpty()) {
+			salvo = adminDao.editar(admin);
+		} else {
+			sb.append(salvo);
+			return sb.toString();
+		}
+		sb.append(salvo);
+		return sb.toString();
+	}
 
 	// ====================
 	// Validador Idade
@@ -105,66 +99,67 @@ public class AdminNegocio {
 	// ===============
 	// Validar CPF
 	// ===============
-	
-    public boolean validaCPF(String CPF){
 
-//considera-se erro CPF's formados por uma sequencia de numeros iguais
-        if (CPF.equals("00000000000") || CPF.equals("11111111111") ||
-                CPF.equals("22222222222") || CPF.equals("33333333333") ||
-                CPF.equals("44444444444") || CPF.equals("55555555555") ||
-                CPF.equals("66666666666") || CPF.equals("77777777777") ||
-                CPF.equals("88888888888") || CPF.equals("99999999999") ||
-                (CPF.length() != 11))
-            return(false);
+	public boolean validaCPF(String CPF) {
 
-        char dig10, dig11;
-        int sm, i, r, num, peso;
+		// considera-se erro CPF's formados por uma sequencia de numeros iguais
+		if (CPF.equals("00000000000") || CPF.equals("11111111111") || CPF.equals("22222222222")
+				|| CPF.equals("33333333333") || CPF.equals("44444444444") || CPF.equals("55555555555")
+				|| CPF.equals("66666666666") || CPF.equals("77777777777") || CPF.equals("88888888888")
+				|| CPF.equals("99999999999") || (CPF.length() != 11))
+			return (false);
 
-//"try" - protege o codigo para eventuais erros de conversao de tipo (int)
-        try {
-//Calculo do 1o. Digito Verificador
-            sm = 0;
-            peso = 10;
-            for (i=0; i<9; i++) {
-//converte o i-esimo caractere do CPF em um numero:
-//por exemplo, transforma o caractere '0' no inteiro 0
-//(48 eh a posicao de '0' na tabela ASCII)
-                num = (int)(CPF.charAt(i) - 48);
-                sm = sm + (num * peso);
-                peso = peso - 1;
-            }
+		char dig10, dig11;
+		int sm, i, r, num, peso;
 
-            r = 11 - (sm % 11);
-            if ((r == 10) || (r == 11))
-                dig10 = '0';
-            else dig10 = (char)(r + 48); // converte no respectivo caractere numerico
+		// "try" - protege o codigo para eventuais erros de conversao de tipo (int)
+		try {
+			// Calculo do 1o. Digito Verificador
+			sm = 0;
+			peso = 10;
+			for (i = 0; i < 9; i++) {
+				// converte o i-esimo caractere do CPF em um numero:
+				// por exemplo, transforma o caractere '0' no inteiro 0
+				// (48 eh a posicao de '0' na tabela ASCII)
+				num = (int) (CPF.charAt(i) - 48);
+				sm = sm + (num * peso);
+				peso = peso - 1;
+			}
 
-//Calculo do 2o. Digito Verificador
-            sm = 0;
-            peso = 11;
-            for(i=0; i<10; i++) {
-                num = (int)(CPF.charAt(i) - 48);
-                sm = sm + (num * peso);
-                peso = peso - 1;
-            }
+			r = 11 - (sm % 11);
+			if ((r == 10) || (r == 11))
+				dig10 = '0';
+			else
+				dig10 = (char) (r + 48); // converte no respectivo caractere numerico
 
-            r = 11 - (sm % 11);
-            if ((r == 10) || (r == 11))
-                dig11 = '0';
-            else dig11 = (char)(r + 48);
+			// Calculo do 2o. Digito Verificador
+			sm = 0;
+			peso = 11;
+			for (i = 0; i < 10; i++) {
+				num = (int) (CPF.charAt(i) - 48);
+				sm = sm + (num * peso);
+				peso = peso - 1;
+			}
 
-//Verifica se os digitos calculados conferem com os digitos informados.
-            if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10)))
-                return(true);
-            else return(false);
-        } catch (InputMismatchException erro) {
-            return(false);
-        }
-    }
+			r = 11 - (sm % 11);
+			if ((r == 10) || (r == 11))
+				dig11 = '0';
+			else
+				dig11 = (char) (r + 48);
 
-    //==============
-  	// Validar email
-  	//==============
+			// Verifica se os digitos calculados conferem com os digitos informados.
+			if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10)))
+				return (true);
+			else
+				return (false);
+		} catch (InputMismatchException erro) {
+			return (false);
+		}
+	}
+
+	// ==============
+	// Validar email
+	// ==============
 	public boolean validarEmail(String email) {
 		boolean validarE = false;
 		if (email != null && email.length() > 0) {
@@ -177,27 +172,28 @@ public class AdminNegocio {
 		}
 		return validarE;
 	}
-	//==============
+
+	// ==============
 	// Validar Senha
-	//==============
+	// ==============
 	public boolean validarSenha(Admin admin) throws ParseException {
 		boolean salvo = false;
 		String senha1 = admin.getSenha();
 		String senha2 = admin.getConfirmarSenha();
-		if(senha1.equals(senha2)) {
+		if (senha1.equals(senha2)) {
 			salvo = true;
-		}else {
+		} else {
 			salvo = false;
 		}
 		return salvo;
 	}
-	
-	
-	
-	   public List<Admin> listarAdmin(){
-	        List<Admin> admins = new ArrayList<Admin>();
-	        admins = adminDao.listarAdmin();
-	        return admins;
-	    }
-}
 
+	// =============
+	// Listar Admin
+	// =============
+	public List<Admin> listarAdmin() {
+		List<Admin> admins = new ArrayList<Admin>();
+		admins = adminDao.listarAdmin();
+		return admins;
+	}
+}

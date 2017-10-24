@@ -95,7 +95,7 @@ public class AdminController implements Initializable, Serializable {
 
 		Admin admin = new Admin();
 		admin = (Admin) tvTable.getSelectionModel().getSelectedItem();
-		setarDadosAdmin(admin);
+		setaValores(admin);
 		btSalvar.setText("Editar");
 		btCancelar.setText("Cancelar");
 	}
@@ -113,6 +113,19 @@ public class AdminController implements Initializable, Serializable {
 		admin.setDataNascimento(dpData.getValue());
 
 	}
+	
+    private void setaValores(Admin admin) {
+    	
+        txnome.setText(admin.getNome());
+        txsobrenome.setText(admin.getSobrenome());
+        txCpf.setText(admin.getCpf());
+        dpData.setUserData(admin.getDataNascimento());
+        txuser.setText(admin.getUsuario());
+        txemail.setText(admin.getEmail());
+        txsenha.setText(admin.getSenha());
+        txsConfirm.setText(admin.getConfirmarSenha());
+        
+        }
 
 	@FXML
 	public void salvar() throws SQLException, ParseException {
