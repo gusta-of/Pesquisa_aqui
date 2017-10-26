@@ -1,12 +1,12 @@
 use mysql;
 
-DROP TABLE IF EXISTS pesquisa_aqui;
+DROP DATABASE IF EXISTS pesquisa_aqui;
 
-create database pesquisa_aqui;
+CREATE DATABASE IF NOT EXISTS pesquisa_aqui;
 
-use pesquisa_aqui;
+USE pesquisa_aqui;
 
-CREATE TABLE admin (
+CREATE TABLE IF NOT EXISTS admin (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(100) NOT NULL,
 	sobrenome VARCHAR(100) NOT NULL,
@@ -20,3 +20,12 @@ CREATE TABLE admin (
 
 INSERT INTO admin (nome, sobrenome, usuario, email, cpf, senha, confirmarSenha, dataNascimento)
 VALUES ("teste", "teste", "teste", "teste@teste.com", "04393906136", "123", "123", "1997-12-09");
+
+CREATE TABLE IF NOT EXISTS fornecedores(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR (255) NOT NULL,
+    endereco VARCHAR (255) NOT NULL
+);
+
+INSERT INTO fornecedores(nome, endereco)
+VALUES ("teste", "Rua teste");
