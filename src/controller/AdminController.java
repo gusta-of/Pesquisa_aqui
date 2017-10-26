@@ -137,6 +137,7 @@ public class AdminController implements Initializable, Serializable {
 		validar = validarCampos(admin);
 		if (validar == false) {
 			validarCampos(admin);
+			lbMsg.setVisible(validar);
 		} else {
 			if (adminN.salvar(admin).equals("salvo")) {
 				populaView(admins);
