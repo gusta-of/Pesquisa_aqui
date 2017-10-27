@@ -33,7 +33,7 @@
             <TableColumn fx:id="colEndereco" minWidth="0.0" prefWidth="393.0" text="Endereço" />
          </columns>
       </TableView>
-      <Button fx:id="btSalvar" layoutX="10.0" layoutY="347.0" mnemonicParsing="false" text="Salvar" />
+      <Button fx:id="btSalvar" layoutX="10.0" layoutY="347.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
       <Button fx:id="btCancelar" layoutX="71.0" layoutY="347.0" mnemonicParsing="false" text="Cancelar" />
       <Label fx:id="lbMsgNome" layoutX="412.0" layoutY="104.0" prefHeight="25.0" prefWidth="287.0" />
       <Label fx:id="lbMsgEndereco" layoutX="412.0" layoutY="139.0" prefHeight="25.0" prefWidth="287.0" />

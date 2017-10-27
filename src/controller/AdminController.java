@@ -77,6 +77,7 @@ public class AdminController implements Initializable, Serializable {
 	Main main = null;
 	ObservableList<Admin> adminsView = null;
 	AdminNegocio adminNegocio = new AdminNegocio();
+	Admin admin = new Admin();
 
 	// Esse método é chamado ao inicializar a aplicação, igual um construtor.
 	@Override
@@ -95,13 +96,15 @@ public class AdminController implements Initializable, Serializable {
 
 		Admin admin = new Admin();
 		admin = (Admin) tvTable.getSelectionModel().getSelectedItem();
+		this.admin = admin;
 		setaValores(admin);
 		btSalvar.setText("Editar");
 		btCancelar.setText("Cancelar");
+		
 	}
 
 	
-	public void setarDadosAdmin(Admin admin) {
+	public void setarDadosAdmin() {
 
 		admin.setNome(txnome.getText());
 		admin.setSobrenome(txsobrenome.getText());
@@ -131,8 +134,8 @@ public class AdminController implements Initializable, Serializable {
 	public void salvar() throws SQLException, ParseException {
 		AdminNegocio adminN = new AdminNegocio();
 		boolean validar = false;
-		Admin admin = new Admin();
-		setarDadosAdmin(admin);
+		if(admin.getId() == 0) {
+		setarDadosAdmin();
 		admins.add(admin);
 		validar = validarCampos(admin);
 		if (validar == false) {
@@ -149,8 +152,12 @@ public class AdminController implements Initializable, Serializable {
 				lbMsg.setVisible(true);
 			}
 		}
+		}else {
+			setarDadosAdmin();
+			adminN.salvar(admin);
+		}
+		}
 
-	}
 
 	public void limparCampos() {
 		txnome.setText("");

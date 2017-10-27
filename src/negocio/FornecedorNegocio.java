@@ -10,15 +10,15 @@ public class FornecedorNegocio {
 
 	private FornecedorDao fornecedorDao = new FornecedorDao();
 	
-	public List<Fornecedor> listarFornecedores(){
+	public List<Fornecedor> listarFornecedor(){
 		List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
 		fornecedores = fornecedorDao.listarFornecedor();
 		return fornecedores;
 	}
 	
 	public boolean salvar(Fornecedor fornecedor) {
-		
-		return fornecedorDao.salvar(fornecedor);
+		fornecedorDao.salvar(fornecedor);
+		return true;
 	}
 	
 	public boolean editar(Fornecedor fornecedor) {

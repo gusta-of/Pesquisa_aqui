@@ -24,8 +24,7 @@ VALUES ("teste", "teste", "teste", "teste@teste.com", "04393906136", "123", "123
 CREATE TABLE IF NOT EXISTS fornecedores(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR (255) NOT NULL,
-    endereco VARCHAR (255) NOT NULL,
-    deletado DATETIME NULL
+    endereco VARCHAR (255) NOT NULL
 );
 
 INSERT INTO fornecedores(nome, endereco)

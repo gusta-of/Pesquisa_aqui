@@ -1,14 +1,11 @@
 package controller;
 
-import java.util.List;
 import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import javax.swing.JOptionPane;
-
-import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,7 +22,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import model.Fornecedor;
 import negocio.FornecedorNegocio;
-import javax.swing.JOptionPane;
 
 public class FornecedorController implements Initializable, Serializable {
 
@@ -65,61 +61,65 @@ public class FornecedorController implements Initializable, Serializable {
 	private TableColumn<Fornecedor, Integer> colId;
 	
 	private List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
-	private Main main = null;
-	private ObservableList<Fornecedor> fornecedoresView = null;
+//	private Main main = null;
+	ObservableList<Fornecedor> fornecedoresView = null;
 	FornecedorNegocio fornecedorNegocio = new FornecedorNegocio();
 	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		populaView();
+		List<Fornecedor> fornecedorList = listarFornecedor();
+		populaView(fornecedorList);
+	}
+	
+	private List<Fornecedor> listarFornecedor() {
+		fornecedores = fornecedorNegocio.listarFornecedor();
+		return fornecedores;
 	}
 	
 	@FXML
 	public void salvar() {
 		Fornecedor fornecedor = new Fornecedor();
-		if(this.valiarCampos(fornecedor)) {
-			if(this.fornecedorNegocio.salvar(fornecedor)) {
-				this.populaView();
-			}else {
-				JOptionPane.showMessageDialog(null, "Não foi possível salvar!", "Atenção!", JOptionPane.INFORMATION_MESSAGE);
-			}
-			
+		setarDadosFornecedor(fornecedor);
+		boolean validar = valiarCampos(fornecedor);
+		if(validar == false) {
+			valiarCampos(fornecedor);
+		}else if(fornecedorNegocio.salvar(fornecedor) == true) {
+			populaView(fornecedores);
 		}
 	}
 	
-	private void populaView() {
-		fornecedores = fornecedorNegocio.listarFornecedores();
+	public void setarDadosFornecedor(Fornecedor fornecedor) {
+
+		fornecedor.setNome(txNome.getText());
+		fornecedor.setEndereco(txEndereco.getText());
+
+	}
+	
+	private void populaView(List<Fornecedor> fornecedor) {
 		
-		colId.setCellValueFactory(new PropertyValueFactory<Fornecedor, Integer>("id"));
+//		colId.setCellValueFactory(new PropertyValueFactory<Fornecedor, Integer>("id"));
 		colNome.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("nome"));
 		colEndereco.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("endereco"));
 		
-		fornecedoresView = FXCollections.observableArrayList(fornecedores);
+		fornecedoresView = FXCollections.observableArrayList(fornecedor);
 		tvTable.setItems(fornecedoresView);
 	}
 
 	
 	private boolean valiarCampos(Fornecedor fornecedor) {
+		StringBuilder inconsistencias = new StringBuilder();
+		
 		if(fornecedor.getNome().equals("") || fornecedor.getNome() == null) {
-			lbMsgNome.setText("Campo obrigatório");
-			lbMsgNome.setVisible(true);
-			return false;
+			inconsistencias.append("Campo obrigatório!");
 		}
 		if(fornecedor.getEndereco().equals("") || fornecedor.getEndereco() == null) {
-			lbMsgEndereco.setText("Campo obrigatório");
-			lbMsgEndereco.setVisible(true);
-			return false;
+			inconsistencias.append("Campo obrigatório!");
 		}
+		System.out.println(inconsistencias.toString());
 		lbMsgNome.setVisible(false);
 		lbMsgEndereco.setVisible(false);
 		return true;
-	}
-	
-	private void setarDados(Fornecedor fornecedor) {
-		fornecedor.setNome(txNome.getText());
-		fornecedor.setEndereco(txEndereco.getText());
-		
 	}
 	
 	@FXML

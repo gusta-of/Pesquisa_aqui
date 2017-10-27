@@ -29,10 +29,9 @@ public class AdminDao {
 			+ "(nome,sobrenome, usuario, email,  cpf, senha, confirmarSenha, dataNascimento)" + "VALUES(?,?,?,?,?,?,?,?)";
 
 	String sqlEditar = "UPDATE admin SET nome = ?, sobrenome = ?,"
-			+ "usuario = ?, email = ?, cpf = ?, senha = ?," + "confirmarSenha = ? dataNascimento = ?";
+			+ "usuario = ?, email = ?, cpf = ?, senha = ?," + "confirmarSenha = ? dataNascimento = ? where_id = ? ";
 
 	String sqlDeletar = "DELETE from admins where id = ?";
-
 	
 
 	public List<Admin> listarAdmin() {
@@ -45,6 +44,7 @@ public class AdminDao {
 				while (res.next()) {
 					Admin admin = new Admin();
 
+					admin.setId(res.getInt("id"));
 					admin.setNome(res.getString("nome"));
 					admin.setSobrenome(res.getString("sobrenome"));
 					admin.setUsuario(res.getString("usuario"));
@@ -89,7 +89,7 @@ public class AdminDao {
 		return salvo;
 	}
 
-    public String editar(Admin admin) {
+    public String deletar(Admin admin) {
         String deletado = "falha";
         try {
             con.setAutoCommit(false);
@@ -110,7 +110,7 @@ public class AdminDao {
     }
 	
 
-	public String deletar(Admin admin) throws SQLException {
+	public String editar(Admin admin) throws SQLException {
 		String salvo = "falha";
 		try {
 			con.setAutoCommit(false);

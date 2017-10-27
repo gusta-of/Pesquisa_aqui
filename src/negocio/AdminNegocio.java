@@ -22,10 +22,15 @@ public class AdminNegocio {
 	public String salvar(Admin admin) throws ParseException, SQLException {
 		StringBuilder sb = new StringBuilder();
 		String salvo = "";
+		boolean valido = false;
 		boolean senha = validarSenha(admin);
 		boolean emailValido = false;
 		boolean cpfValido = validaCPF(admin.getCpf());
-		boolean valido = validarIdade(admin.getDataNascimento());
+		if(admin.getDataNascimento() != null) {
+			valido = validarIdade(admin.getDataNascimento());
+		}else {
+			sb.append("data nascimento obrigatório");
+		}
 		emailValido = validarEmail(admin.getEmail());
 		if (valido != true) {
 			sb.append("Precisa ter mais de 18 anos");
@@ -42,7 +47,11 @@ public class AdminNegocio {
 
 		if (sb.toString().equals("")) {
 			salvo = "salvo";
+			if(admin.getId() == 0) {
 			adminDao.salvar(admin);
+			}else {
+				adminDao.editar(admin);
+			}
 		} else {
 			salvo = sb.toString();
 		}
