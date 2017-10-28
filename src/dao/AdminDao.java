@@ -26,13 +26,13 @@ public class AdminDao {
 	}
 
 	String sqlSalvar = "INSERT INTO pesquisa_aqui.admin"
-			+ "(nome,sobrenome, usuario, email,  cpf, senha, confirmarSenha, dataNascimento)" + "VALUES(?,?,?,?,?,?,?,?)";
+	+ "(nome,sobrenome, usuario, email,  cpf, senha, confirmarSenha, dataNascimento)"
+	+ "VALUES(?,?,?,?,?,?,?,?)";
 
-	String sqlEditar = "UPDATE admin SET nome = ?, sobrenome = ?,"
-			+ "usuario = ?, email = ?, cpf = ?, senha = ?," + "confirmarSenha = ? dataNascimento = ? where_id = ? ";
+	String sqlEditar = "UPDATE admin SET nome = ?, sobrenome = ?, usuario = ?, email = ?, cpf = ?, senha = ?,"
+			+ "confirmarSenha = ? dataNascimento = ?  WHERE id = ?";
 
 	String sqlDeletar = "DELETE from admins where id = ?";
-	
 
 	public List<Admin> listarAdmin() {
 		List<Admin> list = new ArrayList<Admin>();
@@ -89,26 +89,25 @@ public class AdminDao {
 		return salvo;
 	}
 
-    public String deletar(Admin admin) {
-        String deletado = "falha";
-        try {
-            con.setAutoCommit(false);
-            stmt = con.prepareStatement(sqlDeletar);
+	public String deletar(Admin admin) {
+		String deletado = "falha";
+		try {
+			con.setAutoCommit(false);
+			stmt = con.prepareStatement(sqlDeletar);
 
-            stmt.setString(1, admin.getCpf());
+			stmt.setString(1, admin.getCpf());
 
-            stmt.executeUpdate();
-            con.commit();
-            deletado = "deletado";
+			stmt.executeUpdate();
+			con.commit();
+			deletado = "deletado";
 
-        } catch (SQLException e) {
-            System.out.println("Erro na exclusão :" + e.getMessage());
-            deletado = e.getMessage();
-        }
+		} catch (SQLException e) {
+			System.out.println("Erro na exclusão :" + e.getMessage());
+			deletado = e.getMessage();
+		}
 
-        return deletado;
-    }
-	
+		return deletado;
+	}
 
 	public String editar(Admin admin) throws SQLException {
 		String salvo = "falha";
@@ -118,11 +117,14 @@ public class AdminDao {
 
 			stmt.setString(1, admin.getNome());
 			stmt.setString(2, admin.getSobrenome());
-			stmt.setString(3, admin.getCpf());
+			stmt.setString(3, admin.getUsuario());
 			stmt.setString(4, admin.getEmail());
-			stmt.setString(5, admin.getUsuario());
+			stmt.setString(5, admin.getCpf());
 			stmt.setString(6, admin.getSenha());
 			stmt.setNString(7, admin.getConfirmarSenha());
+			stmt.setDate(8, Date.valueOf(admin.getDataNascimento()));
+			stmt.setInt(9,  admin.getId());
+
 
 			stmt.executeUpdate();
 			con.commit();
