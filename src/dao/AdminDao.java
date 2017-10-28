@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLData;
+import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import daoUtil.ConnectionFactory;
@@ -117,7 +120,7 @@ public class AdminDao {
 
 			stmt.setString(1, admin.getNome());
 			stmt.setString(2, admin.getSobrenome());
-			stmt.setString(3, admin.getUsuario());
+			stmt.setString(3, admin.getUsuario()); 
 			stmt.setString(4, admin.getEmail());
 			stmt.setString(5, admin.getCpf());
 			stmt.setString(6, admin.getSenha());
