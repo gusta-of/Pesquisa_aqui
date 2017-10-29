@@ -33,7 +33,7 @@ public class AdminDao {
 	+ "VALUES(?,?,?,?,?,?,?,?)";
 
 	String sqlEditar = "UPDATE admin SET nome = ?, sobrenome = ?, usuario = ?, email = ?, cpf = ?, senha = ?,"
-			+ "confirmarSenha = ? dataNascimento = ?  WHERE id = ?";
+			+ "confirmarSenha = ?, dataNascimento = ?  WHERE id = ?";
 
 	String sqlDeletar = "DELETE from admins where id = ?";
 

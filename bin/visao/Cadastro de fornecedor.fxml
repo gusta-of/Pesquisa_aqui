@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="pnPaneF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FornecedorController">
+   <children>
+      <MenuBar fx:id="mbMenuBar" layoutY="1.0" prefHeight="26.0" prefWidth="800.0">
+        <menus>
+          <Menu fx:id="mPesquisar" mnemonicParsing="false" text="Pesquisar" />
+          <Menu fx:id="mAjuda" mnemonicParsing="false" text="Ajuda">
+            <items>
+              <MenuItem fx:id="miSobre" mnemonicParsing="false" text="Sobre" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label fx:id="lbTitulo" alignment="CENTER" layoutX="5.0" layoutY="27.0" prefHeight="51.0" prefWidth="790.0" text="Cadastro de Fornecedor" textAlignment="CENTER" textOverrun="CLIP" underline="true">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbNome" layoutX="14.0" layoutY="108.0" text="Nome:*" />
+      <TextField fx:id="txNome" layoutX="84.0" layoutY="104.0" prefHeight="25.0" prefWidth="316.0" />
+      <Label fx:id="lbEndereco" layoutX="14.0" layoutY="143.0" text="Endereço:*" />
+      <TextField fx:id="txEndereco" layoutX="84.0" layoutY="139.0" prefHeight="25.0" prefWidth="316.0" />
+      <TableView fx:id="tvTable" layoutY="380.0" onMouseClicked="#edit" prefHeight="220.0" prefWidth="800.0">
+         <columns>
+            <TableColumn fx:id="colNome" prefWidth="406.0" text="Nome" />
+            <TableColumn fx:id="colEndereco" minWidth="0.0" prefWidth="393.0" text="Endereço" />
+         </columns>
+      </TableView>
+      <Button fx:id="btSalvar" layoutX="10.0" layoutY="347.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
+      <Button fx:id="btCancelar" layoutX="71.0" layoutY="347.0" mnemonicParsing="false" text="Cancelar" />
+      <Label fx:id="lbMsgNome" layoutX="412.0" layoutY="104.0" prefHeight="25.0" prefWidth="287.0" />
+      <Label fx:id="lbMsgEndereco" layoutX="412.0" layoutY="139.0" prefHeight="25.0" prefWidth="287.0" />
+   </children>
+</Pane>

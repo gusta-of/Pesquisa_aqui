@@ -6,9 +6,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController">
+<Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController">
    <children>
-      <MenuBar fx:id="mbMenuBar" prefHeight="600.0" prefWidth="800.0">
+      <MenuBar fx:id="mbMenuBar" prefHeight="800.0" prefWidth="1200.0">
         <menus>
           <Menu fx:id="mPesquisa" mnemonicParsing="false" text="Pesquisar" />
           <Menu fx:id="mAjuda" mnemonicParsing="false" text="Ajuda">
@@ -35,21 +35,21 @@
       <TextField fx:id="txuser" layoutX="90.0" layoutY="233.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
       <PasswordField fx:id="txsenha" layoutX="89.0" layoutY="267.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
       <PasswordField fx:id="txsConfirm" layoutX="90.0" layoutY="302.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-      <Button fx:id="btSalvar" layoutX="11.0" layoutY="345.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
-      <Button fx:id="btCancelar" layoutX="69.0" layoutY="346.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+      <Button fx:id="btSalvar" layoutX="11.0" layoutY="378.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
+      <Button fx:id="btCancelar" layoutX="69.0" layoutY="378.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
       <Label fx:id="lbConfirm" layoutX="10.0" layoutY="309.0" text="Conf. Senha:*" />
       <Label fx:id="lbCpf" layoutX="11.0" layoutY="129.0" prefHeight="25.0" prefWidth="31.0" text="CPF:*" />
       <Label fx:id="lbemail" layoutX="11.0" layoutY="206.0" text="Email:*" />
-      <TableView fx:id="tvTable" layoutY="380.0" onMouseClicked="#edit" prefHeight="220.0" prefWidth="800.0">
+      <TableView fx:id="tvTable" layoutY="447.0" onMouseClicked="#edit" prefHeight="354.0" prefWidth="1200.0">
         <columns>
-            <TableColumn fx:id="colUser" prefWidth="141.0" text="Usuario" />
-            <TableColumn fx:id="colEmail" prefWidth="191.0" text="Email" />
-          <TableColumn fx:id="colNome" prefWidth="141.0" text="Nome" />
-            <TableColumn fx:id="colSobre" prefWidth="178.0" text="Sobrenome" />
-            <TableColumn fx:id="colCpf" minWidth="0.0" prefWidth="148.0" text="CPF" />
+            <TableColumn fx:id="colUser" prefWidth="195.0" text="Usuario" />
+            <TableColumn fx:id="colEmail" prefWidth="307.0" text="Email" />
+          <TableColumn fx:id="colNome" prefWidth="161.0" text="Nome" />
+            <TableColumn fx:id="colSobre" prefWidth="298.0" text="Sobrenome" />
+            <TableColumn fx:id="colCpf" minWidth="0.0" prefWidth="238.0" text="CPF" />
         </columns>
       </TableView>
       <Label fx:id="lbdata" layoutX="10.0" layoutY="170.0" prefHeight="17.0" prefWidth="64.0" text="Data Nasc:*" />
-      <Label fx:id="lbMsg" layoutX="299.0" layoutY="202.0" prefHeight="166.0" prefWidth="146.0" />
+      <Label fx:id="lbMsg" layoutX="299.0" layoutY="125.0" prefHeight="205.0" prefWidth="250.0" />
    </children>
 </Pane>

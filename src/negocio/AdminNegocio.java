@@ -26,9 +26,12 @@ public class AdminNegocio {
 		boolean senha = validarSenha(admin);
 		boolean emailValido = false;
 		boolean cpfValido = validaCPF(admin.getCpf());
-		if(admin.getDataNascimento() != null) {
+		if (admin.getId() != 0) {
+			editar(admin);
+			listarAdmin();
+		} else if (admin.getDataNascimento() != null) {
 			valido = validarIdade(admin.getDataNascimento());
-		}else {
+		} else {
 			sb.append("data nascimento obrigatório");
 		}
 		emailValido = validarEmail(admin.getEmail());
@@ -47,17 +50,20 @@ public class AdminNegocio {
 
 		if (sb.toString().equals("")) {
 			salvo = "salvo";
-			if(admin.getId() == 0) {
-			adminDao.salvar(admin);
-			}else {
-				adminDao.editar(admin);
-			}
 		} else {
 			salvo = sb.toString();
 		}
 
 		return salvo;
+	}
 
+	// =============
+	// Listar Admin
+	// =============
+	public List<Admin> listarAdmin() {
+		List<Admin> admins = new ArrayList<Admin>();
+		admins = adminDao.listarAdmin();
+		return admins;
 	}
 
 	public String editar(Admin admin) throws SQLException {
@@ -197,12 +203,4 @@ public class AdminNegocio {
 		return salvo;
 	}
 
-	// =============
-	// Listar Admin
-	// =============
-	public List<Admin> listarAdmin() {
-		List<Admin> admins = new ArrayList<Admin>();
-		admins = adminDao.listarAdmin();
-		return admins;
-	}
 }

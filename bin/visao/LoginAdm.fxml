@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="apnPaneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: adasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <TextField fx:id="txtUser" layoutX="662.0" layoutY="367.0" promptText="Insira seu usuário" />
+      <PasswordField fx:id="txtSenha" layoutX="662.0" layoutY="434.0" promptText="Insira sua senha" />
+      <Button fx:id="btLoguin" layoutX="714.0" layoutY="482.0" mnemonicParsing="false" text="Login">
+         <effect>
+            <Reflection />
+         </effect>
+      </Button>
+      <AnchorPane fx:id="apnBarra" prefHeight="800.0" prefWidth="285.0" style="-fx-background-color: #2D3447;">
+         <children>
+            <ImageView fx:id="imgLogo" fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resouces/img/Modelo_8.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="imgBusto" fitHeight="25.0" fitWidth="60.0" layoutX="622.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resouces/img/Busto.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgCadeado" fitHeight="25.0" fitWidth="60.0" layoutX="622.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resouces/img/Cadeado.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgPc" fitHeight="165.0" fitWidth="181.0" layoutX="654.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resouces/img/Pessoa-pc.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgLoad2" fitHeight="60.0" fitWidth="78.0" layoutX="707.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resouces/img/load2.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -100,10 +100,9 @@ public class AdminController implements Initializable, Serializable {
 		setaValores(admin);
 		btSalvar.setText("Editar");
 		btCancelar.setText("Cancelar");
-		
+
 	}
 
-	
 	public void setarDadosAdmin() {
 
 		admin.setNome(txnome.getText());
@@ -116,48 +115,50 @@ public class AdminController implements Initializable, Serializable {
 		admin.setDataNascimento(dpData.getValue());
 
 	}
-	
-    private void setaValores(Admin admin) {
-    	
-        txnome.setText(admin.getNome());
-        txsobrenome.setText(admin.getSobrenome());
-        txCpf.setText(admin.getCpf());
-        dpData.setUserData(admin.getDataNascimento());
-        txuser.setText(admin.getUsuario());
-        txemail.setText(admin.getEmail());
-        txsenha.setText(admin.getSenha());
-        txsConfirm.setText(admin.getConfirmarSenha());
-        
-        }
+
+	private void setaValores(Admin admin) {
+
+		txnome.setText(admin.getNome());
+		txsobrenome.setText(admin.getSobrenome());
+		txCpf.setText(admin.getCpf());
+		dpData.setUserData(admin.getDataNascimento());
+		txuser.setText(admin.getUsuario());
+		txemail.setText(admin.getEmail());
+		txsenha.setText(admin.getSenha());
+		txsConfirm.setText(admin.getConfirmarSenha());
+
+	}
 
 	@FXML
 	public void salvar() throws SQLException, ParseException {
 		AdminNegocio adminN = new AdminNegocio();
 		boolean validar = false;
-		if(admin.getId() == 0) {
-		setarDadosAdmin();
-		admins.add(admin);
-		validar = validarCampos(admin);
-		if (validar == false) {
-			validarCampos(admin);
-			lbMsg.setVisible(validar);
-		} else {
-			if (adminN.salvar(admin).equals("salvo")) {
-				populaView(admins);
-				limparCampos();
-				lbMsg.setVisible(false);
-				// validarCampos(admin);
+		if (admin.getId() == 0) {
+			setarDadosAdmin();
+			admins.add(admin);
+			validar = validarCampos(admin);
+			if (validar == false) {
+				validarCampos(admin);
+				lbMsg.setVisible(validar);
 			} else {
-				lbMsg.setText(adminN.salvar(admin).toString());
-				lbMsg.setVisible(true);
+				if (adminN.salvar(admin).equals("salvo")) {
+					populaView(admins);
+					limparCampos();
+					lbMsg.setVisible(false);
+					// validarCampos(admin);
+				} else {
+					lbMsg.setText(adminN.salvar(admin).toString());
+					lbMsg.setVisible(true);
+				}
 			}
-		}
-		}else {
+		} else {
 			setarDadosAdmin();
 			adminN.salvar(admin);
+			listarAdmin();
+			populaView(admins);
+			limparCampos();
 		}
-		}
-
+	}
 
 	public void limparCampos() {
 		txnome.setText("");
