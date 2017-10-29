@@ -13,7 +13,7 @@
    <children>
       <TextField fx:id="txtUser" layoutX="662.0" layoutY="367.0" promptText="Insira seu usuário" />
       <PasswordField fx:id="txtSenha" layoutX="662.0" layoutY="434.0" promptText="Insira sua senha" />
-      <Button fx:id="btLoguin" layoutX="714.0" layoutY="482.0" mnemonicParsing="false" text="Login">
+      <Button fx:id="btLoguin" layoutX="714.0" layoutY="482.0" mnemonicParsing="false" onAction="#logar" text="Login">
          <effect>
             <Reflection />
          </effect>
@@ -42,10 +42,15 @@
             <Image url="@../resouces/img/Pessoa-pc.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgLoad2" fitHeight="60.0" fitWidth="78.0" layoutX="707.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgLoad2" fitHeight="60.0" fitWidth="78.0" layoutX="707.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../resouces/img/load2.gif" />
          </image>
       </ImageView>
+      <Label fx:id="lblDados" layoutX="877.0" layoutY="400.0" prefHeight="17.0" prefWidth="190.0" textFill="#ee0909">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
