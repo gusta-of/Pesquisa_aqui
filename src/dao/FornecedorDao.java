@@ -63,7 +63,7 @@ public class FornecedorDao {
 			stmt.setString(1, fornecedor.getNome());
 			stmt.setString(2, fornecedor.getEndereco());
 
-			stmt.executeQuery();
+			stmt.executeUpdate();
 			con.commit();
 
 			return true;

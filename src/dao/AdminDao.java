@@ -4,22 +4,19 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLData;
-import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import daoUtil.ConnectionFactory;
 
+import daoUtil.ConnectionFactory;
 import model.Admin;
 
 public class AdminDao {
 
 	private PreparedStatement stmt;
 
-	private Connection con;
+	private Connection con;	
 	private Statement stm;
 	ConnectionFactory connection = null;
 

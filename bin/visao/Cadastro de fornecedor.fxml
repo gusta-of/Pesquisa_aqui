@@ -26,7 +26,7 @@
       <Label fx:id="lbNome" layoutX="14.0" layoutY="108.0" text="Nome:*" />
       <TextField fx:id="txNome" layoutX="84.0" layoutY="104.0" prefHeight="25.0" prefWidth="316.0" />
       <Label fx:id="lbEndereco" layoutX="14.0" layoutY="143.0" text="Endereço:*" />
-      <TextField fx:id="txEndereco" layoutX="84.0" layoutY="139.0" prefHeight="25.0" prefWidth="316.0" />
+      <TextField fx:id="txEndereco" layoutX="84.0" layoutY="139.0" prefHeight="53.0" prefWidth="316.0" />
       <TableView fx:id="tvTable" layoutY="380.0" onMouseClicked="#edit" prefHeight="220.0" prefWidth="800.0">
          <columns>
             <TableColumn fx:id="colNome" prefWidth="406.0" text="Nome" />
