@@ -1,6 +1,7 @@
 package negocio;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,16 +20,17 @@ public class FornecedorNegocio {
       return fornecedores;
    }
    
-   public boolean salvar(Fornecedor fornecedor) throws SQLException {
+   public boolean salvar(Fornecedor fornecedor) throws ParseException, SQLException {
       if (fornecedor.getId() != 0) {
          editar(fornecedor);
+         listarFornecedor();
       } else {
          fornecedorDao.salvar(fornecedor);
       }
       return true;
    }
    
-   public boolean editar(Fornecedor fornecedor) {
+   public boolean editar(Fornecedor fornecedor) throws SQLException {
       return fornecedorDao.editar(fornecedor);
    }
    

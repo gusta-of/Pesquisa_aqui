@@ -15,6 +15,15 @@ import model.Admin;
 
 public class AdminNegocio {
 	AdminDao adminDao = new AdminDao();
+	
+	// =============
+		// Listar Admin
+		// =============
+		public List<Admin> listarAdmin() {
+			List<Admin> admins = new ArrayList<Admin>();
+			admins = adminDao.listarAdmin();
+			return admins;
+		}
 
 	// ====================
 	// Metodo Salvar
@@ -32,20 +41,20 @@ public class AdminNegocio {
 		} else if (admin.getDataNascimento() != null) {
 			valido = validarIdade(admin.getDataNascimento());
 		} else {
-			sb.append("data nascimento obrigatório");
+			sb.append("data nascimento obrigatï¿½rio");
 		}
 		emailValido = validarEmail(admin.getEmail());
 		if (valido != true) {
 			sb.append("Precisa ter mais de 18 anos");
 		}
 		if (cpfValido != true) {
-			sb.append("\nCPF Inválido");
+			sb.append("\nCPF Invï¿½lido");
 		}
 		if (emailValido != true) {
-			sb.append("\nEmail Inválido");
+			sb.append("\nEmail Invï¿½lido");
 		}
 		if (senha != true) {
-			sb.append("\nSenhas não correspondentes");
+			sb.append("\nSenhas nï¿½o correspondentes");
 		}
 
 		if (sb.toString().equals("")) {
@@ -55,15 +64,6 @@ public class AdminNegocio {
 		}
 
 		return salvo;
-	}
-
-	// =============
-	// Listar Admin
-	// =============
-	public List<Admin> listarAdmin() {
-		List<Admin> admins = new ArrayList<Admin>();
-		admins = adminDao.listarAdmin();
-		return admins;
 	}
 
 	public String editar(Admin admin) throws SQLException {
@@ -104,7 +104,7 @@ public class AdminNegocio {
 					valido = true;
 				} else {
 					valido = false;
-					System.out.println("Você precisa ter mais de 18 anos!");
+					System.out.println("Vocï¿½ precisa ter mais de 18 anos!");
 				}
 			}
 		}

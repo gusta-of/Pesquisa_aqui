@@ -72,7 +72,7 @@ public class FornecedorDao {
 	   return true;
 	}
 
-	public boolean editar(Fornecedor fornecedor) {
+	public boolean editar(Fornecedor fornecedor) throws SQLException {
 		try {
 			con.setAutoCommit(false);
 			stmt = con.prepareStatement(sqlEditar);
@@ -85,7 +85,7 @@ public class FornecedorDao {
 			con.commit();
 			return true;
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("Erro ao atualizar: " + e.getMessage());
 			return false;
 		}

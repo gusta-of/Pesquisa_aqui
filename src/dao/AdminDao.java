@@ -102,7 +102,7 @@ public class AdminDao {
 			deletado = "deletado";
 
 		} catch (SQLException e) {
-			System.out.println("Erro na exclusão :" + e.getMessage());
+			System.out.println("Erro na exclusï¿½o :" + e.getMessage());
 			deletado = e.getMessage();
 		}
 

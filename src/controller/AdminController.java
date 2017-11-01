@@ -79,7 +79,7 @@ public class AdminController implements Initializable, Serializable {
 	AdminNegocio adminNegocio = new AdminNegocio();
 	Admin admin = new Admin();
 
-	// Esse método é chamado ao inicializar a aplicação, igual um construtor.
+	// Esse mï¿½todo ï¿½ chamado ao inicializar a aplicaï¿½ï¿½o, igual um construtor.
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		List<Admin> adminList = listarAdmin();
@@ -98,7 +98,7 @@ public class AdminController implements Initializable, Serializable {
 		admin = (Admin) tvTable.getSelectionModel().getSelectedItem();
 		this.admin = admin;
 		setaValores(admin);
-		btSalvar.setText("Editar");
+		btSalvar.setText("salvar");
 		btCancelar.setText("Cancelar");
 
 	}
@@ -135,13 +135,13 @@ public class AdminController implements Initializable, Serializable {
 		boolean validar = false;
 		if (admin.getId() == 0) {
 			setarDadosAdmin();
-			admins.add(admin);
 			validar = validarCampos(admin);
 			if (validar == false) {
 				validarCampos(admin);
 				lbMsg.setVisible(validar);
 			} else {
 				if (adminN.salvar(admin).equals("salvo")) {
+					admins.add(admin);
 					populaView(admins);
 					limparCampos();
 					lbMsg.setVisible(false);
@@ -185,28 +185,28 @@ public class AdminController implements Initializable, Serializable {
 	public boolean validarCampos(Admin admin) {
 		StringBuilder inconsistencias = new StringBuilder();
 		if (admin.getNome().equals("") || admin.getNome() == null) {
-			inconsistencias.append("\n Campo Nome obrigatório");
+			inconsistencias.append("\n Campo Nome obrigatï¿½rio");
 		}
 		if (admin.getSobrenome().equals("") || admin.getSobrenome() == null) {
-			inconsistencias.append("\n Campo Sobrenome obrigatório");
+			inconsistencias.append("\n Campo Sobrenome obrigatï¿½rio");
 		}
 		if (admin.getUsuario().equals("") || admin.getUsuario() == null) {
-			inconsistencias.append("\n Campo Usuario obrigatório");
+			inconsistencias.append("\n Campo Usuario obrigatï¿½rio");
 		}
 		if (admin.getEmail().equals("") || admin.getEmail() == null) {
-			inconsistencias.append("\n Campo Email obrigatório");
+			inconsistencias.append("\n Campo Email obrigatï¿½rio");
 		}
 		if (admin.getCpf().equals("") || admin.getCpf() == null) {
-			inconsistencias.append("\n Campo CPF obrigatório");
+			inconsistencias.append("\n Campo CPF obrigatï¿½rio");
 		}
 		if (admin.getSenha().equals("") || admin.getSenha() == null) {
-			inconsistencias.append("\n Campo Senha obrigatório");
+			inconsistencias.append("\n Campo Senha obrigatï¿½rio");
 		}
 		if (admin.getConfirmarSenha().equals("") || admin.getConfirmarSenha() == null) {
-			inconsistencias.append("\n Campo Confirmar Senha obrigatório");
+			inconsistencias.append("\n Campo Confirmar Senha obrigatï¿½rio");
 		}
 		if (admin.getDataNascimento() == null) {
-			inconsistencias.append("\n Campo Data obrigatório");
+			inconsistencias.append("\n Campo Data obrigatï¿½rio");
 		}
 
 		System.out.println(inconsistencias.toString());
