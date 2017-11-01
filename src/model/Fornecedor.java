@@ -10,10 +10,12 @@ public class Fornecedor {
 	ArrayList<Fornecedor> listaFornecedor;
 	
 	public Fornecedor() {
+	   super();
 		listaFornecedor = new ArrayList<>(); 
 	}
 	
 	public Fornecedor (int id, String nome, String endereco) {
+	   super();
 		id = this.id;
 		nome = this.nome;
 		endereco = this.endereco;

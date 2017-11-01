@@ -55,8 +55,8 @@ public class FornecedorDao {
 		}
 	}
 
-	public boolean salvar(Fornecedor fornecedor) {
-		try {
+	public boolean salvar(Fornecedor fornecedor) throws SQLException {
+	   try {
 			con.setAutoCommit(false);
 			stmt = con.prepareStatement(sqlSalvar);
 
@@ -66,13 +66,10 @@ public class FornecedorDao {
 			stmt.executeUpdate();
 			con.commit();
 
-			return true;
-
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("Erro ao inserir: " + e.getMessage());
-			return false;
 		}
-
+	   return true;
 	}
 
 	public boolean editar(Fornecedor fornecedor) {
