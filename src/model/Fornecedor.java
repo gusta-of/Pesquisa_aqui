@@ -16,9 +16,9 @@ public class Fornecedor {
 	
 	public Fornecedor (int id, String nome, String endereco) {
 	   super();
-		id = this.id;
-		nome = this.nome;
-		endereco = this.endereco;
+		this.id = id;
+		this.nome = nome;
+		this.endereco = endereco;
 		listaFornecedor = new ArrayList<>();
 	}
 			

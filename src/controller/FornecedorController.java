@@ -84,7 +84,7 @@ public class FornecedorController implements Initializable, Serializable {
 	public void salvar() throws SQLException, ParseException {
 		FornecedorNegocio fornecedorN = new FornecedorNegocio();
 		boolean validar = false;
-		if (fornecedor.getId() != 0) {
+		if (fornecedor.getId() == 0) {
 			setarDadosFornecedor();
 			validar = validarCampos(fornecedor);
 			if (validar == false) {

@@ -41,6 +41,7 @@ public class FornecedorDao {
 				res = stm.executeQuery("SELECT * FROM fornecedores");
 				while (res.next()) {
 					Fornecedor fornecedor = new Fornecedor();
+					fornecedor.setId(res.getInt("id"));
 					fornecedor.setNome(res.getString("nome"));
 					fornecedor.setEndereco(res.getString("endereco"));
 

@@ -9,17 +9,14 @@ import dao.FornecedorDao;
 import model.Fornecedor;
 
 public class FornecedorNegocio {
-   
-   Fornecedor fornecedor = new Fornecedor();
-   
-   private FornecedorDao fornecedorDao = new FornecedorDao();
-   
-   public List<Fornecedor> listarFornecedor() {
-      List<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
-      fornecedores = fornecedorDao.listarFornecedor();
-      return fornecedores;
+	
+    FornecedorDao fornecedorDao = new FornecedorDao();
+   public List<Fornecedor> listarFornecedor(){
+	   List<Fornecedor> fornecedores = new ArrayList<>();
+	   fornecedores = fornecedorDao.listarFornecedor();
+	   return fornecedores;
    }
-   
+
    public boolean salvar(Fornecedor fornecedor) throws ParseException, SQLException {
       if (fornecedor.getId() != 0) {
          editar(fornecedor);

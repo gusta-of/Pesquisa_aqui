@@ -14,6 +14,7 @@ import dao.AdminDao;
 import model.Admin;
 
 public class AdminNegocio {
+	
 	AdminDao adminDao = new AdminDao();
 	
 	// =============
