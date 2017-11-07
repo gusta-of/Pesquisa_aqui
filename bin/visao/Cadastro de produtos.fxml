@@ -5,36 +5,36 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: dasdas;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasdas;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="LbTituloPrincipal" layoutX="773.0" layoutY="37.0" text="Cadastro de Produto" textFill="#2100a7eb">
+      <Label fx:id="LbTituloPrincipal" layoutX="422.0" layoutY="37.0" text="Cadastro de Produto" textFill="#2100a7eb">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label fx:id="lbcodigo" layoutX="565.0" layoutY="190.0" text="Código:" />
-      <TextField fx:id="txproduto" layoutX="630.0" layoutY="109.0" prefHeight="25.0" prefWidth="534.0" />
-      <Label fx:id="lbdescricao" layoutX="565.0" layoutY="229.0" text="Descrição:" />
-      <Label fx:id="lbvalor" layoutX="565.0" layoutY="151.0" text="Valor:" />
-      <TextField fx:id="txdescricao" layoutX="630.0" layoutY="229.0" prefHeight="84.0" prefWidth="534.0" />
-      <TextField fx:id="txvalor" layoutX="630.0" layoutY="147.0" prefHeight="25.0" prefWidth="534.0" />
-      <TextField fx:id="txcodigo" layoutX="630.0" layoutY="186.0" prefHeight="25.0" prefWidth="534.0" />
-      <TableView fx:id="tbtabela" layoutX="285.0" layoutY="449.0" prefHeight="352.0" prefWidth="915.0">
+      <Label fx:id="lbcodigo" layoutX="298.0" layoutY="190.0" text="Código:" />
+      <TextField fx:id="txproduto" layoutX="357.0" layoutY="109.0" prefHeight="25.0" prefWidth="426.0" />
+      <Label fx:id="lbdescricao" layoutX="297.0" layoutY="229.0" text="Descrição:" />
+      <Label fx:id="lbvalor" layoutX="299.0" layoutY="151.0" text="Valor:" />
+      <TextField fx:id="txdescricao" layoutX="356.0" layoutY="229.0" prefHeight="84.0" prefWidth="426.0" />
+      <TextField fx:id="txvalor" layoutX="357.0" layoutY="147.0" prefHeight="25.0" prefWidth="426.0" />
+      <TextField fx:id="txcodigo" layoutX="356.0" layoutY="186.0" prefHeight="25.0" prefWidth="426.0" />
+      <TableView fx:id="tbtabela" layoutX="285.0" layoutY="449.0" prefHeight="151.0" prefWidth="515.0">
         <columns>
           <TableColumn fx:id="tbproduto" prefWidth="92.0" text="Produto" />
           <TableColumn fx:id="tbvalor" prefWidth="96.0" text="Valor" />
-            <TableColumn fx:id="tbdescricao" minWidth="0.0" prefWidth="136.0" text="Descrição" />
-            <TableColumn fx:id="tbcodigo" prefWidth="123.0" text="Código" />
+            <TableColumn fx:id="tbdescricao" minWidth="0.0" prefWidth="191.0" text="Descrição" />
+            <TableColumn fx:id="tbcodigo" prefWidth="138.0" text="Código" />
         </columns>
       </TableView>
-      <Button fx:id="btcancelar" layoutX="1035.0" layoutY="328.0" mnemonicParsing="false" text="Cancelar" />
-      <Button fx:id="btsalvar" layoutX="1116.0" layoutY="328.0" mnemonicParsing="false" text="Salvar" />
-      <Label fx:id="lbProduto" layoutX="565.0" layoutY="113.0" prefHeight="17.0" prefWidth="54.0" text="Produto:" />
-      <Label fx:id="lbTituloTabela" layoutX="737.0" layoutY="381.0" prefHeight="39.0" prefWidth="320.0" text="Produtos Cadastrados">
+      <Button fx:id="btcancelar" layoutX="634.0" layoutY="328.0" mnemonicParsing="false" text="Cancelar" />
+      <Button fx:id="btsalvar" layoutX="717.0" layoutY="328.0" mnemonicParsing="false" text="Salvar" />
+      <Label fx:id="lbProduto" layoutX="296.0" layoutY="113.0" prefHeight="17.0" prefWidth="54.0" text="Produto:" />
+      <Label fx:id="lbTituloTabela" layoutX="413.0" layoutY="381.0" prefHeight="39.0" prefWidth="320.0" text="Produtos Cadastrados">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <AnchorPane prefHeight="800.0" prefWidth="285.0" style="-fx-background-color: #2D3447;" />
+      <AnchorPane prefHeight="600.0" prefWidth="285.0" style="-fx-background-color: #2D3447;" />
    </children>
 </Pane>
