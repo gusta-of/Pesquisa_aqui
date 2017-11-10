@@ -25,7 +25,7 @@ public class AdminDao {
 		con = cf.getConnection();
 	}
 
-	String sqlSalvar = "INSERT INTO pesquisa_aqui.admin"
+	String sqlSalvar = "INSERT INTO admin"
 	+ "(nome,sobrenome, usuario, email,  cpf, senha, confirmarSenha, dataNascimento)"
 	+ "VALUES(?,?,?,?,?,?,?,?)";
 

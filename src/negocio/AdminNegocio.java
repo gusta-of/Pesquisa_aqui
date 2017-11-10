@@ -59,6 +59,7 @@ public class AdminNegocio {
 		}
 
 		if (sb.toString().equals("")) {
+		   adminDao.salvar(admin);
 			salvo = "salvo";
 		} else {
 			salvo = sb.toString();
