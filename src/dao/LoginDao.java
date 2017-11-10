@@ -1,14 +1,13 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 import daoUtil.ConnectionFactory;
+import model.Admin;
 
 public class LoginDao {
    
-   private PreparedStatement stmt;
    private Connection con;
    private Statement stm;
    
@@ -21,4 +20,8 @@ public class LoginDao {
    
    String sqlLogar = "SELECT * FROM admin WHERE usuario = usurario AND senha = senha";
    
+   public String login(Admin admin) {
+      String login = "falha";
+      return null;
+   }
 }
