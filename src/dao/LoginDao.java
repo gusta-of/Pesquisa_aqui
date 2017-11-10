@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 import daoUtil.ConnectionFactory;
@@ -8,6 +9,7 @@ import model.Admin;
 
 public class LoginDao {
    
+   private PreparedStatement stmt;
    private Connection con;
    private Statement stm;
    
