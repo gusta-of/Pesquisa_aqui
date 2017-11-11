@@ -1,4 +1,4 @@
- package controller;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,12 +25,12 @@ public class LoginController {
 
 	@FXML
 	private ImageView imgLogo, imgBusto, imgCadeado, imgPc, imgLoad2;
-	
+
 	@FXML
 	private Label lblDados;
 
 	public void logar() throws IOException {
-		
+
 		String login;
 		String senha;
 		login = txtUser.getText();
@@ -38,7 +38,7 @@ public class LoginController {
 		if (login.equals("usuario") && senha.equals("123456")) {
 			URL arquivoFxml;
 			arquivoFxml = getClass().getResource("/visao/Cadastro de fornecedor.fxml");
-			Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml); 
+			Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 			apnPaneLogin.getChildren().clear();
 			apnPaneLogin.getChildren().add(fxmlParent);
 			imgLoad2.setVisible(true);
@@ -47,7 +47,7 @@ public class LoginController {
 			lblDados.setVisible(true);
 		}
 	}
-	
+
 	public void limpar() {
 		txtUser.setText("");
 		txtSenha.setText("");

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
+         <children>
+            <ImageView fx:id="imgLogo" fitHeight="101.0" fitWidth="149.0" layoutX="15.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../workspace/Pesquisa_aqui/src/resouces/img/Modelo_8.jpg" />
+               </image>
+            </ImageView>
+            <Button contentDisplay="RIGHT" layoutX="36.0" layoutY="210.0" mnemonicParsing="false" style="-fx-background-color: #283b70;">
+               <graphic>
+                  <ImageView id="btinicio" fitHeight="48.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resouces/img/btinicio.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button layoutX="36.0" layoutY="285.0" mnemonicParsing="false" style="-fx-background-color: #283b70;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resouces/img/btajuda.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="36.0" layoutY="359.0" mnemonicParsing="false" style="-fx-background-color: #283b70;">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resouces/img/btsobre.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
+         </children>
+      </AnchorPane>
+      <Pane layoutX="203.0" layoutY="37.0" prefHeight="230.0" prefWidth="235.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff3d" height="230.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="235.0" />
+            <Label layoutX="101.0" layoutY="14.0" text="Makro" />
+            <Label layoutX="56.0" layoutY="199.0" text="Preço total: 350 Temers" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resouces/img/makro.jpg" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane layoutX="501.0" layoutY="37.0" prefHeight="230.0" prefWidth="235.0">
+         <children>
+            <Label layoutX="83.0" layoutY="15.0" text="Fornecedor 2" />
+         </children></Pane>
+      <Pane layoutX="203.0" layoutY="300.0" prefHeight="230.0" prefWidth="235.0">
+         <children>
+            <Label layoutX="81.0" layoutY="18.0" text="Fornecedor 3" />
+         </children></Pane>
+      <Pane layoutX="501.0" layoutY="300.0" prefHeight="230.0" prefWidth="235.0">
+         <children>
+            <Label layoutX="100.0" layoutY="16.0" text="Fornecedor  4" />
+         </children></Pane>
+      <ImageView fitHeight="76.0" fitWidth="162.0" layoutX="346.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" rotate="-24.4">
+         <image>
+            <Image url="@../resouces/img/melhor.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
