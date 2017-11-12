@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.sql.SQLException;
@@ -11,7 +12,9 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -21,6 +24,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import model.Fornecedor;
 import negocio.FornecedorNegocio;
@@ -28,7 +33,12 @@ import negocio.FornecedorNegocio;
 public class FornecedorController implements Initializable, Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	@FXML
+	private AnchorPane acPane;
+	
+	@FXML
+	private ImageView btAjuda, imgInicio, btSobre, imgLogo, imgProduto, imgAdmin;
 	@FXML
 	private Pane pnPaneF;
 
@@ -48,7 +58,7 @@ public class FornecedorController implements Initializable, Serializable {
 	private TextField txNome, txEndereco;
 
 	@FXML
-	private Button btSalvar, btCancelar;
+	private Button btSalvar, btCancelar, btnLogin, btCadProduto, btCadAdmin, btInicio;
 
 	@FXML
 	private TableView<Fornecedor> tvTable;
@@ -154,6 +164,30 @@ public class FornecedorController implements Initializable, Serializable {
 	public void setaValores(Fornecedor fornecedor) {
 		txNome.setText(fornecedor.getNome());
 		txEndereco.setText(fornecedor.getEndereco());
+	}
+	
+	public void irParaProduto() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Cadastro de produtos.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
+	
+	public void irParaAdmin() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Cadastro de administrador.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
+	
+	public void irParaInicio() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
 	}
 
 }

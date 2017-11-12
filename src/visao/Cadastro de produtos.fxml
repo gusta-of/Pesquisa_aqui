@@ -1,40 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasdas;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProdutoController">
    <children>
-      <Label fx:id="LbTituloPrincipal" layoutX="422.0" layoutY="37.0" text="Cadastro de Produto" textFill="#2100a7eb">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbcodigo" layoutX="298.0" layoutY="190.0" text="Código:" />
-      <TextField fx:id="txproduto" layoutX="357.0" layoutY="109.0" prefHeight="25.0" prefWidth="426.0" />
-      <Label fx:id="lbdescricao" layoutX="297.0" layoutY="229.0" text="Descrição:" />
-      <Label fx:id="lbvalor" layoutX="299.0" layoutY="151.0" text="Valor:" />
-      <TextField fx:id="txdescricao" layoutX="356.0" layoutY="229.0" prefHeight="84.0" prefWidth="426.0" />
-      <TextField fx:id="txvalor" layoutX="357.0" layoutY="147.0" prefHeight="25.0" prefWidth="426.0" />
-      <TextField fx:id="txcodigo" layoutX="356.0" layoutY="186.0" prefHeight="25.0" prefWidth="426.0" />
-      <TableView fx:id="tbtabela" layoutX="285.0" layoutY="449.0" prefHeight="151.0" prefWidth="515.0">
-        <columns>
-          <TableColumn fx:id="tbproduto" prefWidth="92.0" text="Produto" />
-          <TableColumn fx:id="tbvalor" prefWidth="96.0" text="Valor" />
-            <TableColumn fx:id="tbdescricao" minWidth="0.0" prefWidth="191.0" text="Descrição" />
-            <TableColumn fx:id="tbcodigo" prefWidth="138.0" text="Código" />
-        </columns>
-      </TableView>
-      <Button fx:id="btcancelar" layoutX="634.0" layoutY="328.0" mnemonicParsing="false" text="Cancelar" />
-      <Button fx:id="btsalvar" layoutX="717.0" layoutY="328.0" mnemonicParsing="false" text="Salvar" />
-      <Label fx:id="lbProduto" layoutX="296.0" layoutY="113.0" prefHeight="17.0" prefWidth="54.0" text="Produto:" />
-      <Label fx:id="lbTituloTabela" layoutX="413.0" layoutY="381.0" prefHeight="39.0" prefWidth="320.0" text="Produtos Cadastrados">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <AnchorPane prefHeight="600.0" prefWidth="285.0" style="-fx-background-color: #2D3447;" />
+      <Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasdas;">
+         <children>
+            <Label fx:id="LbTituloPrincipal" layoutX="341.0" layoutY="37.0" text="Cadastro de Produto" textFill="#2100a7eb">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbcodigo" layoutX="186.0" layoutY="228.0" text="Código:*" />
+            <TextField fx:id="txproduto" layoutX="278.0" layoutY="151.0" prefHeight="25.0" prefWidth="300.0" />
+            <Label fx:id="lbdescricao" layoutX="186.0" layoutY="258.0" text="Descrição:*" />
+            <Label fx:id="lbvalor" layoutX="465.0" layoutY="193.0" text="Valor:*" />
+            <TextField fx:id="txdescricao" layoutX="278.0" layoutY="258.0" prefHeight="84.0" prefWidth="300.0" />
+            <TextField fx:id="txvalor" layoutX="510.0" layoutY="189.0" prefHeight="25.0" prefWidth="68.0" />
+            <TextField fx:id="txcodigo" layoutX="278.0" layoutY="224.0" prefHeight="25.0" prefWidth="300.0" />
+            <TableView fx:id="tbtabela" layoutX="174.0" layoutY="449.0" prefHeight="151.0" prefWidth="626.0">
+               <columns>
+                  <TableColumn fx:id="tbproduto" prefWidth="92.0" text="Produto" />
+                  <TableColumn fx:id="tbvalor" prefWidth="176.0" text="Valor" />
+                  <TableColumn fx:id="tbdescricao" minWidth="0.0" prefWidth="184.0" text="Descrição" />
+                  <TableColumn fx:id="tbcodigo" prefWidth="173.0" text="Código" />
+               </columns>
+            </TableView>
+            <Button fx:id="btcancelar" layoutX="456.0" layoutY="352.0" mnemonicParsing="false" text="Cancelar" />
+            <Button fx:id="btsalvar" layoutX="530.0" layoutY="352.0" mnemonicParsing="false" text="Salvar" />
+            <Label fx:id="lbProduto" layoutX="186.0" layoutY="155.0" prefHeight="17.0" prefWidth="54.0" text="Produto:*" />
+            <Label fx:id="lbTituloTabela" layoutX="340.0" layoutY="397.0" prefHeight="39.0" prefWidth="320.0" text="Produtos Cadastrados">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txatacado" layoutX="278.0" layoutY="113.0" prefHeight="25.0" prefWidth="300.0" />
+            <Label fx:id="lbAtacado" layoutX="186.0" layoutY="117.0" prefHeight="17.0" prefWidth="92.0" text="Supermercado:*" />
+            <TextField fx:id="txMarca" layoutX="278.0" layoutY="189.0" prefHeight="25.0" prefWidth="174.0" />
+            <Label fx:id="lbMarca" layoutX="186.0" layoutY="193.0" prefHeight="17.0" prefWidth="54.0" text="Marca:*" />
+            <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
+               <children>
+                  <ImageView fx:id="imgLogo" fitHeight="101.0" fitWidth="149.0" layoutX="15.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../workspace/Pesquisa_aqui/src/resouces/img/Modelo_8.jpg" />
+                     </image>
+                  </ImageView>
+                  <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
+                  <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
+                  <ImageView fx:id="imgCadFornecedor" fitHeight="48.0" fitWidth="94.0" layoutX="44.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <image>
+                        <Image url="@../resouces/img/btajuda.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btCadFornecedor" layoutX="43.0" layoutY="284.0" mnemonicParsing="false" onAction="#irParaFornecedor" opacity="0.0" prefHeight="56.0" prefWidth="82.0" style="-fx-background-color: #283b70;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView fx:id="imgCadAdmin" fitHeight="48.0" fitWidth="94.0" layoutX="41.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resouces/img/btsobre.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btCadAdmin" layoutX="45.0" layoutY="364.0" mnemonicParsing="false" onAction="#irParaAdmin" opacity="0.0" prefHeight="48.0" prefWidth="86.0" style="-fx-background-color: #283b70;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView id="btinicio" fx:id="imgInicio" fitHeight="48.0" fitWidth="94.0" layoutX="41.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resouces/img/btinicio.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btInicio" contentDisplay="RIGHT" layoutX="34.0" layoutY="220.0" mnemonicParsing="false" onAction="#irParaInicio" opacity="0.0" prefHeight="48.0" prefWidth="105.0" style="-fx-background-color: #283b70;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Label fx:id="lbMsgSup" layoutX="588.0" layoutY="117.0" prefHeight="17.0" prefWidth="201.0" />
+            <Label fx:id="lbMsgProduto" layoutX="588.0" layoutY="155.0" prefHeight="17.0" prefWidth="201.0" />
+            <Label fx:id="lbMsgMarca" layoutX="588.0" layoutY="193.0" prefHeight="17.0" prefWidth="92.0" />
+            <Label fx:id="lbMsgCod" layoutX="588.0" layoutY="228.0" prefHeight="17.0" prefWidth="201.0" />
+            <Label fx:id="lbMsgDesc" layoutX="589.0" layoutY="258.0" prefHeight="17.0" prefWidth="201.0" />
+            <Label fx:id="lbMsgValor" layoutX="689.0" layoutY="193.0" prefHeight="17.0" prefWidth="92.0" />
+         </children>
+      </Pane>
    </children>
-</Pane>
+</AnchorPane>

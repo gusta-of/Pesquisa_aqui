@@ -1,31 +1,37 @@
 package negocio;
 
+import java.util.List;
+
 import model.Produto;
 
 public class ProdutoNegocio {
-	
+
 	public String salvar() {
-		
+
 		return null;
 	}
-	
-	
+
 	public String validarCampos(Produto produto) {
 		StringBuilder inconsistencias = new StringBuilder();
-		if(produto.getCodigo() <= 0) {
-			inconsistencias.append("\nO produto não pode ser cadastrado com um codigo menor ou igual a 0.");
+		if (produto.getCodigo() <= 0) {
+			inconsistencias.append("\nO produto nï¿½o pode ser cadastrado com um codigo menor ou igual a 0.");
 		}
-		if(produto.getNomeProduto().equals("") || produto.getNomeProduto() == null) {
-			inconsistencias.append("\nO nome do produto é obrigatório.");
+		if (produto.getNomeProduto().equals("") || produto.getNomeProduto() == null) {
+			inconsistencias.append("\nO nome do produto ï¿½ obrigatï¿½rio.");
 		}
-		if(produto.getDescricao().equals("") || produto.getDescricao() == null) {
-			inconsistencias.append("\nA descrição do produto é obrigatório.");
+		if (produto.getDescricao().equals("") || produto.getDescricao() == null) {
+			inconsistencias.append("\nA descriï¿½ï¿½o do produto ï¿½ obrigatï¿½rio.");
 		}
-		if(produto.getValor() <= 0) {
-			inconsistencias.append("\nO produto não pode ser cadastrado com valor menor ou igual a 0.");
+		if (produto.getValor() <= 0) {
+			inconsistencias.append("\nO produto nï¿½o pode ser cadastrado com valor menor ou igual a 0.");
 		}
 		System.out.println(inconsistencias.toString());
-		return  inconsistencias.toString();
+		return inconsistencias.toString();
+	}
+
+	public List<Produto> listarProduto() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

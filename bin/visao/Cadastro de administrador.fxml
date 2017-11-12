@@ -1,55 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController">
+<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController">
    <children>
-      <MenuBar fx:id="mbMenuBar" prefHeight="600.0" prefWidth="800.0">
-        <menus>
-          <Menu fx:id="mPesquisa" mnemonicParsing="false" text="Pesquisar" />
-          <Menu fx:id="mAjuda" mnemonicParsing="false" text="Ajuda">
-            <items>
-              <MenuItem fx:id="miSobre" mnemonicParsing="false" text="Sobre" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <Label fx:id="ldTitulo" layoutX="178.0" layoutY="25.0" prefHeight="53.0" prefWidth="437.0" text="Cadastro de Administrador" textAlignment="JUSTIFY" underline="true">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbnome" layoutX="11.0" layoutY="102.0" prefHeight="17.0" prefWidth="43.0" text="Nome:*" />
-      <Label fx:id="lbsobrenome" layoutX="228.0" layoutY="102.0" text="Sobrenome:*" />
-      <Label fx:id="lbuser" layoutX="12.0" layoutY="239.0" text="Usuario:*" />
-      <Label fx:id="lbsenha" layoutX="11.0" layoutY="274.0" text="Senha:*" />
-      <TextField fx:id="txnome" layoutX="90.0" layoutY="95.0" prefHeight="25.0" prefWidth="128.0" promptText="Campo obrigatório" />
-      <TextField fx:id="txsobrenome" layoutX="303.0" layoutY="95.0" prefHeight="25.0" prefWidth="146.0" promptText="Campo obrigatório" />
-      <TextField fx:id="txCpf" layoutX="88.0" layoutY="130.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-      <DatePicker fx:id="dpData" layoutX="89.0" layoutY="164.0" prefHeight="25.0" prefWidth="201.0" />
-      <TextField fx:id="txemail" layoutX="91.0" layoutY="199.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-      <TextField fx:id="txuser" layoutX="90.0" layoutY="233.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-      <PasswordField fx:id="txsenha" layoutX="89.0" layoutY="267.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-      <PasswordField fx:id="txsConfirm" layoutX="90.0" layoutY="302.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-      <Button fx:id="btSalvar" layoutX="11.0" layoutY="378.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
-      <Button fx:id="btCancelar" layoutX="69.0" layoutY="378.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-      <Label fx:id="lbConfirm" layoutX="10.0" layoutY="309.0" text="Conf. Senha:*" />
-      <Label fx:id="lbCpf" layoutX="11.0" layoutY="129.0" prefHeight="25.0" prefWidth="31.0" text="CPF:*" />
-      <Label fx:id="lbemail" layoutX="11.0" layoutY="206.0" text="Email:*" />
-      <TableView fx:id="tvTable" layoutY="413.0" onMouseClicked="#edit" prefHeight="187.0" prefWidth="800.0">
-        <columns>
-            <TableColumn fx:id="colUser" prefWidth="127.0" text="Usuario" />
-            <TableColumn fx:id="colEmail" prefWidth="221.0" text="Email" />
-          <TableColumn fx:id="colNome" minWidth="0.0" prefWidth="105.0" text="Nome" />
-            <TableColumn fx:id="colSobre" prefWidth="198.0" text="Sobrenome" />
-            <TableColumn fx:id="colCpf" minWidth="0.0" prefWidth="148.0" text="CPF" />
-        </columns>
-      </TableView>
-      <Label fx:id="lbdata" layoutX="10.0" layoutY="170.0" prefHeight="17.0" prefWidth="64.0" text="Data Nasc:*" />
-      <Label fx:id="lbMsg" layoutX="299.0" layoutY="125.0" prefHeight="205.0" prefWidth="250.0" />
+      <Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Label fx:id="ldTitulo" layoutX="222.0" layoutY="24.0" prefHeight="53.0" prefWidth="437.0" text="Cadastro de Administrador" textAlignment="JUSTIFY" underline="true">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbnome" layoutX="192.0" layoutY="94.0" prefHeight="17.0" prefWidth="43.0" text="Nome:*" />
+            <Label fx:id="lbsobrenome" layoutX="400.0" layoutY="94.0" text="Sobrenome:*" />
+            <Label fx:id="lbuser" layoutX="181.0" layoutY="231.0" text="Usuario:*" />
+            <Label fx:id="lbsenha" layoutX="178.0" layoutY="266.0" text="Senha:*" />
+            <TextField fx:id="txnome" layoutX="256.0" layoutY="90.0" prefHeight="25.0" prefWidth="128.0" promptText="Campo obrigatório" />
+            <TextField fx:id="txsobrenome" layoutX="473.0" layoutY="90.0" prefHeight="25.0" prefWidth="146.0" promptText="Campo obrigatório" />
+            <TextField fx:id="txCpf" layoutX="256.0" layoutY="123.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <DatePicker fx:id="dpData" layoutX="256.0" layoutY="158.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="txemail" layoutX="256.0" layoutY="194.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <TextField fx:id="txuser" layoutX="256.0" layoutY="227.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <PasswordField fx:id="txsenha" layoutX="256.0" layoutY="262.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <PasswordField fx:id="txsConfirm" layoutX="256.0" layoutY="302.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <Button fx:id="btSalvar" layoutX="296.0" layoutY="339.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
+            <Button fx:id="btCancelar" layoutX="369.0" layoutY="339.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+            <Label fx:id="lbConfirm" layoutX="178.0" layoutY="306.0" text="Conf. Senha:*" />
+            <Label fx:id="lbCpf" layoutX="190.0" layoutY="123.0" prefHeight="25.0" prefWidth="31.0" text="CPF:*" />
+            <Label fx:id="lbemail" layoutX="187.0" layoutY="198.0" text="Email:*" />
+            <TableView fx:id="tvTable" layoutX="173.0" layoutY="413.0" onMouseClicked="#edit" prefHeight="187.0" prefWidth="627.0">
+               <columns>
+                  <TableColumn fx:id="colUser" prefWidth="127.0" text="Usuario" />
+                  <TableColumn fx:id="colEmail" prefWidth="122.0" text="Email" />
+                  <TableColumn fx:id="colNome" minWidth="0.0" prefWidth="130.0" text="Nome" />
+                  <TableColumn fx:id="colSobre" prefWidth="102.0" text="Sobrenome" />
+                  <TableColumn fx:id="colCpf" minWidth="0.0" prefWidth="145.0" text="CPF" />
+               </columns>
+            </TableView>
+            <Label fx:id="lbdata" layoutX="181.0" layoutY="162.0" prefHeight="17.0" prefWidth="64.0" text="Data Nasc:*" />
+            <AnchorPane layoutX="-1.0" prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
+               <children>
+                  <ImageView fx:id="imgLogo" fitHeight="101.0" fitWidth="149.0" layoutX="15.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../workspace/Pesquisa_aqui/src/resouces/img/Modelo_8.jpg" />
+                     </image>
+                  </ImageView>
+                  <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
+                  <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
+                  <Button fx:id="btnLogin" layoutX="61.0" layoutY="545.0" mnemonicParsing="false" onAction="#logar" text="Login" />
+                  <ImageView id="btinicio" fx:id="imgInicio" fitHeight="48.0" fitWidth="94.0" layoutX="41.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resouces/img/btinicio.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btInicio" contentDisplay="RIGHT" layoutX="34.0" layoutY="204.0" mnemonicParsing="false" onAction="#irParaInicio" opacity="0.0" prefHeight="53.0" prefWidth="103.0" style="-fx-background-color: #283b70;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="52.0" layoutY="365.0" prefHeight="53.0" prefWidth="71.0" text="Sobre" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btCadProduto" layoutX="36.0" layoutY="365.0" mnemonicParsing="false" opacity="0.0" prefHeight="53.0" prefWidth="103.0" style="-fx-background-color: #283b70;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label fx:id="lbFornecedor" layoutX="32.0" layoutY="294.0" prefHeight="38.0" prefWidth="111.0" text="Fornecedor" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="Arial" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbAjuda" layoutX="49.0" layoutY="294.0" prefHeight="38.0" prefWidth="94.0" text="Ajuda" textFill="WHITE" visible="false">
+                     <font>
+                        <Font name="Arial" size="26.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btCadFornecedor" layoutX="33.0" layoutY="289.0" mnemonicParsing="false" onAction="#trocarBotoes" opacity="0.0" prefHeight="48.0" prefWidth="103.0" style="-fx-background-color: #283b70;" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Label fx:id="lbMsgNeS" layoutX="627.0" layoutY="94.0" prefHeight="17.0" prefWidth="146.0" />
+            <Label fx:id="lbMsgConfSenha" layoutX="469.0" layoutY="306.0" prefHeight="17.0" prefWidth="146.0" />
+            <Label fx:id="lbMsgCpf" layoutX="473.0" layoutY="127.0" prefHeight="17.0" prefWidth="146.0" />
+            <Label fx:id="lbMsgData" layoutX="473.0" layoutY="162.0" prefHeight="17.0" prefWidth="146.0" />
+            <Label fx:id="lbMsgEmail" layoutX="473.0" layoutY="198.0" prefHeight="17.0" prefWidth="146.0" />
+            <Label fx:id="lbMsgUser" layoutX="473.0" layoutY="231.0" prefHeight="17.0" prefWidth="146.0" />
+            <Label fx:id="lbMsgSenha" layoutX="469.0" layoutY="266.0" prefHeight="17.0" prefWidth="146.0" />
+         </children>
+      </Pane>
    </children>
-</Pane>
+</AnchorPane>

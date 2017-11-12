@@ -29,10 +29,10 @@ public class LoginController {
 	@FXML
 	private Label lblDados;
 
-	public void logar() throws IOException {
-
-		String login;
-		String senha;
+	public boolean logar() throws IOException {
+		
+		String login = "";
+		String senha = "";
 		login = txtUser.getText();
 		senha = txtSenha.getText();
 		if (login.equals("usuario") && senha.equals("123456")) {
@@ -46,6 +46,31 @@ public class LoginController {
 			lblDados.setText("Dados incoretos!");
 			lblDados.setVisible(true);
 		}
+		
+		return true;
+	}
+	
+	public boolean validarLog() throws IOException {
+		
+//		boolean validar = false;
+//		if(this.logar() != true) {
+//			System.out.println("Algo errado na validação de logar!");
+//			validar = false;
+//		}else {
+//			validar = true;
+//			System.out.println("Deu certo!*******");
+//		}
+//		return validar;
+		return true;
+	}
+	
+	public void cadastrar() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Cadastro de Administrador.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		apnPaneLogin.getChildren().clear();
+		apnPaneLogin.getChildren().add(fxmlParent);
+		imgLoad2.setVisible(true);
 	}
 
 	public void limpar() {

@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.sql.SQLException;
@@ -12,17 +13,19 @@ import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import model.Admin;
 import negocio.AdminNegocio;
@@ -32,25 +35,26 @@ public class AdminController implements Initializable, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@FXML
+	private ImageView btAjuda, btSobre, imgLogo, imgInicio;
+	
+	@FXML
+	private AnchorPane acPane;
+
+	@FXML
 	private Pane pnPane;
-
-	@FXML
-	private MenuBar mbMenuBar;
-
-	@FXML
-	private Menu mPesquisa, mAjuda;
 
 	@FXML
 	private MenuItem miSobre;
 
 	@FXML
-	private Label ldTitulo, lbnome, lbsobrenome, lbuser, lbsenha, lbConfirm, lbCpf, lbemail, lbdata, lbMsg;
+	private Label ldTitulo, lbnome, lbsobrenome, lbuser, lbsenha, lbConfirm, lbCpf, lbemail, lbdata, lbMsg,
+	lbMsgNeS, lbMsgCpf, lbMsgData, lbMsgEmail, lbMsgUser, lbMsgSenha, lbMsgConfSenha, lbAjuda, lbFornecedor;
 
 	@FXML
 	private TextField txnome, txCpf, txsobrenome, txuser, txsenha, txsConfirm, txemail;
 
 	@FXML
-	private Button btCancelar, btSalvar;
+	private Button btCancelar, btSalvar, btnLogin, btCadFornecedor, btCadProduto, btInicio;
 
 	@FXML
 	private TableView<Admin> tvTable;
@@ -72,6 +76,7 @@ public class AdminController implements Initializable, Serializable {
 
 	@FXML
 	private DatePicker dpData;
+	
 
 	List<Admin> admins = new ArrayList<Admin>();
 	Main main = null;
@@ -92,7 +97,7 @@ public class AdminController implements Initializable, Serializable {
 	}
 
 	@FXML
-	public void edit() {
+	public void edit() throws IOException {
 
 		Admin admin = new Admin();
 		admin = (Admin) tvTable.getSelectionModel().getSelectedItem();
@@ -100,7 +105,6 @@ public class AdminController implements Initializable, Serializable {
 		setaValores(admin);
 		btSalvar.setText("salvar");
 		btCancelar.setText("Cancelar");
-
 	}
 
 	public void setarDadosAdmin() {
@@ -226,4 +230,58 @@ public class AdminController implements Initializable, Serializable {
 
 	}
 
-}
+	public void logar() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/LoginAdm.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+
+	}
+	
+//	public void irParaFornecedor() throws IOException {
+//		URL arquivoFxml;
+//		arquivoFxml = getClass().getResource("/visao/Cadastro de fornecedor.fxml");
+//		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+//		acPane.getChildren().clear();
+//		acPane.getChildren().add(fxmlParent);
+//	}
+
+//	
+//	public void irParaProduto() throws IOException {
+//		URL arquivoFxml;
+//		arquivoFxml = getClass().getResource("/visao/Cadastro de produtos.fxml");
+//		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+//		acPane.getChildren().clear();
+//		acPane.getChildren().add(fxmlParent);
+//	}
+//	
+	public void irParaInicio() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
+	
+	
+	LoginController lg = new LoginController();
+	
+	
+	public void trocarBotoes() throws IOException {
+		if(lg.validarLog() == true) {
+			URL arquivoFxml;
+			arquivoFxml = getClass().getResource("/visao/Cadastro de fornecedor.fxml");
+			Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+			acPane.getChildren().clear();
+			acPane.getChildren().add(fxmlParent);
+		}
+	}
+	
+	@FXML
+	public void nomear() {
+			lbFornecedor.setVisible(true);
+		}
+	}
+	
+
