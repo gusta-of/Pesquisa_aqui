@@ -1,19 +1,19 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.jdbc.PreparedStatement;
-
 import daoUtil.ConnectionFactory;
 import model.Admin;
 
 public class LoginDao {
 
+	private PreparedStatement stmt;
 	private Connection con;
 	private Statement stm;
 
@@ -24,7 +24,7 @@ public class LoginDao {
 		con = cf.getConnection();
 	}
 
-	String sqlLogar = "SELECT * FROM admin WHERE usuario = usurario AND senha = senha";
+	String sqlLogar = "SELECT * FROM admin WHERE usuario = usuario AND senha = senha";
 
 	public List<Admin> listarAdmin() {
 		List<Admin> lista = new ArrayList<Admin>();
@@ -48,20 +48,18 @@ public class LoginDao {
 		}
 	}
 
-	public Admin login(String login, String senha) throws SQLException {
-		Admin usuario = null;
-		String sql = "SELECT * FROM admin WHERE usuario =? AND senha=?";
+	public boolean login(Admin admin) throws SQLException {
+		String sql = "SELECT usuario, senha FROM admin WHERE usuario = usuario AND senha = senha";
+		
 		con.setAutoCommit(false);
-		PreparedStatement ts = (PreparedStatement) con.prepareStatement(sql);
-		ts.setObject(1, usuario);
-		ts.setObject(2, senha);
-		ResultSet rs = ts.executeQuery();
-		if (rs.next()) {
-			usuario = new Admin();
-			usuario.setUsuario("usuario");
-			usuario.setSenha("123456");
-			usuario.addAdm(usuario);
-		}
-		return usuario;
+		stmt = con.prepareStatement(sql);
+		
+		stmt.setString(1, admin.getUsuario());
+		stmt.setString(2, admin.getSenha());
+		
+		stmt.executeUpdate();
+		con.commit();
+			
+		return true;
 	}
 }

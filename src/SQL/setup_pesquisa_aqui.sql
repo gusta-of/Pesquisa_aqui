@@ -30,4 +30,8 @@ CREATE TABLE IF NOT EXISTS fornecedores(
 INSERT INTO fornecedores(nome, endereco)
 VALUES ("teste", "Rua teste");
 
+CREATE TABLE IF NOT EXISTS admin (
+   
+);
+
 USE pesquisa_aqui;

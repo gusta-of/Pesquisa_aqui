@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.LoginController;
 import dao.LoginDao;
 import model.Admin;
 
@@ -17,16 +18,16 @@ public class LoginNegocio {
 		return admins;
 	}
 
-	public String validarLog() throws IOException {
-		String login = "falha";
-		if (usuario == null) {
-			System.out.println("Erro na lista de usuario!");
-			login = "falhou";
-		} else {
-			login = "logado";
-		}
-		return login;
-
-	}
+//	public String validarLog(Admin admin) throws IOException {
+//		String login = "falha";
+//		if (verificaSeEUsuario() == false) {
+//			System.out.println("Erro na lista de usuario!");
+//			login = "falhou";
+//		} else {
+//			login = "logado";
+//		}
+//		return login;
+//
+//	}
 
 }

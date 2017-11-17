@@ -94,7 +94,6 @@ public class AdminController implements Initializable, Serializable {
 		if(lc.validarLogin() == true) {
 			List<Admin> adminList = listarAdmin();
 			populaView(adminList);
-			idTestes.setDisable(false);
 		}
 	}
 
