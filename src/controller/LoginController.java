@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import negocio.LoginNegocio;
 
 public class LoginController {
 
@@ -30,12 +31,8 @@ public class LoginController {
 	private Label lblDados;
 
 	public boolean logar() throws IOException {
-		
-		String login = "";
-		String senha = "";
-		login = txtUser.getText();
-		senha = txtSenha.getText();
-		if (login.equals("usuario") && senha.equals("123456")) {
+		LoginNegocio ln = new LoginNegocio();
+		if (ln.validarLog().equals("logado")) {
 			URL arquivoFxml;
 			arquivoFxml = getClass().getResource("/visao/Cadastro de fornecedor.fxml");
 			Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
@@ -43,24 +40,16 @@ public class LoginController {
 			apnPaneLogin.getChildren().add(fxmlParent);
 			imgLoad2.setVisible(true);
 		} else {
-			lblDados.setText("Dados incoretos!");
-			lblDados.setVisible(true);
+//			lblDados.setText("Dados incoretos!");
+//			lblDados.setVisible(true);
+			System.out.println("Nao entrou!");
+			return false;
 		}
-		
 		return true;
 	}
 	
-	public boolean validarLog() throws IOException {
+	public boolean validarLogin() {
 		
-//		boolean validar = false;
-//		if(this.logar() != true) {
-//			System.out.println("Algo errado na validação de logar!");
-//			validar = false;
-//		}else {
-//			validar = true;
-//			System.out.println("Deu certo!*******");
-//		}
-//		return validar;
 		return true;
 	}
 	

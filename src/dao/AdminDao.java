@@ -136,4 +136,21 @@ public class AdminDao {
 		}
 		return salvo;
 	}
+	
+	public Admin login(String login, String senha) throws SQLException{
+		Admin usuario = null;
+		String sql = "SELECT * FROM admin WHERE usuario =? AND senha=?";
+		con.setAutoCommit(false);
+		PreparedStatement ts = (PreparedStatement) con.prepareStatement(sql);
+		ts.setObject(1, usuario);
+		ts.setObject(2, senha);
+		ResultSet rs = ts.executeQuery();
+		if(rs.next()) {
+			usuario = new Admin();
+			usuario.setUsuario("usuario");
+			usuario.setSenha("123456");
+			usuario.addAdm(usuario);
+		}
+		return usuario;
+	}
 }

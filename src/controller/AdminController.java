@@ -29,6 +29,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import model.Admin;
 import negocio.AdminNegocio;
+import negocio.LoginNegocio;
 
 public class AdminController implements Initializable, Serializable {
 
@@ -54,7 +55,7 @@ public class AdminController implements Initializable, Serializable {
 	private TextField txnome, txCpf, txsobrenome, txuser, txsenha, txsConfirm, txemail;
 
 	@FXML
-	private Button btCancelar, btSalvar, btnLogin, btCadFornecedor, btCadProduto, btInicio;
+	private Button btCancelar, btSalvar, btnLogin, btCadFornecedor, btCadProduto, btInicio, idTestes;
 
 	@FXML
 	private TableView<Admin> tvTable;
@@ -83,12 +84,18 @@ public class AdminController implements Initializable, Serializable {
 	ObservableList<Admin> adminsView = null;
 	AdminNegocio adminNegocio = new AdminNegocio();
 	Admin admin = new Admin();
+	LoginNegocio ln = new LoginNegocio();
+	LoginController lc = new LoginController();
 
 	// Esse m�todo � chamado ao inicializar a aplica��o, igual um construtor.
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		List<Admin> adminList = listarAdmin();
-		populaView(adminList);
+		
+		if(lc.validarLogin() == true) {
+			List<Admin> adminList = listarAdmin();
+			populaView(adminList);
+			idTestes.setDisable(false);
+		}
 	}
 
 	private List<Admin> listarAdmin() {
@@ -239,43 +246,29 @@ public class AdminController implements Initializable, Serializable {
 
 	}
 	
-//	public void irParaFornecedor() throws IOException {
-//		URL arquivoFxml;
-//		arquivoFxml = getClass().getResource("/visao/Cadastro de fornecedor.fxml");
-//		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
-//		acPane.getChildren().clear();
-//		acPane.getChildren().add(fxmlParent);
-//	}
+	public void irParaFornecedor() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Cadastro de fornecedor.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
 
-//	
-//	public void irParaProduto() throws IOException {
-//		URL arquivoFxml;
-//		arquivoFxml = getClass().getResource("/visao/Cadastro de produtos.fxml");
-//		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
-//		acPane.getChildren().clear();
-//		acPane.getChildren().add(fxmlParent);
-//	}
-//	
+	
+	public void irParaProduto() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Cadastro de produtos.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
+	
 	public void irParaInicio() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
-	}
-	
-	
-	LoginController lg = new LoginController();
-	
-	
-	public void trocarBotoes() throws IOException {
-		if(lg.validarLog() == true) {
-			URL arquivoFxml;
-			arquivoFxml = getClass().getResource("/visao/Cadastro de fornecedor.fxml");
-			Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
-			acPane.getChildren().clear();
-			acPane.getChildren().add(fxmlParent);
-		}
 	}
 	
 	@FXML
