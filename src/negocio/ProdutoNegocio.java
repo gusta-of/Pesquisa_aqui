@@ -3,11 +3,12 @@ package negocio;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.ProdutoDao;
 import model.Produto;
 
 public class ProdutoNegocio {
 	
-	Produto 
+	ProdutoDao produtoDao = new ProdutoDao();
 
 	public String salvar() {
 
@@ -17,7 +18,7 @@ public class ProdutoNegocio {
 	public List<Produto> listarProduto() {
 		List<Produto> produtos  = new ArrayList<Produto>();
 		produtos = produtoDao.listarProduto();
-		return null;
+		return produtos;
 	}
 
 }
