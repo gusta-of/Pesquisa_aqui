@@ -60,10 +60,8 @@ public class MainAdminController implements Initializable, Serializable {
 
 	public void initialize(URL location, ResourceBundle resources) {
 
-		if (lc.validarLogin() == true) {
 			List<Admin> adminList = listarAdmin();
 			populaView(adminList);
-		}
 	}
 
 	private List<Admin> listarAdmin() {

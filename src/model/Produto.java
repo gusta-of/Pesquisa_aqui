@@ -4,21 +4,17 @@ import java.util.ArrayList;
 
 public class Produto {
 
+	private int id;
+	private int idFornecedor;
 	private int codigo;
 	private String nomeProduto;
 	private String descricao;
 	private double valor;
-	private static int contador;
 	ArrayList<Produto> ListaPro;
 
 	public Produto() {
 		super();
 		ListaPro = new ArrayList<>();
-		contador++;
-	}
-	
-	public static int getContador() {
-		return contador;
 	}
 
 	public Produto(int codigo, String nomeProduto, String descricao, double valor) {
@@ -27,6 +23,22 @@ public class Produto {
 		this.descricao = descricao;
 		this.valor = valor;
 		ListaPro = new ArrayList<>();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getIdFornecedor() {
+		return idFornecedor;
+	}
+
+	public void setIdFornecedor(int idFornecedor) {
+		this.idFornecedor = idFornecedor;
 	}
 
 	public int getCodigo() {
@@ -68,16 +80,16 @@ public class Produto {
 	public void setListaPro(ArrayList<Produto> listaPro) {
 		ListaPro = listaPro;
 	}
-	
+
 	public void addPro(Produto p) {
 		ListaPro.add(p);
 	}
-	
+
 	public void info() {
 		System.out.println("PRODUTO CADASTRADO");
 		System.out.println("\tCodigo:" + this.getCodigo());
 		System.out.println("\tNome do Produto:" + this.getNomeProduto());
-		System.out.println("\tDescrição:" + this.getDescricao());
+		System.out.println("\tDescriï¿½ï¿½o:" + this.getDescricao());
 		System.out.println("\tValor:" + this.getValor());
 	}
 

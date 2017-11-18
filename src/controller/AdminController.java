@@ -7,23 +7,17 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import application.Main;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -31,7 +25,7 @@ import model.Admin;
 import negocio.AdminNegocio;
 import negocio.LoginNegocio;
 
-public class AdminController implements Initializable, Serializable {
+public class AdminController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -58,24 +52,6 @@ public class AdminController implements Initializable, Serializable {
 	private Button btCancelar, btSalvar, btnLogin, btCadFornecedor, btCadProduto, btMain, idTestes;
 
 	@FXML
-	private TableView<Admin> tvTable;
-
-	@FXML
-	private TableColumn<Admin, String> colNome;
-
-	@FXML
-	private TableColumn<Admin, String> colSobre;
-
-	@FXML
-	private TableColumn<Admin, String> colEmail;
-
-	@FXML
-	private TableColumn<Admin, String> colCpf;
-
-	@FXML
-	private TableColumn<Admin, String> colUser;
-
-	@FXML
 	private DatePicker dpData;
 
 	List<Admin> admins = new ArrayList<Admin>();
@@ -86,30 +62,9 @@ public class AdminController implements Initializable, Serializable {
 	LoginNegocio ln = new LoginNegocio();
 	LoginController lc = new LoginController();
 
-	// Esse m�todo � chamado ao inicializar a aplica��o, igual um construtor.
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-
-		if (lc.validarLogin() == true) {
-			List<Admin> adminList = listarAdmin();
-			populaView(adminList);
-		}
-	}
-
 	private List<Admin> listarAdmin() {
 		admins = adminNegocio.listarAdmin();
 		return admins;
-	}
-
-	@FXML
-	public void edit() throws IOException {
-
-		Admin admin = new Admin();
-		admin = (Admin) tvTable.getSelectionModel().getSelectedItem();
-		this.admin = admin;
-		setaValores(admin);
-		btSalvar.setText("salvar");
-		btCancelar.setText("Cancelar");
 	}
 
 	public void setarDadosAdmin() {
@@ -125,18 +80,20 @@ public class AdminController implements Initializable, Serializable {
 
 	}
 
-	private void setaValores(Admin admin) {
+	// private void setaValores(Admin admin) {
+	//
+	// txnome.setText(admin.getNome());
+	// txsobrenome.setText(admin.getSobrenome());
+	// txCpf.setText(admin.getCpf());
+	// dpData.setUserData(admin.getDataNascimento());
+	// txuser.setText(admin.getUsuario());
+	// txemail.setText(admin.getEmail());
+	// txsenha.setText(admin.getSenha());
+	// txsConfirm.setText(admin.getConfirmarSenha());
+	//
+	// }
 
-		txnome.setText(admin.getNome());
-		txsobrenome.setText(admin.getSobrenome());
-		txCpf.setText(admin.getCpf());
-		dpData.setUserData(admin.getDataNascimento());
-		txuser.setText(admin.getUsuario());
-		txemail.setText(admin.getEmail());
-		txsenha.setText(admin.getSenha());
-		txsConfirm.setText(admin.getConfirmarSenha());
-
-	}
+	MainAdminController mainADM = new MainAdminController();
 
 	@FXML
 	public void salvar() throws SQLException, ParseException {
@@ -151,7 +108,7 @@ public class AdminController implements Initializable, Serializable {
 			} else {
 				if (adminN.salvar(admin).equals("salvo")) {
 					admins.add(admin);
-					populaView(admins);
+					mainADM.populaView(admins);
 					limparCampos();
 					lbMsg.setVisible(false);
 					// validarCampos(admin);
@@ -173,7 +130,7 @@ public class AdminController implements Initializable, Serializable {
 			setarDadosAdmin();
 			adminN.salvar(admin);
 			listarAdmin();
-			populaView(admins);
+			mainADM.populaView(admins);
 			limparCampos();
 		}
 	}
@@ -230,19 +187,6 @@ public class AdminController implements Initializable, Serializable {
 
 		System.out.println(inconsistencias.toString());
 		return true;
-	}
-
-	public void populaView(List<Admin> admin) {
-
-		colNome.setCellValueFactory(new PropertyValueFactory<Admin, String>("nome"));
-		colSobre.setCellValueFactory(new PropertyValueFactory<Admin, String>("sobrenome"));
-		colEmail.setCellValueFactory(new PropertyValueFactory<Admin, String>("email"));
-		colCpf.setCellValueFactory(new PropertyValueFactory<Admin, String>("cpf"));
-		colUser.setCellValueFactory(new PropertyValueFactory<Admin, String>("usuario"));
-
-		adminsView = FXCollections.observableArrayList(admin);
-		tvTable.setItems(adminsView);
-
 	}
 
 	public void logar() throws IOException {

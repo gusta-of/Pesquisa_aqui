@@ -28,10 +28,10 @@ public class ProdutoController implements Serializable, Initializable {
 
 	@FXML
 	private AnchorPane acPane;
-	
+
 	@FXML
 	private Pane pnPane;
-	
+
 	@FXML
 	private Label LbTituloPrincipal, lbcodigo, lbdescricao, lbvalor, lbTituloTabela, lbAtacado, lbMarca, lbProduto,
 			lbMsgSup, lbMsgProduto, lbMsgMarca, lbMsgCod, lbMsgDesc, lbMsgValor;
@@ -87,7 +87,7 @@ public class ProdutoController implements Serializable, Initializable {
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
 	}
-	
+
 	public void irParaAdmin() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Cadastro de administrador.fxml");
@@ -95,12 +95,30 @@ public class ProdutoController implements Serializable, Initializable {
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
 	}
-	
+
 	public void irParaMain() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Main adm.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
+	}
+
+	public String validarCampos(Produto produto) {
+		StringBuilder inconsistencias = new StringBuilder();
+		if (produto.getCodigo() <= 0) {
+			inconsistencias.append("\nO produto n�o pode ser cadastrado com um codigo menor ou igual a 0.");
+		}
+		if (produto.getNomeProduto().equals("") || produto.getNomeProduto() == null) {
+			inconsistencias.append("\nO nome do produto � obrigat�rio.");
+		}
+		if (produto.getDescricao().equals("") || produto.getDescricao() == null) {
+			inconsistencias.append("\nA descri��o do produto � obrigat�rio.");
+		}
+		if (produto.getValor() <= 0) {
+			inconsistencias.append("\nO produto n�o pode ser cadastrado com valor menor ou igual a 0.");
+		}
+		System.out.println(inconsistencias.toString());
+		return inconsistencias.toString();
 	}
 }

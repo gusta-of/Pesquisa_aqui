@@ -30,8 +30,22 @@ CREATE TABLE IF NOT EXISTS fornecedores(
 INSERT INTO fornecedores(nome, endereco)
 VALUES ("teste", "Rua teste");
 
-CREATE TABLE IF NOT EXISTS admin (
-   
+CREATE TABLE IF NOT EXISTS produto (
+   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   codigo INT(100) NOT NULL,
+   nomeProduto VARCHAR(200) NOT NULL,
+   descricao VARCHAR(200) NOT NULL, 
+   valor DOUBLE(15,2) NOT NULL,
+   idFornecedor INT NOT NULL,
+   FOREIGN KEY (idFornecedor) REFERENCES fornecedores(id)
+);
+
+CREATE TABLE IF NOT EXISTS vinculo (
+   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   idProduto INT(15) NOT NULL,
+   idFornecedores INT(15) NOT NULL,
+   CONSTRAINT fk_produto FOREIGN KEY (idProduto) REFERENCES produto(id),
+   CONSTRAINT fk_fornecedor FOREIGN KEY (idFornecedores) REFERENCES fornecedor(id)
 );
 
 USE pesquisa_aqui;
