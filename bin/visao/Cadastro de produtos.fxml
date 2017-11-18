@@ -63,7 +63,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btInicio" contentDisplay="RIGHT" layoutX="34.0" layoutY="220.0" mnemonicParsing="false" onAction="#irParaInicio" prefHeight="48.0" prefWidth="105.0" style="-fx-background-color: #283b70;" text="Main Adm" textFill="WHITE">
+                  <Button fx:id="btMain" contentDisplay="RIGHT" layoutX="34.0" layoutY="220.0" mnemonicParsing="false" onAction="#irParaMain" prefHeight="48.0" prefWidth="105.0" style="-fx-background-color: #283b70;" text="Main Adm" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

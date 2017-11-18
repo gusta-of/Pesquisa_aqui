@@ -19,19 +19,19 @@ import negocio.LoginNegocio;
 public class LoginController {
 
 	@FXML
-	private AnchorPane apnPaneLogin, apnBarra;
+	private AnchorPane apnPaneLogin, apnBarra, acBarra;
 
 	@FXML
 	private TextField txtUser, txtSenha;
 
 	@FXML
-	private Button btLoguin;
+	private Button btLoguin, btInicio, btAjuda, btSobre;
 
 	@FXML
-	private ImageView imgLogo, imgBusto, imgCadeado, imgPc, imgLoad2;
+	private ImageView imgBusto, imgCadeado, imgPc, imgLoad2, imgLogo;
 
 	@FXML
-	private Label lblDados;
+	private Label lbMsgUser, lbMsgSenha;
 
 //	List<Admin> admins = new ArrayList<Admin>();
 	LoginNegocio loginNegocio = new LoginNegocio();
@@ -55,7 +55,13 @@ public class LoginController {
 					apnPaneLogin.getChildren().clear();
 					apnPaneLogin.getChildren().add(fxmlParent);
 					imgLoad2.setVisible(true);
+				}else {
+					lbMsgSenha.setText("Senha Incorreta!");
+					lbMsgSenha.setVisible(true);
 				}
+			}else {
+				lbMsgUser.setText("Usuário Incorreto!");
+				lbMsgUser.setVisible(true);
 			}
 		}
 		return true;
@@ -84,4 +90,25 @@ public class LoginController {
 		txtUser.setText("");
 		txtSenha.setText("");
 	}
+	
+	public void irParaInicio() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		apnPaneLogin.getChildren().clear();
+		apnPaneLogin.getChildren().add(fxmlParent);
+	}
+	
+	public void irParaSobre() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Sobre.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		apnPaneLogin.getChildren().clear();
+		apnPaneLogin.getChildren().add(fxmlParent);
+	}
+	
+	public void irParaAjuda() {
+		
+	}
+	
 }

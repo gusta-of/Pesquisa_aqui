@@ -16,18 +16,11 @@ public class SobreController{
 	private AnchorPane acPane, acPane2;
 	
 	@FXML
-	private Button btAjuda, btLogin, btInicio, btnLogin, btSobre;
+	private Button btAjuda, btLogin, btnLogin, btSobre;
 	
 	@FXML
 	private ImageView imgLogo;
 	
-	public void irParaInicio() throws IOException {
-		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
-		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
-		acPane.getChildren().clear();
-		acPane.getChildren().add(fxmlParent);
-	}
 	
 	public void irParaAjuda() throws IOException{
 		URL arquivoFxml;

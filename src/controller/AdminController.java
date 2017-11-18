@@ -37,7 +37,7 @@ public class AdminController implements Initializable, Serializable {
 
 	@FXML
 	private ImageView btAjuda, btSobre, imgLogo, imgInicio;
-	
+
 	@FXML
 	private AnchorPane acPane;
 
@@ -48,14 +48,14 @@ public class AdminController implements Initializable, Serializable {
 	private MenuItem miSobre;
 
 	@FXML
-	private Label ldTitulo, lbnome, lbsobrenome, lbuser, lbsenha, lbConfirm, lbCpf, lbemail, lbdata, lbMsg,
-	lbMsgNeS, lbMsgCpf, lbMsgData, lbMsgEmail, lbMsgUser, lbMsgSenha, lbMsgConfSenha, lbAjuda, lbFornecedor;
+	private Label ldTitulo, lbnome, lbsobrenome, lbuser, lbsenha, lbConfirm, lbCpf, lbemail, lbdata, lbMsg, lbMsgNeS,
+			lbMsgCpf, lbMsgData, lbMsgEmail, lbMsgUser, lbMsgSenha, lbMsgConfSenha, lbAjuda, lbFornecedor;
 
 	@FXML
 	private TextField txnome, txCpf, txsobrenome, txuser, txsenha, txsConfirm, txemail;
 
 	@FXML
-	private Button btCancelar, btSalvar, btnLogin, btCadFornecedor, btCadProduto, btInicio, idTestes;
+	private Button btCancelar, btSalvar, btnLogin, btCadFornecedor, btCadProduto, btMain, idTestes;
 
 	@FXML
 	private TableView<Admin> tvTable;
@@ -77,7 +77,6 @@ public class AdminController implements Initializable, Serializable {
 
 	@FXML
 	private DatePicker dpData;
-	
 
 	List<Admin> admins = new ArrayList<Admin>();
 	Main main = null;
@@ -90,8 +89,8 @@ public class AdminController implements Initializable, Serializable {
 	// Esse m�todo � chamado ao inicializar a aplica��o, igual um construtor.
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		if(lc.validarLogin() == true) {
+
+		if (lc.validarLogin() == true) {
 			List<Admin> adminList = listarAdmin();
 			populaView(adminList);
 		}
@@ -156,9 +155,18 @@ public class AdminController implements Initializable, Serializable {
 					limparCampos();
 					lbMsg.setVisible(false);
 					// validarCampos(admin);
-				} else {
+				} else
+				// if(adminN.salvar(admin).equals("1")){
+				// lbMsgData.setText("Precisa ter mais de 18 anos");
+				// }
+				// if(adminN.salvar(admin).equals("2")){
+				// lbMsgCpf.setText("CPF Inválido");
+				// }
+				{
+
 					lbMsg.setText(adminN.salvar(admin).toString());
 					lbMsg.setVisible(true);
+
 				}
 			}
 		} else {
@@ -199,6 +207,7 @@ public class AdminController implements Initializable, Serializable {
 		}
 		if (admin.getSobrenome().equals("") || admin.getSobrenome() == null) {
 			inconsistencias.append("\n Campo Sobrenome obrigat�rio");
+			lbMsgNeS.setText("Nome e/ou Sobrenome é/são obrigatório(s)!");
 		}
 		if (admin.getUsuario().equals("") || admin.getUsuario() == null) {
 			inconsistencias.append("\n Campo Usuario obrigat�rio");
@@ -244,7 +253,7 @@ public class AdminController implements Initializable, Serializable {
 		acPane.getChildren().add(fxmlParent);
 
 	}
-	
+
 	public void irParaFornecedor() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Cadastro de fornecedor.fxml");
@@ -253,7 +262,6 @@ public class AdminController implements Initializable, Serializable {
 		acPane.getChildren().add(fxmlParent);
 	}
 
-	
 	public void irParaProduto() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Cadastro de produtos.fxml");
@@ -261,19 +269,12 @@ public class AdminController implements Initializable, Serializable {
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
 	}
-	
-	public void irParaInicio() throws IOException {
+
+	public void irParaMain() throws IOException {
 		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
+		arquivoFxml = getClass().getResource("/visao/Main adm.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
 	}
-	
-	@FXML
-	public void nomear() {
-			lbFornecedor.setVisible(true);
-		}
-	}
-	
-
+}

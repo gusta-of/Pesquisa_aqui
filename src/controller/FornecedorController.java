@@ -58,7 +58,7 @@ public class FornecedorController implements Initializable, Serializable {
 	private TextField txNome, txEndereco;
 
 	@FXML
-	private Button btSalvar, btCancelar, btnLogin, btCadProduto, btCadAdmin, btInicio;
+	private Button btSalvar, btCancelar, btnLogin, btCadProduto, btCadAdmin, btMain;
 
 	@FXML
 	private TableView<Fornecedor> tvTable;
@@ -182,9 +182,9 @@ public class FornecedorController implements Initializable, Serializable {
 		acPane.getChildren().add(fxmlParent);
 	}
 	
-	public void irParaInicio() throws IOException {
+	public void irParaMain() throws IOException {
 		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
+		arquivoFxml = getClass().getResource("/visao/Main adm.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);

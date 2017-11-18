@@ -41,7 +41,7 @@
                   </ImageView>
                   <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
                   <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
-                  <Button fx:id="btInicio" contentDisplay="RIGHT" layoutX="35.0" layoutY="219.0" mnemonicParsing="false" onAction="#irParaInicio" prefHeight="48.0" prefWidth="111.0" style="-fx-background-color: #283b70;" text="Main admin" textFill="WHITE">
+                  <Button fx:id="btMain" contentDisplay="RIGHT" layoutX="35.0" layoutY="219.0" mnemonicParsing="false" onAction="#irParaMain" prefHeight="48.0" prefWidth="111.0" style="-fx-background-color: #283b70;" text="Main admin" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

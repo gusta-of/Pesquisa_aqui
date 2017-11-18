@@ -55,7 +55,7 @@ public class ProdutoController implements Serializable, Initializable {
 	private TableColumn<Produto, String> tbcodigo;
 
 	@FXML
-	private Button btcancelar, btsalvar, btInicio, btCadFornecedor, btCadAdmin;
+	private Button btcancelar, btsalvar, btMain, btCadFornecedor, btCadAdmin;
 
 	@FXML
 	private ImageView imgLogo, imgInicio, imgCadFornecedor, imgCadAdmin;
@@ -96,9 +96,9 @@ public class ProdutoController implements Serializable, Initializable {
 		acPane.getChildren().add(fxmlParent);
 	}
 	
-	public void irParaInicio() throws IOException {
+	public void irParaMain() throws IOException {
 		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
+		arquivoFxml = getClass().getResource("/visao/Main adm.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);

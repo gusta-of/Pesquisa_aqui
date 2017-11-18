@@ -61,6 +61,7 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button fx:id="btnLogin" layoutX="58.0" layoutY="561.0" mnemonicParsing="false" onAction="#irParaLogin" text="Login" />
          </children>
       </AnchorPane>
       <Pane layoutX="203.0" layoutY="37.0" prefHeight="230.0" prefWidth="235.0">

@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InicioController">
+<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainAdminController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
          <children>
@@ -17,17 +17,17 @@
                   <Image url="@../resouces/img/logopa.png" />
                </image>
             </ImageView>
-            <Button layoutX="44.0" layoutY="288.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Cad. Produtos" textFill="WHITE">
+            <Button fx:id="btCadProduto" layoutX="44.0" layoutY="288.0" mnemonicParsing="false" onAction="#irParaProduto" style="-fx-background-color: #283b70;" text="Cad. Produtos" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="36.0" layoutY="359.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Cad. Adm" textFill="WHITE">
+            <Button fx:id="btCadAdmin" layoutX="36.0" layoutY="359.0" mnemonicParsing="false" onAction="#irParaAdmin" style="-fx-background-color: #283b70;" text="Cad. Adm" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="42.0" layoutY="239.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Cad. Mercado" textFill="WHITE">
+            <Button fx:id="btCadMercado" layoutX="42.0" layoutY="239.0" mnemonicParsing="false" onAction="#irParaFornecedor" style="-fx-background-color: #283b70;" text="Cad. Mercado" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -41,5 +41,14 @@
             <Font size="31.0" />
          </font>
       </Label>
+      <TableView fx:id="tvTable" layoutX="174.0" layoutY="199.0" prefHeight="402.0" prefWidth="627.0">
+         <columns>
+            <TableColumn fx:id="colUser" prefWidth="127.0" text="Usuario" />
+            <TableColumn fx:id="colEmail" prefWidth="122.0" text="Email" />
+            <TableColumn fx:id="colNome" minWidth="0.0" prefWidth="130.0" text="Nome" />
+            <TableColumn fx:id="colSobre" prefWidth="102.0" text="Sobrenome" />
+            <TableColumn fx:id="colCpf" minWidth="0.0" prefWidth="145.0" text="CPF" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

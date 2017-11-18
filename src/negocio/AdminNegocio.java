@@ -41,12 +41,13 @@ public class AdminNegocio {
 			listarAdmin();
 		} else if (admin.getDataNascimento() != null) {
 			valido = validarIdade(admin.getDataNascimento());
+			
 		} else {
-			sb.append("data nascimento obrigat�rio");
+			sb.append("Data nascimento obrigat�rio");
 		}
 		emailValido = validarEmail(admin.getEmail());
 		if (valido != true) {
-			sb.append("Precisa ter mais de 18 anos");
+			sb.append("\nPrecisa ter mais de 18 anos");
 		}
 		if (cpfValido != true) {
 			sb.append("\nCPF Inv�lido");
