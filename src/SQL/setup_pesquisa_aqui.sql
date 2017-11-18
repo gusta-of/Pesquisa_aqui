@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS vinculo (
    idProduto INT(15) NOT NULL,
    idFornecedores INT(15) NOT NULL,
    CONSTRAINT fk_produto FOREIGN KEY (idProduto) REFERENCES produto(id),
-   CONSTRAINT fk_fornecedor FOREIGN KEY (idFornecedores) REFERENCES fornecedor(id)
+   CONSTRAINT fk_fornecedor FOREIGN KEY (idFornecedores) REFERENCES fornecedores (id)
 );
 
 USE pesquisa_aqui;
