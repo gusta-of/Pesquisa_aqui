@@ -46,11 +46,9 @@ public class LoginController {
 	public boolean logar() throws IOException {
 		List<Admin> admins = new ArrayList<>();
 		admins = loginNegocio.listarAdmin();
-		String user = txtUser.getText();
-		String senha = txtSenha.getText();
 		for (int i = 0; i < admins.size(); i++) {
-			if (admins.contains(user)) {
-				if (admins.contains(senha)) {
+			if (admins.get(i).getUsuario().equals(txtUser.getText())) {
+				if (admins.get(i).getSenha().equals(txtSenha.getText())) {
 					URL arquivoFxml;
 					arquivoFxml = getClass().getResource("/visao/Main adm.fxml");
 					Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
