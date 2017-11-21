@@ -1,10 +1,8 @@
 package negocio;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.LoginController;
 import dao.LoginDao;
 import model.Admin;
 
