@@ -30,9 +30,17 @@ public class SobreController{
 		acPane.getChildren().add(fxmlParent);
 	}
 	
-	public void irParaLogin() throws IOException{
+//	public void irParaLogin() throws IOException{
+//		URL arquivoFxml;
+//		arquivoFxml = getClass().getResource("/visao/LoginAdm.fxml");
+//		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+//		acPane.getChildren().clear();
+//		acPane.getChildren().add(fxmlParent);
+//	}
+	
+	public void irParaInicio() throws IOException {
 		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/LoginAdm.fxml");
+		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);

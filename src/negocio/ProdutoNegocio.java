@@ -10,9 +10,20 @@ public class ProdutoNegocio {
 	
 	ProdutoDao produtoDao = new ProdutoDao();
 
-	public String salvar() {
-
-		return null;
+	public String salvar(Produto produto) {
+		String salvo = "";
+		StringBuilder sb = new StringBuilder();
+		if (validarValor() == true) {
+			sb.append("\nO produto n�o pode ser cadastrado com valor menor ou igual a 0.");
+		}
+		if (sb.toString().equals("")) {
+			   produtoDao.salvar(produto);
+				salvo = "salvo";
+			} else {
+				salvo = sb.toString();
+			}
+		
+		return salvo;
 	}
 
 	public List<Produto> listarProduto() {
@@ -20,5 +31,16 @@ public class ProdutoNegocio {
 		produtos = produtoDao.listarProduto();
 		return produtos;
 	}
-
+	
+	public boolean validarValor() {
+		Produto p = new Produto();
+		boolean validar = false;
+		if(p.getValor() <= 0 ) {
+			validar = false;
+		}else {
+			validar = true;
+		}
+		return validar;
+	}
+	
 }

@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -43,16 +44,16 @@ public class ProdutoController implements Serializable, Initializable {
 	private TableView<Produto> tbtabela;
 
 	@FXML
-	private TableColumn<Produto, String> tbproduto;
+	private TableColumn<Produto, String> colProduto;
 
 	@FXML
-	private TableColumn<Produto, String> tbvalor;
+	private TableColumn<Produto, String> colValor;
 
 	@FXML
-	private TableColumn<Produto, String> tbdescricao;
+	private TableColumn<Produto, String> colDescricao;
 
 	@FXML
-	private TableColumn<Produto, String> tbcodigo;
+	private TableColumn<Produto, String> colCodigo;
 
 	@FXML
 	private Button btcancelar, btsalvar, btMain, btCadFornecedor, btCadAdmin;
@@ -63,6 +64,9 @@ public class ProdutoController implements Serializable, Initializable {
 	ProdutoNegocio produtoNegocio = new ProdutoNegocio();
 	List<Produto> produtos = new ArrayList<Produto>();
 
+	Produto produto = new Produto();
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		List<Produto> produtoList = listarProduto();
@@ -73,12 +77,63 @@ public class ProdutoController implements Serializable, Initializable {
 		produtos = produtoNegocio.listarProduto(); // Implementar em Negocio
 		return produtos;
 	}
-
-	public void populaView(List<Produto> porduto) {
-
-		// Implementar
-
+	@FXML
+	public void salvar() {
+		ProdutoNegocio pn = new ProdutoNegocio();
+		boolean validar = false;
+		if(produto.getId() == 0) {
+			setarDadosProd();
+			validar = validarCampos(produto);
+			if(validar == true) {
+				validarCampos(produto);
+				lbMsgCod.setVisible(true);
+				lbMsgProduto.setVisible(true);
+				lbMsgDesc.setVisible(true);
+				lbMsgValor.setVisible(true);
+			}else if(pn.salvar(produto).equals("salvo")) {
+				produtos.add(produto);
+				this.populaView(produtos);
+				this.limparCampos();
+				lbMsgCod.setVisible(false);
+				lbMsgProduto.setVisible(false);
+				lbMsgDesc.setVisible(false);
+				lbMsgValor.setVisible(false);
+			}
+		}else {
+			setarDadosProd();
+			pn.salvar(produto);
+			listarProduto();
+			this.populaView(produtos);
+			this.limparCampos();
+		}
+		
 	}
+	
+	public void setarDadosProd() {
+		produto.setNomeProduto(txproduto.getText());
+		produto.setMarca(txMarca.getText());
+		produto.setValor(Double.parseDouble(txvalor.getText()));
+		produto.setCodigo(Integer.parseInt(txcodigo.getText()));
+		produto.setDescricao(txdescricao.getText());
+	}
+		
+	public void limparCampos() {
+		txproduto.setText("");
+		txMarca.setText("");
+		txvalor.setText("");
+		txcodigo.setText("");
+		txdescricao.setText("");
+	}	
+	
+	
+	public void populaView(List<Produto> produtos) {
+		colProduto.setCellValueFactory(new PropertyValueFactory<Produto, String>("Produto"));
+		colValor.setCellValueFactory(new PropertyValueFactory<Produto, String>("Valor"));
+		colDescricao.setCellValueFactory(new PropertyValueFactory<Produto, String>("Descricao"));
+		colCodigo.setCellValueFactory(new PropertyValueFactory<Produto, String>("Codigo"));
+	}
+	
+
 
 	public void irParaFornecedor() throws IOException {
 		URL arquivoFxml;
@@ -104,21 +159,25 @@ public class ProdutoController implements Serializable, Initializable {
 		acPane.getChildren().add(fxmlParent);
 	}
 
-	public String validarCampos(Produto produto) {
+	public Boolean validarCampos(Produto produto) {
 		StringBuilder inconsistencias = new StringBuilder();
 		if (produto.getCodigo() <= 0) {
 			inconsistencias.append("\nO produto n�o pode ser cadastrado com um codigo menor ou igual a 0.");
+			lbMsgCod.setText("Campo Obrigatório");
 		}
 		if (produto.getNomeProduto().equals("") || produto.getNomeProduto() == null) {
 			inconsistencias.append("\nO nome do produto � obrigat�rio.");
+			lbMsgProduto.setText("Campo Obrigatório");
 		}
 		if (produto.getDescricao().equals("") || produto.getDescricao() == null) {
 			inconsistencias.append("\nA descri��o do produto � obrigat�rio.");
+			lbMsgDesc.setText("Campo Obrigatório");
 		}
-		if (produto.getValor() <= 0) {
+		if (produto.getDescricao().equals("") || produto.getDescricao() == null) {
 			inconsistencias.append("\nO produto n�o pode ser cadastrado com valor menor ou igual a 0.");
+			lbMsgValor.setText("Campo Obrigatório");
 		}
 		System.out.println(inconsistencias.toString());
-		return inconsistencias.toString();
+		return true;
 	}
 }

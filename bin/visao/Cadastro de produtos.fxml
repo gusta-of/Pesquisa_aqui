@@ -26,14 +26,14 @@
             <TextField fx:id="txcodigo" layoutX="278.0" layoutY="224.0" prefHeight="25.0" prefWidth="300.0" />
             <TableView fx:id="tbtabela" layoutX="174.0" layoutY="449.0" prefHeight="151.0" prefWidth="626.0">
                <columns>
-                  <TableColumn fx:id="tbproduto" prefWidth="92.0" text="Produto" />
-                  <TableColumn fx:id="tbvalor" prefWidth="176.0" text="Valor" />
-                  <TableColumn fx:id="tbdescricao" minWidth="0.0" prefWidth="184.0" text="Descrição" />
-                  <TableColumn fx:id="tbcodigo" prefWidth="173.0" text="Código" />
+                  <TableColumn fx:id="colProduto" prefWidth="92.0" text="Produto" />
+                  <TableColumn fx:id="colValor" prefWidth="176.0" text="Valor" />
+                  <TableColumn fx:id="colDescricao" minWidth="0.0" prefWidth="184.0" text="Descrição" />
+                  <TableColumn fx:id="colCodigo" prefWidth="173.0" text="Código" />
                </columns>
             </TableView>
             <Button fx:id="btcancelar" layoutX="456.0" layoutY="352.0" mnemonicParsing="false" text="Cancelar" />
-            <Button fx:id="btsalvar" layoutX="530.0" layoutY="352.0" mnemonicParsing="false" text="Salvar" />
+            <Button fx:id="btsalvar" layoutX="530.0" layoutY="352.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
             <Label fx:id="lbProduto" layoutX="186.0" layoutY="155.0" prefHeight="17.0" prefWidth="54.0" text="Produto:*" />
             <Label fx:id="lbTituloTabela" layoutX="340.0" layoutY="397.0" prefHeight="39.0" prefWidth="320.0" text="Produtos Cadastrados">
                <font>

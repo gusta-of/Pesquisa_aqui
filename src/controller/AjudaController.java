@@ -10,21 +10,30 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class InicioController {
+public class AjudaController {
+
+	@FXML
+	private AnchorPane acPane, acPane2;
 	
 	@FXML
-	private AnchorPane acPane;
+	private Button btAjuda, btLogin, btInicio, btSobre;
 	
 	@FXML
-	private ImageView imgLogo, imgInicio, btAjuda1;
-	
-	@FXML
-	private Button btnMercado1, btAjuda, btnLogin, btSobre;
+	private ImageView imgLogo;
 	
 	
-	public void irParaLogin() throws IOException {
+//	public void irParaAjuda() throws IOException{
+//		URL arquivoFxml;
+//		arquivoFxml = getClass().getResource("/visao/Ajuda.fxml");
+//		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+//		acPane.getChildren().clear();
+//		acPane.getChildren().add(fxmlParent);
+//	}
+	
+	
+	public void irParaInicio() throws IOException {
 		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/LoginAdm.fxml");
+		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
@@ -37,13 +46,6 @@ public class InicioController {
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
 	}
-	
-	public void irParaAjuda() throws IOException{
-		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/Ajuda.fxml");
-		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
-		acPane.getChildren().clear();
-		acPane.getChildren().add(fxmlParent);
-	}
-	
 }
+	
+

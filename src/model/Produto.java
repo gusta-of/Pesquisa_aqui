@@ -10,6 +10,7 @@ public class Produto {
 	private String nomeProduto;
 	private String descricao;
 	private double valor;
+	private String marca;
 	ArrayList<Produto> ListaPro;
 
 	public Produto() {
@@ -73,6 +74,16 @@ public class Produto {
 		this.valor = valor;
 	}
 
+	public String getMarca() {
+		return marca;
+	}
+	
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+	
+
+	
 	public ArrayList<Produto> getListaPro() {
 		return ListaPro;
 	}

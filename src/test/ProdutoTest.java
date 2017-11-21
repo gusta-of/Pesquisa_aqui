@@ -23,6 +23,6 @@ public class ProdutoTest {
 		pro1.addPro(pro);
 		pro1.info();
 
-		System.out.println("Quantidade de produtos cadastrados:" + Produto.getContador());
+		//System.out.println("Quantidade de produtos cadastrados:" + Produto.getContador());
 	}
 }
