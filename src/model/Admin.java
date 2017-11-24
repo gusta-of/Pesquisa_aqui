@@ -20,15 +20,13 @@ public class Admin {
 		ListaAdm = new ArrayList<>();
 	}
 
-	public Admin(int id, String nome, String sobrenome, LocalDate dataNasimento, String email, String cpf, String user, String senha) {
-		this.id = id;
+	public Admin(String nome, String sobrenome, LocalDate dataNasimento, String email, String cpf, String user) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.dataNascimento = dataNasimento;
 		this.cpf = cpf;
 		this.usuario = user;
 		this.email = email;
-		this.senha = senha;
 		ListaAdm = new ArrayList<>();
 	}
 

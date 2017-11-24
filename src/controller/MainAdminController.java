@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import dao.AdminDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,6 +26,21 @@ import negocio.AdminNegocio;
 public class MainAdminController implements Initializable, Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	/*
+	 * Aqui eu crio um objeto instancia de admin dao!
+	 */
+	private AdminDao adminDao = new AdminDao();
+
+	/*
+	 * Aqui eu crio uma lista de admin q busca todos admins salvos no banco!
+	 */
+	private List<Admin> adminList = adminDao.listarAdmin();
+
+	/*
+	 * Aqui eu crio um observableList..!
+	 */
+	private ObservableList<Admin> listAdmin = FXCollections.observableArrayList();
 
 	@FXML
 	private AnchorPane acPane;
@@ -54,14 +70,14 @@ public class MainAdminController implements Initializable, Serializable {
 	private TableColumn<Admin, String> colUser;
 
 	LoginController lc = new LoginController();
-	ObservableList<Admin> adminsView = null;
+	// ObservableList<Admin> adminsView = null;
 	List<Admin> admins = new ArrayList<Admin>();
 	AdminNegocio adminNegocio = new AdminNegocio();
 
 	public void initialize(URL location, ResourceBundle resources) {
 
-			List<Admin> adminList = listarAdmin();
-			populaView(adminList);
+		List<Admin> adminList = listarAdmin();
+		populaView(adminList);
 	}
 
 	private List<Admin> listarAdmin() {
@@ -93,7 +109,24 @@ public class MainAdminController implements Initializable, Serializable {
 		acPane.getChildren().add(fxmlParent);
 	}
 
+	/*
+	 * Esse metodo pega um objeto que guarda a lista de admin que vem do banco,
+	 * entra dentro do forEtch popula todos os campos com os admins cadastrados no
+	 * banco!
+	 */
+
 	public void populaView(List<Admin> admin) {
+
+		if (!listAdmin.isEmpty()) {
+			listAdmin.clear();
+		}
+
+		for (Admin admin1 : adminList) {
+
+			Admin a = new Admin(admin1.getNome(), admin1.getSobrenome(), admin1.getDataNascimento(), admin1.getEmail(),
+					admin1.getCpf(), admin1.getUsuario());
+			listAdmin.add(a);
+		}
 
 		colNome.setCellValueFactory(new PropertyValueFactory<Admin, String>("nome"));
 		colSobre.setCellValueFactory(new PropertyValueFactory<Admin, String>("sobrenome"));
@@ -101,8 +134,8 @@ public class MainAdminController implements Initializable, Serializable {
 		colCpf.setCellValueFactory(new PropertyValueFactory<Admin, String>("cpf"));
 		colUser.setCellValueFactory(new PropertyValueFactory<Admin, String>("usuario"));
 
-		adminsView = FXCollections.observableArrayList(admin);
-		tvTable.setItems(adminsView);
+		listAdmin = FXCollections.observableArrayList(admin);
+		tvTable.setItems(listAdmin);
 
 	}
 

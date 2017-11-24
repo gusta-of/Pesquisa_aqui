@@ -1,1 +1,8 @@
+/application/
+/controller/
+/dao/
+/daoUtil/
+/model/
 /negocio/
+/test/
+/visao/

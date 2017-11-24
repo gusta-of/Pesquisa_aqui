@@ -108,7 +108,6 @@ public class AdminController implements Serializable {
 			} else {
 				if (adminN.salvar(admin).equals("salvo")) {
 					admins.add(admin);
-					mainADM.populaView(admins);
 					limparCampos();
 					lbMsg.setVisible(false);
 					// validarCampos(admin);
@@ -130,7 +129,6 @@ public class AdminController implements Serializable {
 			setarDadosAdmin();
 			adminN.salvar(admin);
 			listarAdmin();
-			mainADM.populaView(admins);
 			limparCampos();
 		}
 	}
