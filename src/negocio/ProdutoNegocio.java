@@ -18,7 +18,6 @@ public class ProdutoNegocio {
 		}
 		if (sb.toString().equals("")) {
 			   produtoDao.salvar(produto);
-				salvo = "salvo";
 			} else {
 				salvo = sb.toString();
 			}

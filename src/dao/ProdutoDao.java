@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import daoUtil.ConnectionFactory;
+import model.Fornecedor;
 import model.Produto;
 
 public class ProdutoDao {
@@ -41,7 +42,7 @@ public class ProdutoDao {
 					Produto produto = new Produto();
 					
 					produto.setId(res.getInt("id"));
-					produto.setIdFornecedor(res.getObject("idFornecedor"));
+					produto.setIdFornecedor(res.getObject("idFornecedor", Fornecedor.class));
 					produto.setNomeProduto(res.getString("nomeProduto"));
 					produto.setCodigo(res.getInt("codigo"));
 					produto.setValor(res.getDouble("valor"));
@@ -61,10 +62,11 @@ public class ProdutoDao {
 			con.setAutoCommit(false);
 			stmt = con.prepareStatement(sqlSalvar);
 			
-			stmt.setInt(1, produto.getCodigo());
-			stmt.setString(2, produto.getNomeProduto());
-			stmt.setString(3, produto.getDescricao());
-			stmt.setDouble(4, produto.getValor());
+			stmt.setInt(1, produto.getIdFornecedor().getId());
+			stmt.setInt(2, produto.getCodigo());
+			stmt.setString(3, produto.getNomeProduto());
+			stmt.setString(4, produto.getDescricao());
+			stmt.setDouble(5, produto.getValor());
 			
 			stmt.executeUpdate();
 			con.commit();

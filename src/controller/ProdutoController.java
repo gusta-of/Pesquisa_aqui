@@ -62,6 +62,9 @@ public class ProdutoController implements Serializable, Initializable {
 	private TableColumn<Produto, String> colCodigo;
 
 	@FXML
+	private TableColumn<Produto, Integer> colIdFornecedor;
+
+	@FXML
 	private Button btcancelar, btsalvar, btMain, btCadFornecedor, btCadAdmin;
 
 	@FXML
@@ -91,20 +94,24 @@ public class ProdutoController implements Serializable, Initializable {
 		if (produto.getId() == 0) {
 			setarDadosProd();
 			validar = validarCampos(produto);
-			if (validar == true) {
+			if (validar == false) {
 				validarCampos(produto);
 				lbMsgCod.setVisible(true);
 				lbMsgProduto.setVisible(true);
 				lbMsgDesc.setVisible(true);
 				lbMsgValor.setVisible(true);
-			} else if (pn.salvar(produto).equals("salvo")) {
-				produtos.add(produto);
-				this.populaView(produtos);
-				this.limparCampos();
-				lbMsgCod.setVisible(false);
-				lbMsgProduto.setVisible(false);
-				lbMsgDesc.setVisible(false);
-				lbMsgValor.setVisible(false);
+			} else {
+				if (pn.salvar(produto).equals("salvo")) {
+					produtos.add(produto);
+					pn.salvar(produto);
+					this.populaView(produtos);
+				} else {
+					lbMsgCod.setVisible(false);
+					lbMsgProduto.setVisible(false);
+					lbMsgDesc.setVisible(false);
+					lbMsgValor.setVisible(false);
+					this.limparCampos();
+				}
 			}
 		} else {
 			setarDadosProd();
@@ -117,6 +124,18 @@ public class ProdutoController implements Serializable, Initializable {
 	}
 
 	public void setarDadosProd() {
+		// produto.setIdFornecedor(cbFornecedores.getValue());
+		if (cbFornecedores.getValue() != null) {
+			FornecedorNegocio fn = new FornecedorNegocio();
+			List<Fornecedor> forn = new ArrayList<>();
+			forn = fn.listarFornecedor();
+			for (int i = 0; i < forn.size(); i++) {
+				if (forn.get(i).getNome().equals(cbFornecedores.getValue().toString())) {
+					produto.setIdFornecedor(forn.get(i));
+				}
+			}
+		}
+
 		produto.setNomeProduto(txproduto.getText());
 		produto.setMarca(txMarca.getText());
 		produto.setValor(Double.parseDouble(txvalor.getText()));
@@ -137,6 +156,7 @@ public class ProdutoController implements Serializable, Initializable {
 		colValor.setCellValueFactory(new PropertyValueFactory<Produto, String>("Valor"));
 		colDescricao.setCellValueFactory(new PropertyValueFactory<Produto, String>("Descricao"));
 		colCodigo.setCellValueFactory(new PropertyValueFactory<Produto, String>("Codigo"));
+		colIdFornecedor.setCellValueFactory(new PropertyValueFactory<Produto, Integer>("IdFornecedor"));
 	}
 
 	public void irParaFornecedor() throws IOException {
@@ -234,15 +254,15 @@ public class ProdutoController implements Serializable, Initializable {
 	// }
 
 	FornecedorNegocio fn = new FornecedorNegocio();
-	
+
 	public void selecionarFornecedor() {
 		List<Fornecedor> list = fn.listarFornecedorNome();
 		cbFornecedores.getItems().clear();
- 		for (int i = 0; i < list.size(); i++) {
- 			System.out.println(list.get(i).toString());
- 			cbFornecedores.getItems().addAll(list.get(i));
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i).toString());
+			cbFornecedores.getItems().addAll(list.get(i));
 		}
-		
+
 	}
 
 }

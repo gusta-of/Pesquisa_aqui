@@ -39,8 +39,8 @@ public class Produto {
 		return idFornecedor;
 	}
 
-	public void setIdFornecedor(Object object) {
-		this.idFornecedor = (Fornecedor) object;
+	public void setIdFornecedor(Fornecedor idFornecedor) {
+		this.idFornecedor =  idFornecedor;
 	}
 
 	public int getCodigo() {
