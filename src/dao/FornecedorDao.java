@@ -55,6 +55,27 @@ public class FornecedorDao {
 			return new ArrayList<Fornecedor>();
 		}
 	}
+	
+	public List<Fornecedor> listarFornecedorNome() {
+		List<Fornecedor> list = new ArrayList<Fornecedor>();
+		ResultSet res = null;
+		try {
+			if (this.con != null) {
+				stm = con.createStatement();
+				res = stm.executeQuery("SELECT * FROM fornecedores");
+				while (res.next()) {
+					Fornecedor fornecedor = new Fornecedor();
+					fornecedor.setNome(res.getString("nome"));
+					list.add(fornecedor);
+				}
+			}
+
+			return list;
+		} catch (SQLException e) {
+			System.out.println("Erro ao consultar 2: " + e.getMessage());
+			return new ArrayList<Fornecedor>();
+		}
+	}
 
 	public boolean salvar(Fornecedor fornecedor) throws SQLException {
 	   try {

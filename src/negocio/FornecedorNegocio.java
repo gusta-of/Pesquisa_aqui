@@ -16,6 +16,12 @@ public class FornecedorNegocio {
 	   fornecedores = fornecedorDao.listarFornecedor();
 	   return fornecedores;
    }
+   
+   public List<Fornecedor> listarFornecedorNome(){
+	   List<Fornecedor> fornecedores = new ArrayList<>();
+	   fornecedores = fornecedorDao.listarFornecedorNome();
+	   return fornecedores;
+   }
 
    public boolean salvar(Fornecedor fornecedor) throws ParseException, SQLException {
       if (fornecedor.getId() != 0) {

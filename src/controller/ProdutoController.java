@@ -7,15 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import dao.FornecedorDao;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import model.Fornecedor;
 import model.Produto;
+import negocio.FornecedorNegocio;
 import negocio.ProdutoNegocio;
 
 public class ProdutoController implements Serializable, Initializable {
@@ -46,7 +44,7 @@ public class ProdutoController implements Serializable, Initializable {
 	private TextField txproduto, txdescricao, txvalor, txcodigo, txatacado, txMarca;
 
 	@FXML
-	private ChoiceBox<Fornecedor> cbCb;
+	private ComboBox<Fornecedor> cbFornecedores;
 
 	@FXML
 	private TableView<Produto> tbtabela;
@@ -74,17 +72,12 @@ public class ProdutoController implements Serializable, Initializable {
 
 	Produto produto = new Produto();
 
-	Fornecedor f = new Fornecedor();
-	ObservableList<Fornecedor> obFornecedor = FXCollections.observableArrayList(f);
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		List<Produto> produtoList = listarProduto();
 		populaView(produtoList);
-		// selecionarFornecedor();
-		for (int i = 0; i < obFornecedor.size(); i++) {
-			cbCb.setItems(obFornecedor);
-		}
+		selecionarFornecedor();
+
 	}
 
 	private List<Produto> listarProduto() {
@@ -193,38 +186,63 @@ public class ProdutoController implements Serializable, Initializable {
 		return true;
 	}
 
-	// public void carregaComboModelos() throws ClassNotFoundException {
-	// VeiculoControl v = new VeiculoControl();
-	// ArrayList<ModeloVeiculo> modelos = new
-	// ArrayList<ModeloVeiculo>(v.pegaModelos());
-	// for (ModeloVeiculo m : modelos) {
-	// comboModelo.addItem(m); /*detalhe - comboModelo é o nome de meu obj swing
-	// }
+	// comboBox.removeAllItems(); //remove os itens atuais do comboBox.
+	// ArrayList produtos = produtoDAO.findAll(); //'produtoDAO' é meu objeto que
+	// retorna os produtos do banco.
+	// Iterator i = produtos.iterator();
+	// while(i.hasNext()) {
+	// comboBox.addItem(String.valueOf(i.next()));
 	// }
 
-	// private List<Fornecedor> listaF = new ArrayList<>();
-
-	// private ObservableList<Fornecedor> obFornecedor =
-	// FXCollections.observableArrayList();
-	// FornecedorDao fd = new FornecedorDao();
-	// private List<Fornecedor> listaF = fd.listarFornecedor();
+	// FornecedorDao fc = new FornecedorDao();
 	//
 	// public void selecionarFornecedor() {
-	// List<Fornecedor> fornecedor = new ArrayList<>();
-	//
-	// if(!obFornecedor.isEmpty()) {
-	// obFornecedor.clear();
-	// }
-	//
-	// for (Fornecedor f : listaF) {
-	//
-	// Fornecedor f1 = new Fornecedor(f.getNome());
-	// obFornecedor.add(f1);
+	// List<Fornecedor> forn = new ArrayList<>();
+	// forn = fc.listarFornecedor();
+	// for (int i = 0; i < forn.size(); i++) {
+	// System.out.println(forn.get(i));
 	//
 	// }
-	//
-	// obFornecedor = FXCollections.observableArrayList(fornecedor);
-	// cbCb.setItems(obFornecedor);
 	// }
+
+	// List<String> racas = new ArrayList<String>();
+	//
+	// racas.add("Cão");
+	//
+	// racas.add("Gato");
+	//
+	// racas.add("passaro");
+	//
+	// comboRaca.getItems().addAll(racas);
+	//
+	//
+	// clientes = clienteNegocio.listarCliente();
+	//
+	// if(clientes != null) {
+	//
+	// clientes.forEach(cliente -> {
+	//
+	// ComboCliente.getItems().add(
+	//
+	// cliente.getNome() + " " + cliente.getSobrenome());
+	//
+	// }
+	//
+	// );
+	//
+	// }
+	//
+	// }
+
+	FornecedorNegocio fn = new FornecedorNegocio();
+	
+	public void selecionarFornecedor() {
+		List<Fornecedor> list = fn.listarFornecedorNome();
+ 		for (int i = 0; i < list.size(); i++) {
+ 			System.out.println(list.get(i).toString());
+ 			cbFornecedores.getItems().addAll(list);
+		}
+		
+	}
 
 }
