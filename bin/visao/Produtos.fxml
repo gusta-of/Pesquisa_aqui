@@ -17,7 +17,7 @@
          <children>
             <ImageView fx:id="imgLogo" fitHeight="101.0" fitWidth="149.0" layoutX="15.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resouces/img/logopa.png" />
+                  <Image url="@../resouces/img/logopa2.png" />
                </image>
             </ImageView>
             <Button layoutX="36.0" layoutY="285.0" mnemonicParsing="false" style="-fx-background-color: #283b70;">

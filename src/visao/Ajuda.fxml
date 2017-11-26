@@ -15,7 +15,7 @@
          <children>
             <ImageView fx:id="imgLogo" fitHeight="101.0" fitWidth="149.0" layoutX="18.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../bin/resouces/img/logopa.png" />
+                  <Image url="@../resouces/img/logopa2.png" />
                </image>
             </ImageView>
             <Button fx:id="btAjuda" layoutX="36.0" layoutY="285.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="104.0" style="-fx-background-color: #283b70;" text="Ajuda" textFill="WHITE">
@@ -61,41 +61,6 @@
             <Font size="47.0" />
          </font>
       </Label>
-      <Accordion layoutX="184.0" layoutY="167.0" prefHeight="409.0" prefWidth="600.0">
-        <panes>
-          <TitledPane animated="false" prefHeight="228.0" prefWidth="450.0" text="Como saber o menor preço ?">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <content>
-                  <TextArea prefHeight="144.0" prefWidth="219.0" text="Seleciona botão iniciar ( podemos colocar o desenho do botão aqui).  e voce vera na tela com os reços de cada supermercado " wrapText="true" />
-               </content>
-            </TitledPane>
-          <TitledPane animated="false" prefHeight="200.0" prefWidth="507.0" text="Como cadastrar um produto?">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <content>
-                  <TextArea prefHeight="200.0" prefWidth="200.0" />
-               </content>
-            </TitledPane>
-            <TitledPane animated="false" layoutX="10.0" layoutY="10.0" prefHeight="228.0" prefWidth="450.0" text="Como cadastrar um administrador ?">
-               <content>
-                  <TextArea prefHeight="144.0" prefWidth="219.0" promptText="xzxxz\x" text="xzz\x" wrapText="true" />
-               </content>
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </TitledPane>
-            <TitledPane animated="false" layoutX="10.0" layoutY="52.0" prefHeight="324.0" prefWidth="450.0" text="Como cadastrar Supermercado?">
-               <content>
-                  <TextArea prefHeight="200.0" prefWidth="200.0" />
-               </content>
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TitledPane>
-        </panes>
-      </Accordion>
+      <Accordion layoutX="184.0" layoutY="167.0" prefHeight="409.0" prefWidth="600.0" />
    </children>
 </AnchorPane>

@@ -46,7 +46,7 @@ public class MainAdminController implements Initializable, Serializable {
 	private AnchorPane acPane;
 
 	@FXML
-	private Button btCadProduto, btCadAdmin, btCadMercado;
+	private Button btCadProduto, btCadAdmin, btCadMercado, btAjudaAdm, btSairAdm, btAjudaS, btInicioS;
 
 	@FXML
 	private ImageView imgLogo;
