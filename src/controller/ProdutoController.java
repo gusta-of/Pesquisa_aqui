@@ -77,7 +77,6 @@ public class ProdutoController implements Serializable, Initializable {
 		List<Produto> produtoList = listarProduto();
 		populaView(produtoList);
 		selecionarFornecedor();
-
 	}
 
 	private List<Produto> listarProduto() {
@@ -238,9 +237,10 @@ public class ProdutoController implements Serializable, Initializable {
 	
 	public void selecionarFornecedor() {
 		List<Fornecedor> list = fn.listarFornecedorNome();
+		cbFornecedores.getItems().clear();
  		for (int i = 0; i < list.size(); i++) {
  			System.out.println(list.get(i).toString());
- 			cbFornecedores.getItems().addAll(list);
+ 			cbFornecedores.getItems().addAll(list.get(i));
 		}
 		
 	}
