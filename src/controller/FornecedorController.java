@@ -85,7 +85,7 @@ public class FornecedorController implements Initializable, Serializable {
 		populaView(fornecedorList);
 	}
 
-	private List<Fornecedor> listarFornecedor() {
+	public List<Fornecedor> listarFornecedor() {
 		fornecedores = fornecedorNegocio.listarFornecedor();
 		return fornecedores;
 	}

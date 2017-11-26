@@ -24,7 +24,7 @@ public class ProdutoDao {
 		con = cf.getConnection();
 	}
 	
-	String sqlSalvar = "INSERT INTO produto(codigo, nomeProduto, descricao, valor) VALUES(?,?,?,?)";
+	String sqlSalvar = "INSERT INTO produto(idFornecedor, codigo, nomeProduto, descricao, valor) VALUES(?,?,?,?,?)";
 	
 	String sqlEditar = "UPDATE produto SET codigo = ?, nomePreoduto = ?, descricao = ?, valor = ?, WHERE id = ? AND idFoenecedor = ?";
 	
@@ -41,7 +41,7 @@ public class ProdutoDao {
 					Produto produto = new Produto();
 					
 					produto.setId(res.getInt("id"));
-					produto.setIdFornecedor(res.getInt("idFornecedor"));
+					produto.setIdFornecedor(res.getObject("idFornecedor"));
 					produto.setNomeProduto(res.getString("nomeProduto"));
 					produto.setCodigo(res.getInt("codigo"));
 					produto.setValor(res.getDouble("valor"));

@@ -40,8 +40,7 @@
                   <Font size="27.0" />
                </font>
             </Label>
-            <TextField fx:id="txatacado" layoutX="278.0" layoutY="113.0" prefHeight="25.0" prefWidth="300.0" />
-            <Label fx:id="lbAtacado" layoutX="186.0" layoutY="117.0" prefHeight="17.0" prefWidth="92.0" text="Supermercado:*" />
+            <Label fx:id="lbAtacado" layoutX="186.0" layoutY="117.0" prefHeight="17.0" prefWidth="92.0" text="Fornecedor:*" />
             <TextField fx:id="txMarca" layoutX="278.0" layoutY="189.0" prefHeight="25.0" prefWidth="174.0" />
             <Label fx:id="lbMarca" layoutX="186.0" layoutY="193.0" prefHeight="17.0" prefWidth="54.0" text="Marca:*" />
             <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
@@ -76,6 +75,7 @@
             <Label fx:id="lbMsgCod" layoutX="588.0" layoutY="228.0" prefHeight="17.0" prefWidth="201.0" />
             <Label fx:id="lbMsgDesc" layoutX="589.0" layoutY="258.0" prefHeight="17.0" prefWidth="201.0" />
             <Label fx:id="lbMsgValor" layoutX="689.0" layoutY="193.0" prefHeight="17.0" prefWidth="92.0" />
+            <ChoiceBox fx:id="cbCb" layoutX="278.0" layoutY="113.0" prefWidth="150.0" />
          </children>
       </Pane>
    </children>

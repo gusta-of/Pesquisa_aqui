@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Produto {
 
 	private int id;
-	private int idFornecedor;
+	private Fornecedor idFornecedor;
 	private int codigo;
 	private String nomeProduto;
 	private String descricao;
@@ -14,11 +14,12 @@ public class Produto {
 	ArrayList<Produto> ListaPro;
 
 	public Produto() {
-		super();
+		idFornecedor = new Fornecedor();
 		ListaPro = new ArrayList<>();
 	}
 
-	public Produto(int codigo, String nomeProduto, String descricao, double valor) {
+	public Produto(Fornecedor idFornecedor, int codigo, String nomeProduto, String descricao, double valor) {
+		this.idFornecedor = idFornecedor;
 		this.codigo = codigo;
 		this.nomeProduto = nomeProduto;
 		this.descricao = descricao;
@@ -34,12 +35,12 @@ public class Produto {
 		this.id = id;
 	}
 
-	public int getIdFornecedor() {
+	public Fornecedor getIdFornecedor() {
 		return idFornecedor;
 	}
 
-	public void setIdFornecedor(int idFornecedor) {
-		this.idFornecedor = idFornecedor;
+	public void setIdFornecedor(Object object) {
+		this.idFornecedor = (Fornecedor) object;
 	}
 
 	public int getCodigo() {
@@ -103,5 +104,6 @@ public class Produto {
 		System.out.println("\tDescri��o:" + this.getDescricao());
 		System.out.println("\tValor:" + this.getValor());
 	}
+
 
 }

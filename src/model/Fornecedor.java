@@ -14,12 +14,14 @@ public class Fornecedor {
 		listaFornecedor = new ArrayList<>(); 
 	}
 	
-	public Fornecedor (int id, String nome, String endereco) {
-	   super();
-		this.id = id;
+	public Fornecedor (String nome, String endereco) {
 		this.nome = nome;
 		this.endereco = endereco;
 		listaFornecedor = new ArrayList<>();
+	}
+	
+	public Fornecedor(String nome) {
+		this.nome = nome;
 	}
 			
 	public int getId() {
