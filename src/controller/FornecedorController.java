@@ -152,11 +152,12 @@ public class FornecedorController implements Initializable, Serializable {
 			inconsistencias.append("Campo endereço é obrigatório!");
 		}
 		// Verifica se incinsistencias não recebe valor!
-		if (inconsistencias.equals("")) {
-			System.out.println(inconsistencias.toString());
+		if (inconsistencias.length() == 0) {
+			return true;
+		} else {
 			return false;
 		}
-		return true;
+
 	}
 
 	@FXML
