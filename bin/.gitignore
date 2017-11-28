@@ -1,4 +1,11 @@
-/visao/
+/SQL/
+/application/
 /controller/
-/resouces/
+/dao/
 /daoUtil/
+/lib/
+/model/
+/negocio/
+/resouces/
+/test/
+/visao/

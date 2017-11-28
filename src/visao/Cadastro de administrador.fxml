@@ -12,29 +12,29 @@
    <children>
       <Pane fx:id="pnPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Label fx:id="ldTitulo" layoutX="222.0" layoutY="24.0" prefHeight="53.0" prefWidth="437.0" text="Cadastro de Administrador" textAlignment="JUSTIFY" underline="true">
+            <Label fx:id="ldTitulo" layoutX="267.0" layoutY="24.0" prefHeight="53.0" prefWidth="437.0" text="Cadastro de Administrador" textAlignment="JUSTIFY" underline="true">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label fx:id="lbnome" layoutX="192.0" layoutY="94.0" prefHeight="17.0" prefWidth="43.0" text="Nome:*" />
-            <Label fx:id="lbsobrenome" layoutX="400.0" layoutY="94.0" text="Sobrenome:*" />
-            <Label fx:id="lbuser" layoutX="181.0" layoutY="231.0" text="Usuario:*" />
-            <Label fx:id="lbsenha" layoutX="178.0" layoutY="266.0" text="Senha:*" />
-            <TextField fx:id="txnome" layoutX="256.0" layoutY="90.0" prefHeight="25.0" prefWidth="128.0" promptText="Campo obrigatório" />
-            <TextField fx:id="txsobrenome" layoutX="473.0" layoutY="90.0" prefHeight="25.0" prefWidth="146.0" promptText="Campo obrigatório" />
-            <TextField fx:id="txCpf" layoutX="256.0" layoutY="123.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-            <DatePicker fx:id="dpData" layoutX="256.0" layoutY="158.0" prefHeight="25.0" prefWidth="201.0" />
-            <TextField fx:id="txemail" layoutX="256.0" layoutY="194.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-            <TextField fx:id="txuser" layoutX="256.0" layoutY="227.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-            <PasswordField fx:id="txsenha" layoutX="256.0" layoutY="262.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-            <PasswordField fx:id="txsConfirm" layoutX="256.0" layoutY="302.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
-            <Button fx:id="btSalvar" layoutX="296.0" layoutY="339.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
-            <Button fx:id="btCancelar" layoutX="369.0" layoutY="339.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-            <Label fx:id="lbConfirm" layoutX="178.0" layoutY="306.0" text="Conf. Senha:*" />
-            <Label fx:id="lbCpf" layoutX="190.0" layoutY="123.0" prefHeight="25.0" prefWidth="31.0" text="CPF:*" />
-            <Label fx:id="lbemail" layoutX="187.0" layoutY="198.0" text="Email:*" />
-            <Label fx:id="lbdata" layoutX="181.0" layoutY="162.0" prefHeight="17.0" prefWidth="64.0" text="Data Nasc:*" />
+            <Label fx:id="lbnome" layoutX="192.0" layoutY="100.0" prefHeight="17.0" prefWidth="43.0" text="Nome:*" />
+            <Label fx:id="lbsobrenome" layoutX="396.0" layoutY="103.0" text="Sobrenome:*" />
+            <Label fx:id="lbuser" layoutX="193.0" layoutY="333.0" text="Usuario:*" />
+            <Label fx:id="lbsenha" layoutX="201.0" layoutY="396.0" text="Senha:*" />
+            <TextField fx:id="txnome" layoutX="256.0" layoutY="99.0" prefHeight="25.0" prefWidth="128.0" promptText="Campo obrigatório" />
+            <TextField fx:id="txsobrenome" layoutX="473.0" layoutY="99.0" prefHeight="25.0" prefWidth="146.0" promptText="Campo obrigatório" />
+            <TextField fx:id="txCpf" layoutX="297.0" layoutY="158.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <DatePicker fx:id="dpData" layoutX="297.0" layoutY="211.0" prefHeight="25.0" prefWidth="201.0" />
+            <TextField fx:id="txemail" layoutX="296.0" layoutY="271.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <TextField fx:id="txuser" layoutX="296.0" layoutY="329.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <PasswordField fx:id="txsenha" layoutX="296.0" layoutY="392.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <PasswordField fx:id="txsConfirm" layoutX="299.0" layoutY="461.0" prefHeight="25.0" prefWidth="201.0" promptText="Campo obrigatório" />
+            <Button fx:id="btSalvar" layoutX="296.0" layoutY="547.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
+            <Button fx:id="btCancelar" layoutX="384.0" layoutY="546.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="17.0" prefWidth="61.0" text="Cancelar" />
+            <Label fx:id="lbConfirm" layoutX="179.0" layoutY="465.0" text="Conf. Senha:*" />
+            <Label fx:id="lbCpf" layoutX="197.0" layoutY="158.0" prefHeight="25.0" prefWidth="31.0" text="CPF:*" />
+            <Label fx:id="lbemail" layoutX="196.0" layoutY="275.0" text="Email:*" />
+            <Label fx:id="lbdata" layoutX="186.0" layoutY="215.0" prefHeight="17.0" prefWidth="64.0" text="Data Nasc:*" />
             <AnchorPane layoutX="-1.0" prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
                <children>
                   <ImageView fx:id="imgLogo" fitHeight="101.0" fitWidth="149.0" layoutX="15.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
@@ -66,13 +66,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <Label fx:id="lbMsgNeS" layoutX="627.0" layoutY="94.0" prefHeight="17.0" prefWidth="146.0" />
-            <Label fx:id="lbMsgConfSenha" layoutX="469.0" layoutY="306.0" prefHeight="17.0" prefWidth="146.0" />
-            <Label fx:id="lbMsgCpf" layoutX="473.0" layoutY="127.0" prefHeight="17.0" prefWidth="146.0" />
-            <Label fx:id="lbMsgData" layoutX="473.0" layoutY="162.0" prefHeight="17.0" prefWidth="146.0" />
-            <Label fx:id="lbMsgEmail" layoutX="473.0" layoutY="198.0" prefHeight="17.0" prefWidth="146.0" />
-            <Label fx:id="lbMsgUser" layoutX="473.0" layoutY="231.0" prefHeight="17.0" prefWidth="146.0" />
-            <Label fx:id="lbMsg" layoutX="465.0" layoutY="118.0" prefHeight="211.0" prefWidth="296.0" />
+            <Label fx:id="lbMsg" layoutX="507.0" layoutY="157.0" prefHeight="332.0" prefWidth="254.0" />
          </children>
       </Pane>
    </children>

@@ -205,54 +205,6 @@ public class ProdutoController implements Serializable, Initializable {
 		return true;
 	}
 
-	// comboBox.removeAllItems(); //remove os itens atuais do comboBox.
-	// ArrayList produtos = produtoDAO.findAll(); //'produtoDAO' é meu objeto que
-	// retorna os produtos do banco.
-	// Iterator i = produtos.iterator();
-	// while(i.hasNext()) {
-	// comboBox.addItem(String.valueOf(i.next()));
-	// }
-
-	// FornecedorDao fc = new FornecedorDao();
-	//
-	// public void selecionarFornecedor() {
-	// List<Fornecedor> forn = new ArrayList<>();
-	// forn = fc.listarFornecedor();
-	// for (int i = 0; i < forn.size(); i++) {
-	// System.out.println(forn.get(i));
-	//
-	// }
-	// }
-
-	// List<String> racas = new ArrayList<String>();
-	//
-	// racas.add("Cão");
-	//
-	// racas.add("Gato");
-	//
-	// racas.add("passaro");
-	//
-	// comboRaca.getItems().addAll(racas);
-	//
-	//
-	// clientes = clienteNegocio.listarCliente();
-	//
-	// if(clientes != null) {
-	//
-	// clientes.forEach(cliente -> {
-	//
-	// ComboCliente.getItems().add(
-	//
-	// cliente.getNome() + " " + cliente.getSobrenome());
-	//
-	// }
-	//
-	// );
-	//
-	// }
-	//
-	// }
-
 	FornecedorNegocio fn = new FornecedorNegocio();
 
 	public void selecionarFornecedor() {

@@ -33,10 +33,10 @@ import negocio.FornecedorNegocio;
 public class FornecedorController implements Initializable, Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@FXML
 	private AnchorPane acPane;
-	
+
 	@FXML
 	private ImageView btAjuda, imgInicio, btSobre, imgLogo, imgProduto, imgAdmin;
 	@FXML
@@ -98,7 +98,7 @@ public class FornecedorController implements Initializable, Serializable {
 			setarDadosFornecedor();
 			validar = validarCampos(fornecedor);
 			if (validar == false) {
-				validarCampos(fornecedor);
+				System.out.println("Seus campos são nulos!");
 			} else {
 				if (fornecedorN.salvar(fornecedor) == true) {
 					fornecedores.add(fornecedor);
@@ -139,18 +139,26 @@ public class FornecedorController implements Initializable, Serializable {
 		tvTable.setItems(fornecedoresView);
 	}
 
+	/*
+	 * Verifica primeiro se e nulo, caso contrario da erro! Aqui eu tenho que
+	 * verificar se a inconsistencias recebem string para validar ou não o metodo!
+	 */
 	public boolean validarCampos(Fornecedor fornecedor) {
 		StringBuilder inconsistencias = new StringBuilder();
-		if(fornecedor.getNome().equals("") || fornecedor.getNome() == null) {
-			inconsistencias.append("Campo Nome é obrigatório!");
+		if (fornecedor.getNome() == null || fornecedor.getNome().equals("")) {
+			inconsistencias.append("Campo Nome é obrigatório!\n");
 		}
-		if(fornecedor.getEndereco().equals("") || fornecedor.getEndereco()== null) {
+		if (fornecedor.getEndereco() == null || fornecedor.getEndereco().equals("")) {
 			inconsistencias.append("Campo endereço é obrigatório!");
 		}
-		System.out.println(inconsistencias.toString());
-		return true;
+		// Verifica se incinsistencias não recebe valor!
+		if (inconsistencias.equals("")) {
+			System.out.println(inconsistencias.toString());
+			return true;
+		}
+		return false;
 	}
-	
+
 	@FXML
 	public void edit() {
 		Fornecedor fornecedor = new Fornecedor();
@@ -160,12 +168,12 @@ public class FornecedorController implements Initializable, Serializable {
 		btSalvar.setText("Salvar");
 		btCancelar.setText("Cancelar");
 	}
-	
+
 	public void setaValores(Fornecedor fornecedor) {
 		txNome.setText(fornecedor.getNome());
 		txEndereco.setText(fornecedor.getEndereco());
 	}
-	
+
 	public void irParaProduto() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Cadastro de produtos.fxml");
@@ -173,7 +181,7 @@ public class FornecedorController implements Initializable, Serializable {
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
 	}
-	
+
 	public void irParaAdmin() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Cadastro de administrador.fxml");
@@ -181,7 +189,7 @@ public class FornecedorController implements Initializable, Serializable {
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
 	}
-	
+
 	public void irParaMain() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Main adm.fxml");

@@ -162,7 +162,6 @@ public class AdminController implements Serializable {
 		}
 		if (admin.getSobrenome().equals("") || admin.getSobrenome() == null) {
 			inconsistencias.append("\n Campo Sobrenome obrigat�rio");
-			lbMsgNeS.setText("Nome e/ou Sobrenome é/são obrigatório(s)!");
 		}
 		if (admin.getUsuario().equals("") || admin.getUsuario() == null) {
 			inconsistencias.append("\n Campo Usuario obrigat�rio");
