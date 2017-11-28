@@ -154,9 +154,9 @@ public class FornecedorController implements Initializable, Serializable {
 		// Verifica se incinsistencias não recebe valor!
 		if (inconsistencias.equals("")) {
 			System.out.println(inconsistencias.toString());
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	@FXML
