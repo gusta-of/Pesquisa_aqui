@@ -96,6 +96,15 @@ public class VinculoController implements Serializable, Initializable {
 				}
 			}
 		}
+		
+		// if (cbFornecedores.getValue() != null) {
+		// FornecedorNegocio fn = new FornecedorNegocio();
+		// List<Fornecedor> forn = new ArrayList<>();
+		// forn = fn.listarFornecedor();
+		// for (int i = 0; i < forn.size(); i++) {
+		// if (forn.get(i).getNome().equals(cbFornecedores.getValue().toString())) {
+		// produto.setIdFornecedor(forn.get(i));
+		// }
 
 		v.setIdFornecedor(cbMercado.getValue());
 		if (cbMercado.getValue() != null) {

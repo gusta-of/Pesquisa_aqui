@@ -38,8 +38,8 @@ public class VinculoDao {
 					Vinculo vinculo = new Vinculo();
 
 					vinculo.setId(res.getInt("id"));
-					vinculo.setIdFornecedor(res.getObject("idFornecedor", Fornecedor.class));
 					vinculo.setIdProduto(res.getObject("idProduto", Produto.class));
+					vinculo.setIdFornecedor(res.getObject("idFornecedor", Fornecedor.class));
 					vinculo.setMarca(res.getString("marca"));
 					vinculo.setValor(res.getDouble("valor"));
 					list.add(vinculo);
