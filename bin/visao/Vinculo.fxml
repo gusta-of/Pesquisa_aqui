@@ -49,7 +49,7 @@
       <TextField fx:id="txValor" layoutX="253.0" layoutY="368.0" promptText="Digite o valor aqui" />
       <Label fx:id="lbMercado" layoutX="250.0" layoutY="155.0" text="Mercado/Atacado:" />
       <Label fx:id="lbProduto" layoutX="482.0" layoutY="155.0" text="Produto:" />
-      <Button fx:id="btSave" layoutX="434.0" layoutY="452.0" mnemonicParsing="false" text="Salvar" />
+      <Button fx:id="btSave" layoutX="434.0" layoutY="452.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
       <Label fx:id="lbMV" layoutX="436.0" layoutY="296.0" prefHeight="100.0" prefWidth="251.0" />
    </children>
 </AnchorPane>

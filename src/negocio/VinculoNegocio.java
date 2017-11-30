@@ -10,15 +10,23 @@ public class VinculoNegocio implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	VinculoDao vinculo = new VinculoDao();
+	VinculoDao vinculoD = new VinculoDao();
+	Vinculo v = new Vinculo();
 
 	public List<Vinculo> listarVinculo() {
 		List<Vinculo> e = new ArrayList<>();
-		e = vinculo.listarVinculo();
+		e = vinculoD.listarVinculo();
 		return e;
 	}
 
-	public String salvar() {
-		return "Salvo";
+	public String salvar(Vinculo vinculo) {
+		String validar = "";
+//		if(v.getValor() <= 0) {
+//			validar = "False";
+//		}else {
+		vinculoD.salvar(vinculo);
+		validar = "Salvo";
+//		}
+		return validar;
 	}
 }
