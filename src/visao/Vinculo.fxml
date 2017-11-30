@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InicioController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
+         <children>
+            <Button fx:id="btInicioS" layoutX="63.0" layoutY="237.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Inicio" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button fx:id="btAjudaS" layoutX="62.0" layoutY="300.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Ajuda" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
+            <ImageView fx:id="imgLogo" fitHeight="92.0" fitWidth="143.0" layoutX="20.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../git/Pesquisa_aqui/src/resouces/img/logopa2.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="62.0" layoutY="367.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Sobre" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="286.0" layoutY="32.0" prefHeight="46.0" prefWidth="356.0" text="Vínculo Produto - Mercado">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbMercado" layoutX="250.0" layoutY="184.0" prefWidth="150.0" promptText="Escolha" />
+      <ComboBox fx:id="cbProduto" layoutX="482.0" layoutY="184.0" prefWidth="150.0" promptText="Escolha" />
+      <TextField fx:id="txMarca" layoutX="251.0" layoutY="300.0" promptText="Digite a marca aqui" />
+      <Label fx:id="lbMarca" layoutX="250.0" layoutY="273.0" text="Marca:" />
+      <Label fx:id="lbValor" layoutX="253.0" layoutY="344.0" text="Valor:" />
+      <TextField fx:id="txValor" layoutX="253.0" layoutY="368.0" promptText="Digite o valor aqui" />
+      <Label fx:id="lbMercado" layoutX="250.0" layoutY="155.0" text="Mercado/Atacado:" />
+      <Label fx:id="lbProduto" layoutX="482.0" layoutY="155.0" text="Produto:" />
+      <Button fx:id="btSave" layoutX="434.0" layoutY="452.0" mnemonicParsing="false" text="Salvar" />
+      <Label fx:id="lbMV" layoutX="436.0" layoutY="296.0" prefHeight="100.0" prefWidth="251.0" />
+   </children>
+</AnchorPane>
