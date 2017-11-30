@@ -1,13 +1,10 @@
+/SQL/
 /application/
 /controller/
 /dao/
 /daoUtil/
+/lib/
 /model/
 /negocio/
-/test/
-<<<<<<< HEAD
-/SQL/
-=======
 /resouces/
 /visao/
->>>>>>> branch 'master' of https://github.com/gusta-of/Pesquisa_aqui.git

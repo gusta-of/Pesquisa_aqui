@@ -32,13 +32,13 @@ public class ProdutoNegocio {
 	}
 	
 	public boolean validarValor() {
-		Produto p = new Produto();
+//		Produto p = new Produto();
 		boolean validar = false;
-		if(p.getValor() <= 0 ) {
-			validar = false;
-		}else {
-			validar = true;
-		}
+//		if(p.getValor() <= 0 ) {
+//			validar = false;
+//		}else {
+//			validar = true;
+//		}
 		return validar;
 	}
 	

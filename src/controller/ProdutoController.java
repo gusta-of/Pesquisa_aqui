@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,12 +25,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import model.Fornecedor;
 import model.Produto;
-import negocio.FornecedorNegocio;
 import negocio.ProdutoNegocio;
 
 public class ProdutoController implements Serializable, Initializable {
 
 	private static final long serialVersionUID = 1L;
+
+	private ObservableList<Produto> listProdutos = FXCollections.observableArrayList();
 
 	@FXML
 	private AnchorPane acPane;
@@ -37,8 +40,8 @@ public class ProdutoController implements Serializable, Initializable {
 	private Pane pnPane;
 
 	@FXML
-	private Label LbTituloPrincipal, lbcodigo, lbdescricao, lbvalor, lbTituloTabela, lbAtacado, lbMarca, lbProduto,
-			lbMsgSup, lbMsgProduto, lbMsgMarca, lbMsgCod, lbMsgDesc, lbMsgValor;
+	private Label LbTituloPrincipal, lbcodigo, lbdescricao, lbTituloTabela, lbAtacado, lbProduto, lbMsgSup,
+			lbMsgProduto, lbMsgCod, lbMsgDesc;
 
 	@FXML
 	private TextField txproduto, txdescricao, txvalor, txcodigo, txatacado, txMarca;
@@ -53,16 +56,10 @@ public class ProdutoController implements Serializable, Initializable {
 	private TableColumn<Produto, String> colProduto;
 
 	@FXML
-	private TableColumn<Produto, String> colValor;
-
-	@FXML
 	private TableColumn<Produto, String> colDescricao;
 
 	@FXML
 	private TableColumn<Produto, String> colCodigo;
-
-	@FXML
-	private TableColumn<Produto, Integer> colIdFornecedor;
 
 	@FXML
 	private Button btcancelar, btsalvar, btMain, btCadFornecedor, btCadAdmin;
@@ -72,19 +69,32 @@ public class ProdutoController implements Serializable, Initializable {
 
 	ProdutoNegocio produtoNegocio = new ProdutoNegocio();
 	List<Produto> produtos = new ArrayList<Produto>();
-
+	List<Produto> pro = produtoNegocio.listarProduto();
+	
 	Produto produto = new Produto();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		List<Produto> produtoList = listarProduto();
-		populaView(produtoList);
-//		selecionarFornecedor();
+		listarProduto();
+		// selecionarFornecedor();
 	}
 
-	private List<Produto> listarProduto() {
-		produtos = produtoNegocio.listarProduto(); // Implementar em Negocio
-		return produtos;
+	public void listarProduto() {
+		if (!listProdutos.isEmpty()) {
+			listProdutos.clear();
+		}
+
+		for (Produto produto : pro) {
+			Produto p = new Produto(produto.getNomeProduto(), produto.getCodigo(), produto.getDescricao());
+			listProdutos.add(p);
+		}
+
+		colProduto.setCellValueFactory(new PropertyValueFactory<Produto, String>("nomeProduto"));
+		colDescricao.setCellValueFactory(new PropertyValueFactory<Produto, String>("descricao"));
+		colCodigo.setCellValueFactory(new PropertyValueFactory<Produto, String>("codigo"));
+		
+		tbtabela.setItems(listProdutos);
+
 	}
 
 	@FXML
@@ -99,64 +109,49 @@ public class ProdutoController implements Serializable, Initializable {
 				lbMsgCod.setVisible(true);
 				lbMsgProduto.setVisible(true);
 				lbMsgDesc.setVisible(true);
-				lbMsgValor.setVisible(true);
 			} else {
 				if (pn.salvar(produto).equals("salvo")) {
 					produtos.add(produto);
 					pn.salvar(produto);
-					this.populaView(produtos);
+					listarProduto();
 				} else {
 					lbMsgCod.setVisible(false);
 					lbMsgProduto.setVisible(false);
 					lbMsgDesc.setVisible(false);
-					lbMsgValor.setVisible(false);
-					this.limparCampos();
+					limparCampos();
 				}
 			}
 		} else {
 			setarDadosProd();
 			pn.salvar(produto);
 			listarProduto();
-			this.populaView(produtos);
-			this.limparCampos();
+			limparCampos();
 		}
 
 	}
 
 	public void setarDadosProd() {
 		// produto.setIdFornecedor(cbFornecedores.getValue());
-		if (cbFornecedores.getValue() != null) {
-			FornecedorNegocio fn = new FornecedorNegocio();
-			List<Fornecedor> forn = new ArrayList<>();
-			forn = fn.listarFornecedor();
-			for (int i = 0; i < forn.size(); i++) {
-				if (forn.get(i).getNome().equals(cbFornecedores.getValue().toString())) {
-					produto.setIdFornecedor(forn.get(i));
-				}
-			}
-		}
+		// if (cbFornecedores.getValue() != null) {
+		// FornecedorNegocio fn = new FornecedorNegocio();
+		// List<Fornecedor> forn = new ArrayList<>();
+		// forn = fn.listarFornecedor();
+		// for (int i = 0; i < forn.size(); i++) {
+		// if (forn.get(i).getNome().equals(cbFornecedores.getValue().toString())) {
+		// produto.setIdFornecedor(forn.get(i));
+		// }
+		// }
+		// }
 
 		produto.setNomeProduto(txproduto.getText());
-		produto.setMarca(txMarca.getText());
-		produto.setValor(Double.parseDouble(txvalor.getText()));
 		produto.setCodigo(Integer.parseInt(txcodigo.getText()));
 		produto.setDescricao(txdescricao.getText());
 	}
 
 	public void limparCampos() {
 		txproduto.setText("");
-		txMarca.setText("");
-		txvalor.setText("");
 		txcodigo.setText("");
 		txdescricao.setText("");
-	}
-
-	public void populaView(List<Produto> produtos) {
-		colProduto.setCellValueFactory(new PropertyValueFactory<Produto, String>("Produto"));
-		colValor.setCellValueFactory(new PropertyValueFactory<Produto, String>("Valor"));
-		colDescricao.setCellValueFactory(new PropertyValueFactory<Produto, String>("Descricao"));
-		colCodigo.setCellValueFactory(new PropertyValueFactory<Produto, String>("Codigo"));
-		colIdFornecedor.setCellValueFactory(new PropertyValueFactory<Produto, Integer>("IdFornecedor"));
 	}
 
 	public void irParaFornecedor() throws IOException {
@@ -197,24 +192,20 @@ public class ProdutoController implements Serializable, Initializable {
 			inconsistencias.append("\nA descri��o do produto � obrigat�rio.");
 			lbMsgDesc.setText("Campo Obrigatório");
 		}
-		if (produto.getDescricao().equals("") || produto.getDescricao() == null) {
-			inconsistencias.append("\nO produto n�o pode ser cadastrado com valor menor ou igual a 0.");
-			lbMsgValor.setText("Campo Obrigatório");
-		}
 		System.out.println(inconsistencias.toString());
 		return true;
 	}
 
-//	FornecedorNegocio fn = new FornecedorNegocio();
-//
-//	public void selecionarFornecedor() {
-//		List<Fornecedor> list = fn.listarFornecedorNome();
-//		cbFornecedores.getItems().clear();
-//		for (int i = 0; i < list.size(); i++) {
-//			System.out.println(list.get(i).toString());
-//			cbFornecedores.getItems().addAll(list.get(i));
-//		}
-//
-//	}
+	// FornecedorNegocio fn = new FornecedorNegocio();
+	//
+	// public void selecionarFornecedor() {
+	// List<Fornecedor> list = fn.listarFornecedorNome();
+	// cbFornecedores.getItems().clear();
+	// for (int i = 0; i < list.size(); i++) {
+	// System.out.println(list.get(i).toString());
+	// cbFornecedores.getItems().addAll(list.get(i));
+	// }
+	//
+	// }
 
 }

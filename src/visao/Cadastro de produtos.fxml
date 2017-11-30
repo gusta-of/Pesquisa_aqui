@@ -66,10 +66,8 @@
             </AnchorPane>
             <Label fx:id="lbMsgSup" layoutX="588.0" layoutY="117.0" prefHeight="17.0" prefWidth="201.0" />
             <Label fx:id="lbMsgProduto" layoutX="588.0" layoutY="155.0" prefHeight="17.0" prefWidth="201.0" />
-            <Label fx:id="lbMsgMarca" layoutX="588.0" layoutY="193.0" prefHeight="17.0" prefWidth="92.0" />
             <Label fx:id="lbMsgCod" layoutX="588.0" layoutY="228.0" prefHeight="17.0" prefWidth="201.0" />
             <Label fx:id="lbMsgDesc" layoutX="589.0" layoutY="258.0" prefHeight="17.0" prefWidth="201.0" />
-            <Label fx:id="lbMsgValor" layoutX="689.0" layoutY="193.0" prefHeight="17.0" prefWidth="92.0" />
          </children>
       </Pane>
    </children>
