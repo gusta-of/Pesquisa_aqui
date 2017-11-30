@@ -79,7 +79,7 @@ public class ProdutoController implements Serializable, Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		List<Produto> produtoList = listarProduto();
 		populaView(produtoList);
-		selecionarFornecedor();
+//		selecionarFornecedor();
 	}
 
 	private List<Produto> listarProduto() {
@@ -205,16 +205,16 @@ public class ProdutoController implements Serializable, Initializable {
 		return true;
 	}
 
-	FornecedorNegocio fn = new FornecedorNegocio();
-
-	public void selecionarFornecedor() {
-		List<Fornecedor> list = fn.listarFornecedorNome();
-		cbFornecedores.getItems().clear();
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).toString());
-			cbFornecedores.getItems().addAll(list.get(i));
-		}
-
-	}
+//	FornecedorNegocio fn = new FornecedorNegocio();
+//
+//	public void selecionarFornecedor() {
+//		List<Fornecedor> list = fn.listarFornecedorNome();
+//		cbFornecedores.getItems().clear();
+//		for (int i = 0; i < list.size(); i++) {
+//			System.out.println(list.get(i).toString());
+//			cbFornecedores.getItems().addAll(list.get(i));
+//		}
+//
+//	}
 
 }

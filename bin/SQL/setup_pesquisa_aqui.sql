@@ -35,15 +35,14 @@ CREATE TABLE IF NOT EXISTS produto (
    codigo INT(100) NOT NULL,
    nomeProduto VARCHAR(200) NOT NULL,
    descricao VARCHAR(200) NOT NULL, 
-   valor DOUBLE(15,2) NOT NULL,
-   idFornecedor INT NOT NULL,
-   FOREIGN KEY (idFornecedor) REFERENCES fornecedores(id)
 );
 
 CREATE TABLE IF NOT EXISTS vinculo (
    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
    idProduto INT(15) NOT NULL,
    idFornecedores INT(15) NOT NULL,
+   valor DOUBLE(15,2) NOT NULL,
+   marca VARCHAR(20) NOT NULL,
    CONSTRAINT fk_produto FOREIGN KEY (idProduto) REFERENCES produto(id),
    CONSTRAINT fk_fornecedor FOREIGN KEY (idFornecedores) REFERENCES fornecedores (id)
 );
