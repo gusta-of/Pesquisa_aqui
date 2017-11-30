@@ -31,6 +31,12 @@ public class ProdutoNegocio {
 		return produtos;
 	}
 	
+	public List<Produto> listarProdutoPorNome() {
+		List<Produto> produtos  = new ArrayList<Produto>();
+		produtos = produtoDao.listarProdutoPorNome();
+		return produtos;
+	}
+	
 	public boolean validarValor() {
 //		Produto p = new Produto();
 		boolean validar = false;

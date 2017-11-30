@@ -53,6 +53,26 @@ public class ProdutoDao {
 		}
 		return list;
 	}
+	
+	public List<Produto> listarProdutoPorNome() {
+		List<Produto> list = new ArrayList<Produto>();
+		ResultSet res = null;
+		try {
+			if (con != null) {
+				stm = con.createStatement();
+				res = stm.executeQuery("SELECT * FROM produto");
+				while (res.next()) {
+					Produto produto = new Produto();
+
+					produto.setNomeProduto(res.getString("nomeProduto"));
+					list.add(produto);
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro na consulta 2:" + e.getMessage());
+		}
+		return list;
+	}
 
 	public String salvar(Produto produto) {
 		String salvo = "falha";

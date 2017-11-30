@@ -19,6 +19,6 @@ public class VinculoNegocio implements Serializable {
 	}
 
 	public String salvar() {
-		return "salvo";
+		return "Salvo";
 	}
 }

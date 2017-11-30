@@ -64,5 +64,10 @@ public class Produto {
 	public void addPro(Produto p) {
 		ListaPro.add(p);
 	}
+	
+	@Override
+	public String toString() {
+	    return this.nomeProduto;
+	}
 
 }

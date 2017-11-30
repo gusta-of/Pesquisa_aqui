@@ -48,12 +48,12 @@ public class VinculoController implements Serializable, Initializable {
 
 	VinculoNegocio vn = new VinculoNegocio();
 	Vinculo v = new Vinculo();
-	FornecedorNegocio fn = new FornecedorNegocio();
-	ProdutoNegocio pn = new ProdutoNegocio();
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		listarVinculo();
+		selecionarFornecedor();
+		selecionarProduto();
 	}
 
 	public List<Vinculo> listarVinculo() {
@@ -63,17 +63,23 @@ public class VinculoController implements Serializable, Initializable {
 	}
 
 	public void salvar() {
-		boolean validar = false;
-		Vinculo v = new Vinculo();
-		if (v.getId() == 0) {
-
+		List<Vinculo> listS = this.listarVinculo();
+		for(int i = 0; i < listS.size(); i++) {
+			if(listS.get(i).getMarca().equals(txMarca.getText())) {
+				lbMV.setVisible(true);
+				lbMV.setText("Essa marca já está vinculada à um produto!");
+			}
 		}
+		
+		
 	}
 
 	public void setarDadosVinculo() {
+		
 
 		v.setIdFornecedor(cbMercado.getValue());
 		if (cbMercado.getValue() != null) {
+			FornecedorNegocio fn = new FornecedorNegocio();
 			List<Fornecedor> listf = new ArrayList<>();
 			listf = fn.listarFornecedor();
 			for (int i = 0; i < listf.size(); i++) {
@@ -84,6 +90,7 @@ public class VinculoController implements Serializable, Initializable {
 		}
 		v.setIdProduto(cbProduto.getValue());
 		if (cbProduto.getValue() != null) {
+			ProdutoNegocio pn = new ProdutoNegocio();
 			List<Produto> listP = new ArrayList<>();
 			listP = pn.listarProduto();
 			for (int i = 0; i < listP.size(); i++) {
@@ -92,18 +99,32 @@ public class VinculoController implements Serializable, Initializable {
 				}
 			}
 		}
-
+//		v.setIdFornecedor(cbMercado.getValue());
+//		v.setIdProduto(cbProduto.getValue());
 		v.setMarca(txMarca.getText());
 		v.setValor(Double.parseDouble(txValor.getText()));
 
 	}
 	
 	public void selecionarFornecedor() {
+		FornecedorNegocio fn = new FornecedorNegocio();
+
 		List<Fornecedor> listf = fn.listarFornecedorNome();
 		cbMercado.getItems().clear();
 		for(int i = 0; i < listf.size(); i++) {
 			listf.get(i).toString();
 			cbMercado.getItems().addAll(listf.get(i));
+		}
+	}
+	
+	public void selecionarProduto() {
+		ProdutoNegocio pn = new ProdutoNegocio();
+
+		List<Produto> listP = pn.listarProduto();
+		cbProduto.getItems().clear();
+		for(int i = 0; i < listP.size();i++) {
+			listP.get(i).toString();
+			cbProduto.getItems().addAll(listP.get(i));
 		}
 	}
 

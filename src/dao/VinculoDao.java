@@ -39,7 +39,7 @@ public class VinculoDao {
 
 					vinculo.setId(res.getInt("id"));
 					vinculo.setIdFornecedor(res.getObject("idFornecedor", Fornecedor.class));
-					vinculo.setIdProduto(res.getObject("idproduto", Produto.class));
+					vinculo.setIdProduto(res.getObject("idProduto", Produto.class));
 					vinculo.setMarca(res.getString("marca"));
 					vinculo.setValor(res.getDouble("valor"));
 					list.add(vinculo);
