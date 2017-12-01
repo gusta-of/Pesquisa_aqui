@@ -68,6 +68,14 @@ public class VinculoController implements Serializable, Initializable {
 		setarDadosVinculo();
 		vinculos.add(vinculo);
 		vn.salvar(vinculo);
+		limparCampos();
+	}
+	
+	public void limparCampos() {
+		cbProduto.setValue(null);
+		cbMercado.setValue(null);
+		txMarca.setText("");
+		txValor.setText("");
 	}
 
 	public void setarDadosVinculo() {
@@ -75,6 +83,7 @@ public class VinculoController implements Serializable, Initializable {
 		vinculo.setIdFornecedor(cbMercado.getValue());
 		if (cbMercado.getValue() != null) {
 			FornecedorNegocio fn = new FornecedorNegocio();
+			@SuppressWarnings("unused")
 			List<Fornecedor> listf = new ArrayList<>();
 			listf = fn.listarFornecedor();
 			Fornecedor f = new Fornecedor();
@@ -84,6 +93,7 @@ public class VinculoController implements Serializable, Initializable {
 		vinculo.setIdProduto(cbProduto.getValue());
 		if (cbProduto.getValue() != null) {
 			ProdutoNegocio pn = new ProdutoNegocio();
+			@SuppressWarnings("unused")
 			List<Produto> listP = new ArrayList<>();
 			listP = pn.listarProduto();
 			Produto p = new Produto();

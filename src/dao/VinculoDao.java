@@ -27,6 +27,32 @@ public class VinculoDao {
 
 	String sqlSalvar = "INSERT INTO vinculo (idProduto, idFornecedor, valor, marca) VALUES(?,?,?,?)";
 
+	public List<Vinculo> listarVinculoTabela() {
+		List<Vinculo> list = new ArrayList<>();
+		ResultSet res = null;
+		try {
+			if (con != null) {
+				stm = con.createStatement();
+				res = stm.executeQuery("SELECT * FROM vinculo WHERE idFornecedor = ?");
+				while (res.next()) {
+					Vinculo vinculo = new Vinculo();
+
+					vinculo.setId(res.getInt("id"));
+					vinculo.setIdProduto(res.getObject("idProduto", Produto.class));
+					vinculo.setIdFornecedor(res.getObject("idFornecedor", Fornecedor.class));
+					vinculo.setMarca(res.getString("marca"));
+					vinculo.setValor(res.getDouble("valor"));
+					list.add(vinculo);
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro ao listar" + e.getMessage());
+		}
+
+		return list;
+
+	}
+	
 	public List<Vinculo> listarVinculo() {
 		List<Vinculo> list = new ArrayList<>();
 		ResultSet res = null;

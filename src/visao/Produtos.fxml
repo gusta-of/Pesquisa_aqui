@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InicioController">
+<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ListaProdController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
          <children>
@@ -59,12 +59,10 @@
             <Button fx:id="btnLogin" layoutX="58.0" layoutY="561.0" mnemonicParsing="false" onAction="#irParaLogin" text="Login" />
          </children>
       </AnchorPane>
-      <TableView fx:id="tbProd" layoutX="174.0" layoutY="166.0" prefHeight="434.0" prefWidth="626.0">
+      <TableView fx:id="tbProd" layoutX="174.0" layoutY="163.0" prefHeight="437.0" prefWidth="309.0">
         <columns>
           <TableColumn fx:id="colNome" prefWidth="150.0" text="Nome" />
             <TableColumn fx:id="colDesc" prefWidth="157.0" text="Descrição" />
-            <TableColumn fx:id="colMarca" prefWidth="149.0" text="Marca" />
-            <TableColumn fx:id="colValue" prefWidth="171.0" text="Valor" />
         </columns>
       </TableView>
       <Label layoutX="672.0" layoutY="114.0" text="Valor total da cesta:" />
@@ -80,5 +78,11 @@
          </font>
       </Label>
       <Label fx:id="lbEnd" layoutX="180.0" layoutY="98.0" prefHeight="56.0" prefWidth="471.0" />
+      <TableView fx:id="tbProd1" layoutX="481.0" layoutY="163.0" prefHeight="437.0" prefWidth="319.0">
+         <columns>
+            <TableColumn fx:id="colMarca" prefWidth="150.0" text="Marca" />
+            <TableColumn fx:id="colvalor" prefWidth="158.0" text="Valor" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

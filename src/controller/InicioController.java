@@ -19,7 +19,16 @@ public class InicioController {
 	private ImageView imgLogo, imgInicio, btAjuda1;
 	
 	@FXML
-	private Button btnMercado1, btAjuda, btnLogin, btSobre;
+	private Button btnMercado1, btAjuda, btnLogin, btSobre, btCu;
+	
+	
+	public void irParaListaProduto() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Produtos.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
 	
 	
 	public void irParaLogin() throws IOException {

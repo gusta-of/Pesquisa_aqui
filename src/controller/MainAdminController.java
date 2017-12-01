@@ -46,7 +46,7 @@ public class MainAdminController implements Initializable, Serializable {
 	private AnchorPane acPane;
 
 	@FXML
-	private Button btCadProduto, btCadAdmin, btCadMercado, btAjudaAdm, btSairAdm, btAjudaS, btInicioS;
+	private Button btCadProduto, btCadAdmin, btCadMercado, btAjudaAdm, btSairAdm, btAjudaS, btInicioS, btVinculo;
 
 	@FXML
 	private ImageView imgLogo;
@@ -88,6 +88,14 @@ public class MainAdminController implements Initializable, Serializable {
 	public void irParaFornecedor() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Cadastro de fornecedor.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
+	
+	public void irParaVinculo() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Vinculo.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);

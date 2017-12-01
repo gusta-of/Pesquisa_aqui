@@ -56,12 +56,12 @@
             </Button>
          </children>
       </AnchorPane>
-      <Pane layoutX="174.0" prefHeight="600.0" prefWidth="629.0">
+      <Pane fx:id="P" layoutX="174.0" prefHeight="600.0" prefWidth="629.0">
          <children>
             <Pane layoutX="54.0" layoutY="36.0" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="206.0" fitWidth="200.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="-1.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="206.0" prefWidth="200.0" text="Button" />
+                  <Button fx:id="btCu" layoutX="-1.0" layoutY="-6.0" mnemonicParsing="false" onAction="#irParaListaProduto" prefHeight="206.0" prefWidth="200.0" text="Button" />
                </children>
             </Pane>
             <Pane layoutX="361.0" layoutY="36.0" prefHeight="200.0" prefWidth="200.0">
