@@ -11,6 +11,7 @@ public class Produto {
 	ArrayList<Produto> ListaPro;
 
 	public Produto() {
+		super();
 		ListaPro = new ArrayList<>();
 	}
 

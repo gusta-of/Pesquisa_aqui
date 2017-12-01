@@ -61,7 +61,7 @@ public class VinculoDao {
 		try {
 			if (con != null) {
 				stm = con.createStatement();
-				res = stm.executeQuery("SELECT produto.nomeProduto, produto.descricao FROM vinculo "
+				res = stm.executeQuery("SELECT produto.descricao FROM vinculo "
 						+ "INNER JOIN produto ON produto.id = vinculo.idProduto;");
 				while (res.next()) {
 					Vinculo vinculo = new Vinculo();
