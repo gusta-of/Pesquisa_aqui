@@ -25,7 +25,7 @@ public class VinculoDao {
 		con = cf.getConnection();
 	}
 
-	String sqlSalvar = "INSERT INTO vinculo(idProduto, idFornecedor, valor, marca) VALUES(?,?,?,?)";
+	String sqlSalvar = "INSERT INTO vinculo (idProduto, idFornecedor, valor, marca) VALUES(?,?,?,?)";
 
 	public List<Vinculo> listarVinculo() {
 		List<Vinculo> list = new ArrayList<>();
@@ -38,8 +38,8 @@ public class VinculoDao {
 					Vinculo vinculo = new Vinculo();
 
 					vinculo.setId(res.getInt("id"));
-					vinculo.setIdFornecedor(res.getObject("idFornecedor", Fornecedor.class));
 					vinculo.setIdProduto(res.getObject("idProduto", Produto.class));
+					vinculo.setIdFornecedor(res.getObject("idFornecedor", Fornecedor.class));
 					vinculo.setMarca(res.getString("marca"));
 					vinculo.setValor(res.getDouble("valor"));
 					list.add(vinculo);
