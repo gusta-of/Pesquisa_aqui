@@ -33,15 +33,15 @@ public class LoginController {
 	@FXML
 	private Label lbMsgUser, lbMsgSenha;
 
-//	List<Admin> admins = new ArrayList<Admin>();
+	// List<Admin> admins = new ArrayList<Admin>();
 	LoginNegocio loginNegocio = new LoginNegocio();
 	Admin admin = new Admin();
 
-//	public List<Admin> listarAdmin() {
-//		List<Admin> admins = new ArrayList<>();
-//		admins = loginNegocio.listarAdmin();
-//		return admins;
-//	}
+	// public List<Admin> listarAdmin() {
+	// List<Admin> admins = new ArrayList<>();
+	// admins = loginNegocio.listarAdmin();
+	// return admins;
+	// }
 
 	public boolean logar() throws IOException {
 		List<Admin> admins = new ArrayList<>();
@@ -49,17 +49,24 @@ public class LoginController {
 		for (int i = 0; i < admins.size(); i++) {
 			if (admins.get(i).getUsuario().equals(txtUser.getText())) {
 				if (admins.get(i).getSenha().equals(txtSenha.getText())) {
-					URL arquivoFxml;
-					arquivoFxml = getClass().getResource("/visao/Main adm.fxml");
-					Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
-					apnPaneLogin.getChildren().clear();
-					apnPaneLogin.getChildren().add(fxmlParent);
-					imgLoad2.setVisible(true);
-				}else {
+					if (admins.get(i).getUsuario().equals("root")) {
+						URL arquivoFxml;
+						arquivoFxml = getClass().getResource("/visao/Main adm.fxml");
+						Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+						apnPaneLogin.getChildren().clear();
+						apnPaneLogin.getChildren().add(fxmlParent);
+					} else {
+						URL arquivoFxml;
+						arquivoFxml = getClass().getResource("/visao/vinculo.fxml");
+						Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+						apnPaneLogin.getChildren().clear();
+						apnPaneLogin.getChildren().add(fxmlParent);
+					}
+				} else {
 					lbMsgSenha.setText("Senha Incorreta!");
 					lbMsgSenha.setVisible(true);
 				}
-			}else {
+			} else {
 				lbMsgUser.setText("Usuário Incorreto!");
 				lbMsgUser.setVisible(true);
 			}
@@ -90,7 +97,7 @@ public class LoginController {
 		txtUser.setText("");
 		txtSenha.setText("");
 	}
-	
+
 	public void irParaInicio() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
@@ -98,7 +105,7 @@ public class LoginController {
 		apnPaneLogin.getChildren().clear();
 		apnPaneLogin.getChildren().add(fxmlParent);
 	}
-	
+
 	public void irParaSobre() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Sobre.fxml");
@@ -106,9 +113,9 @@ public class LoginController {
 		apnPaneLogin.getChildren().clear();
 		apnPaneLogin.getChildren().add(fxmlParent);
 	}
-	
+
 	public void irParaAjuda() {
-		
+
 	}
-	
+
 }

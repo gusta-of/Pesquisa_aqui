@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS admin (
 );
 
 INSERT INTO admin (nome, sobrenome, usuario, email, cpf, senha, confirmarSenha, dataNascimento)
-VALUES ("teste", "teste", "teste", "teste@teste.com", "04393906136", "123", "123", "1997-12-09");
+VALUES ("Root", "teste", "root", "teste@teste.com", "04393906136", "rootroot", "rootroot", "1997-12-09");
 
 CREATE TABLE IF NOT EXISTS fornecedores(
    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -48,3 +48,9 @@ CREATE TABLE IF NOT EXISTS vinculo (
 );
 
 USE pesquisa_aqui;
+
+/*
+ * consulta Inner Join
+ * */
+SELECT produto.nomeProduto, fornecedores.nome FROM vinculo INNER JOIN produto ON produto.id = vinculo.idProduto INNER JOIN fornecedores ON fornecedores.id = vinculo.idFornecedor;
+SELECT produto.nomeProduto, produto.descricao FROM vinculo INNER JOIN produto ON produto.id = vinculo.idProduto;

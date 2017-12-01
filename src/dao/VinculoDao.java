@@ -29,19 +29,21 @@ public class VinculoDao {
 
 	public List<Vinculo> listarVinculoTabela() {
 		List<Vinculo> list = new ArrayList<>();
+		List<Produto> listP = new ArrayList<>();
 		ResultSet res = null;
 		try {
 			if (con != null) {
 				stm = con.createStatement();
-				res = stm.executeQuery("SELECT * FROM vinculo WHERE idFornecedor = ?");
+				res = stm.executeQuery("SELECT produto.nomeProduto, produto.descricao FROM vinculo "
+						+ "INNER JOIN produto ON produto.id = vinculo.idProduto;");
 				while (res.next()) {
 					Vinculo vinculo = new Vinculo();
-
-					vinculo.setId(res.getInt("id"));
-					vinculo.setIdProduto(res.getObject("idProduto", Produto.class));
-					vinculo.setIdFornecedor(res.getObject("idFornecedor", Fornecedor.class));
-					vinculo.setMarca(res.getString("marca"));
-					vinculo.setValor(res.getDouble("valor"));
+					Produto p = new Produto();
+					
+					p.setNomeProduto(res.getString("nomeProduto"));
+					p.setDescricao(res.getString("descricao"));
+					listP.add(p);
+					vinculo.setIdProduto(p);
 					list.add(vinculo);
 				}
 			}
@@ -52,7 +54,7 @@ public class VinculoDao {
 		return list;
 
 	}
-	
+
 	public List<Vinculo> listarVinculo() {
 		List<Vinculo> list = new ArrayList<>();
 		ResultSet res = null;
@@ -62,7 +64,6 @@ public class VinculoDao {
 				res = stm.executeQuery("SELECT * FROM vinculo");
 				while (res.next()) {
 					Vinculo vinculo = new Vinculo();
-
 					vinculo.setId(res.getInt("id"));
 					vinculo.setIdProduto(res.getObject("idProduto", Produto.class));
 					vinculo.setIdFornecedor(res.getObject("idFornecedor", Fornecedor.class));

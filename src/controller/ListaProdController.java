@@ -2,8 +2,10 @@ package controller;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
+import javax.sql.rowset.Joinable;
 
 import dao.VinculoDao;
 import javafx.collections.FXCollections;
@@ -17,17 +19,19 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import model.Produto;
 import model.Vinculo;
 
 public class ListaProdController implements Initializable {
 
 	private VinculoDao vd = new VinculoDao();
-	private List<Vinculo> vinculoList = vd.listarVinculo();
+	private List<Vinculo> vinculoList = vd.listarVinculoTabela();
 	private ObservableList<Vinculo> listaVinculo = FXCollections.observableArrayList();
+	Vinculo v = new Vinculo();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		List<Vinculo> vinculoList = vd.listarVinculo();
+
 		populaView(vinculoList);
 
 	}
@@ -44,8 +48,8 @@ public class ListaProdController implements Initializable {
 	@FXML
 	private ImageView btAjuda1;
 
-	@FXML
-	private TableColumn<Vinculo, Double> colValue;
+	// @FXML
+	// private TableColumn<Vinculo, String> colValue;
 
 	@FXML
 	private Button btAjuda;
@@ -73,29 +77,30 @@ public class ListaProdController implements Initializable {
 
 	@FXML
 	private Label lbEnd;
+	
+	Produto pro = new Produto();
 
-
-Vinculo vincul = new Vinculo();
 	public void populaView(List<Vinculo> vinculo) {
-
+		Vinculo vincul = new Vinculo();
 		if (!listaVinculo.isEmpty()) {
 			listaVinculo.clear();
 		}
-
 		for (Vinculo vinc : vinculoList) {
 			Vinculo v = new Vinculo(vinc.getIdProduto(), vinc.getMarca(), vinc.getValor());
-			vinculoList.add(v);
+			listaVinculo.add(v);
 
 		}
-
-		colNome.setCellValueFactory(new PropertyValueFactory<Vinculo, String>(vincul.getIdProduto().getNomeProduto()));
-		colDesc.setCellValueFactory(new PropertyValueFactory<Vinculo, String>(vincul.getIdProduto().getDescricao()));
+		for (int i = 0; i < listaVinculo.size(); i++) {
+			System.out.println(listaVinculo.get(i));
+			colNome.setCellValueFactory(new PropertyValueFactory<Vinculo, String>("idProduto"));
+			colDesc.setCellValueFactory(new PropertyValueFactory<Vinculo, String>("idProduto"));
+		}
 		colMarca.setCellValueFactory(new PropertyValueFactory<Vinculo, String>("marca"));
-		colValue.setCellValueFactory(new PropertyValueFactory<Vinculo, Double>("valor"));
+		// colValue.setCellValueFactory(new PropertyValueFactory<Vinculo,
+		// String>("valor"));
 
 		listaVinculo = FXCollections.observableArrayList(vinculo);
-		tbProd.setItems((ObservableList<Vinculo>) vinculoList);
-		;
+		tbProd.setItems(listaVinculo);
 	}
 
 	@FXML

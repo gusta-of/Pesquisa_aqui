@@ -22,7 +22,7 @@ public class Vinculo implements Serializable {
 		this.marca = marca;
 		this.valor = valor;
 	}
-	
+
 	public Vinculo(Produto idProduto, String marca, double valor) {
 		this.idProduto = idProduto;
 		this.marca = marca;
@@ -67,6 +67,6 @@ public class Vinculo implements Serializable {
 
 	public void setValor(double valor) {
 		this.valor = valor;
-	}
 
+	}
 }
