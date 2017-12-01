@@ -49,6 +49,7 @@ public class VinculoController implements Serializable, Initializable {
 	VinculoNegocio vn = new VinculoNegocio();
 	Vinculo v = new Vinculo();
 	Vinculo vinculo = new Vinculo();
+	List<Vinculo> vinculos = new ArrayList<>();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -58,26 +59,20 @@ public class VinculoController implements Serializable, Initializable {
 	}
 
 	public List<Vinculo> listarVinculo() {
-		List<Vinculo> lista = new ArrayList<>();
-		lista = vn.listarVinculo();
-		return lista;
+		vinculos = vn.listarVinculo();
+		return vinculos;
 	}
 
 	@FXML
 	public void salvar() {
-		List<Vinculo> listS = this.listarVinculo();
-		for (int i = 0; i < listS.size(); i++) {
-			if (listS.get(i).getMarca().equals(txMarca.getText())) {
-				lbMV.setVisible(true);
-				lbMV.setText("Essa marca já está vinculada à um produto!");
-			}
-		}
-
+		setarDadosVinculo();
+		vinculos.add(vinculo);
+		vn.salvar(vinculo);
 	}
 
 	public void setarDadosVinculo() {
 
-		v.setIdFornecedor(cbMercado.getValue());
+		vinculo.setIdFornecedor(cbMercado.getValue());
 		if (cbMercado.getValue() != null) {
 			FornecedorNegocio fn = new FornecedorNegocio();
 			List<Fornecedor> listf = new ArrayList<>();
@@ -85,8 +80,8 @@ public class VinculoController implements Serializable, Initializable {
 			Fornecedor f = new Fornecedor();
 			f = cbMercado.getSelectionModel().getSelectedItem();
 			vinculo.setIdFornecedor(f);
-			}
-		v.setIdProduto(cbProduto.getValue());
+		}
+		vinculo.setIdProduto(cbProduto.getValue());
 		if (cbProduto.getValue() != null) {
 			ProdutoNegocio pn = new ProdutoNegocio();
 			List<Produto> listP = new ArrayList<>();
@@ -95,10 +90,12 @@ public class VinculoController implements Serializable, Initializable {
 			p = cbProduto.getSelectionModel().getSelectedItem();
 			vinculo.setIdProduto(p);
 		}
-		// v.setIdFornecedor(cbMercado.getValue());
-		// v.setIdProduto(cbProduto.getValue());
-		v.setMarca(txMarca.getText());
-		v.setValor(Double.parseDouble(txValor.getText()));
+		vinculo.setIdFornecedor(cbMercado.getValue());
+		vinculo.setIdProduto(cbProduto.getValue());
+		vinculo.setMarca(txMarca.getText());
+		String valor = txValor.getText();
+		valor = valor.replaceAll(",", ".");
+		vinculo.setValor(Double.parseDouble(valor));
 
 	}
 
