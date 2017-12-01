@@ -41,7 +41,6 @@ public class VinculoDao {
 					Produto p = new Produto();
 					
 					p.setNomeProduto(res.getString("nomeProduto"));
-					p.setDescricao(res.getString("descricao"));
 					listP.add(p);
 					vinculo.setIdProduto(p);
 					list.add(vinculo);

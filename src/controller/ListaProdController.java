@@ -16,7 +16,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import model.Produto;
 import model.Vinculo;
 
 public class ListaProdController implements Initializable {
@@ -70,7 +69,7 @@ public class ListaProdController implements Initializable {
 	private TableColumn<Vinculo, String> colDesc;
 
 	@FXML
-	private TableColumn<Produto, Double> colvalor;
+	private TableColumn<Vinculo, Double> colvalor;
 
 	@FXML
 	private AnchorPane acPane;
@@ -84,7 +83,6 @@ public class ListaProdController implements Initializable {
 	@FXML
 	private Label lbEnd;
 
-	Produto pro = new Produto();
 
 	public void populaView(List<Vinculo> vinculo) {
 		if (!listaVinculo.isEmpty()) {
