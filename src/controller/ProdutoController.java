@@ -70,7 +70,7 @@ public class ProdutoController implements Serializable, Initializable {
 	ProdutoNegocio produtoNegocio = new ProdutoNegocio();
 	List<Produto> produtos = new ArrayList<Produto>();
 	List<Produto> pro = produtoNegocio.listarProduto();
-	
+
 	Produto produto = new Produto();
 
 	@Override
@@ -92,7 +92,7 @@ public class ProdutoController implements Serializable, Initializable {
 		colProduto.setCellValueFactory(new PropertyValueFactory<Produto, String>("nomeProduto"));
 		colDescricao.setCellValueFactory(new PropertyValueFactory<Produto, String>("descricao"));
 		colCodigo.setCellValueFactory(new PropertyValueFactory<Produto, String>("codigo"));
-		
+
 		tbtabela.setItems(listProdutos);
 
 	}
