@@ -12,7 +12,7 @@ public class ConnectionFactory {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             //31300911
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pesquisa_aqui", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pesquisa_aqui", "root", "324561");
             return con;
         } catch (Exception e) {
             System.out.println("Erro na conex�o: " + e.getMessage());
