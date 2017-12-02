@@ -103,7 +103,7 @@ public class ListaProdControllerMakro implements Initializable {
 
 	}
 
-	public void irParaInicio() throws IOException {
+	public void IrParaInicio() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);

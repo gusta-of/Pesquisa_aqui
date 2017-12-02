@@ -36,7 +36,7 @@ public class InicioController {
 	
 	public void irParaListaProdutoAssai() throws IOException {
 		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/Produtos.fxml");
+		arquivoFxml = getClass().getResource("/visao/Produtos Assai.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
@@ -44,7 +44,7 @@ public class InicioController {
 	
 	public void irParaListaProdutoBretas() throws IOException {
 		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/Produtos.fxml");
+		arquivoFxml = getClass().getResource("/visao/Produtos Bretas.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
@@ -52,7 +52,7 @@ public class InicioController {
 	
 	public void irParaListaProdutoBarao() throws IOException {
 		URL arquivoFxml;
-		arquivoFxml = getClass().getResource("/visao/Produtos.fxml");
+		arquivoFxml = getClass().getResource("/visao/Produtos Barao.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
