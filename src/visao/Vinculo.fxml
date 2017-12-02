@@ -12,28 +12,14 @@
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
          <children>
-            <Button fx:id="btInicioS" layoutX="63.0" layoutY="237.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Inicio" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Button>
-            <Button fx:id="btAjudaS" layoutX="62.0" layoutY="300.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Ajuda" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
             <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
             <ImageView fx:id="imgLogo" fitHeight="92.0" fitWidth="143.0" layoutX="20.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../git/Pesquisa_aqui/src/resouces/img/logopa2.png" />
+                  <Image url="@../resouces/img/logopa2.png" />
                </image>
             </ImageView>
-            <Button layoutX="62.0" layoutY="367.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Sobre" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            <Button fx:id="btVoltar" layoutX="69.0" layoutY="545.0" mnemonicParsing="false" onAction="#irParaInicio" text="Sair" />
          </children>
       </AnchorPane>
       <Label layoutX="286.0" layoutY="32.0" prefHeight="46.0" prefWidth="356.0" text="Vínculo Produto - Mercado">

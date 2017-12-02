@@ -1,4 +1,4 @@
-package controller;
+ package controller;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -139,28 +139,28 @@ public class AdminController implements Serializable {
 	public boolean validarCampos(Admin admin) {
 		StringBuilder inconsistencias = new StringBuilder();
 		if (admin.getNome().equals("") || admin.getNome() == null) {
-			inconsistencias.append("\n Campo Nome obrigat�rio");
+			inconsistencias.append("\n Campo Nome obrigatório");
 		}
 		if (admin.getSobrenome().equals("") || admin.getSobrenome() == null) {
-			inconsistencias.append("\n Campo Sobrenome obrigat�rio");
+			inconsistencias.append("\n Campo Sobrenome obrigatório");
 		}
 		if (admin.getUsuario().equals("") || admin.getUsuario() == null) {
-			inconsistencias.append("\n Campo Usuario obrigat�rio");
+			inconsistencias.append("\n Campo Usuario obrigatório");
 		}
 		if (admin.getEmail().equals("") || admin.getEmail() == null) {
-			inconsistencias.append("\n Campo Email obrigat�rio");
+			inconsistencias.append("\n Campo Email obrigatório");
 		}
 		if (admin.getCpf().equals("") || admin.getCpf() == null) {
-			inconsistencias.append("\n Campo CPF obrigat�rio");
+			inconsistencias.append("\n Campo CPF obrigatório");
 		}
 		if (admin.getSenha().equals("") || admin.getSenha() == null) {
-			inconsistencias.append("\n Campo Senha obrigat�rio");
+			inconsistencias.append("\n Campo Senha obrigatório");
 		}
 		if (admin.getConfirmarSenha().equals("") || admin.getConfirmarSenha() == null) {
-			inconsistencias.append("\n Campo Confirmar Senha obrigat�rio");
+			inconsistencias.append("\n Campo Confirmar Senha obrigatório");
 		}
 		if (admin.getDataNascimento() == null) {
-			inconsistencias.append("\n Campo Data obrigat�rio");
+			inconsistencias.append("\n Campo Data obrigatório");
 		}
 		if (inconsistencias.length() == 0) {
 			return true;

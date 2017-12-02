@@ -43,20 +43,20 @@ public class AdminNegocio {
 			valido = validarIdade(admin.getDataNascimento());
 			
 		} else {
-			sb.append("Data nascimento obrigat�rio");
+			sb.append("Data nascimento obrigatório");
 		}
 		emailValido = validarEmail(admin.getEmail());
 		if (valido != true) {
 			sb.append("\nPrecisa ter mais de 18 anos");
 		}
 		if (cpfValido != true) {
-			sb.append("\nCPF Inv�lido");
+			sb.append("\nCPF Inválido");
 		}
 		if (emailValido != true) {
-			sb.append("\nEmail Inv�lido");
+			sb.append("\nEmail Inválido");
 		}
 		if (senha != true) {
-			sb.append("\nSenhas n�o correspondentes");
+			sb.append("\nSenhas não correspondentes");
 		}
 
 		if (sb.toString().equals("")) {

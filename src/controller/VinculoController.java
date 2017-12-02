@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
@@ -7,7 +8,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -26,7 +29,7 @@ public class VinculoController implements Serializable, Initializable {
 	private static final long serialVersionUID = 1L;
 
 	@FXML
-	private Button btInicioS, btAjudaS, btSave;
+	private Button btInicioS, btAjudaS, btSave, btVoltar;
 
 	@FXML
 	private AnchorPane acPane;
@@ -65,17 +68,13 @@ public class VinculoController implements Serializable, Initializable {
 
 	@FXML
 	public void salvar() {
-		if(validarCampos(vinculo) == true) {
 		setarDadosVinculo();
 		vinculos.add(vinculo);
 		vn.salvar(vinculo);
 		limparCampos();
-		}else {
-			validarCampos(vinculo);
-		}
-		
+
 	}
-	
+
 	public void limparCampos() {
 		cbProduto.setValue(null);
 		cbMercado.setValue(null);
@@ -129,26 +128,13 @@ public class VinculoController implements Serializable, Initializable {
 		cbProduto.getItems().clear();
 		cbProduto.getItems().addAll(listP);
 	}
-	
-	public Boolean validarCampos(Vinculo vinculo) {
-		StringBuilder inconsistencias = new StringBuilder();
-		if (vinculo.getValor() <= 0) {
-			inconsistencias.append("\nO produto n�o pode ser cadastrado com um codigo menor ou igual a 0.");
-			lbValor.setText("Valor Inválido!");
-			lbValor.setVisible(true);
-		}
-		if (vinculo.getMarca() == null || vinculo.getMarca().equals("")  ) {
-			inconsistencias.append("\nO nome do produto � obrigat�rio.");
-			lbMarca.setText("Campo obrigatório!");
-			lbMarca.setVisible(true);
-		}
-		
-		System.out.println(inconsistencias.toString());
-		if (inconsistencias.length() == 0) {
-			return true;
-		} else {
-			return false;
-		}
 
+	public void irParaInicio() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
 	}
+
 }

@@ -101,7 +101,7 @@ public class VinculoDao {
 					stm = con.createStatement();
 					res = stm.executeQuery("SELECT produto.nomeProduto, produto.descricao, vinculo.valor, vinculo.marca, fornecedores.nome FROM vinculo "
 							+ "INNER JOIN produto ON produto.id = vinculo.idProduto"
-							+ " INNER JOIN fornecedores ON fornecedores.id = idFornecedor AND fornecedores.nome = 'Barao';");
+							+ " INNER JOIN fornecedores ON fornecedores.id = idFornecedor AND fornecedores.nome = 'Barão';");
 					while (res.next()) {
 						Vinculo vinculo = new Vinculo();
 						Produto p = new Produto();

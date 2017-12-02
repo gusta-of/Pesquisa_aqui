@@ -44,25 +44,34 @@
                   </ImageView>
                   <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
                   <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
-                  <Button fx:id="btMain" contentDisplay="RIGHT" layoutX="34.0" layoutY="204.0" mnemonicParsing="false" onAction="#irParaMain" prefHeight="53.0" prefWidth="103.0" style="-fx-background-color: #283b70;" text="Main adm" textFill="WHITE">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btCadProduto" layoutX="36.0" layoutY="365.0" mnemonicParsing="false" onAction="#irParaProduto" prefHeight="53.0" prefWidth="103.0" style="-fx-background-color: #283b70;" text="Cad. Produto" textFill="WHITE">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
                   <Label fx:id="lbFornecedor" layoutX="32.0" layoutY="294.0" prefHeight="38.0" prefWidth="111.0" text="Fornecedor" textFill="WHITE" visible="false">
                      <font>
                         <Font name="Arial" size="21.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btCadFornecedor" layoutX="33.0" layoutY="289.0" mnemonicParsing="false" onAction="#irParaFornecedor" prefHeight="48.0" prefWidth="103.0" style="-fx-background-color: #283b70;" text="Fornecedor" textFill="WHITE">
+                  <Button fx:id="btCadFornecedor" layoutX="14.0" layoutY="289.0" mnemonicParsing="false" onAction="#irParaFornecedor" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #283b70;" text="Fornecedor" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <font>
+                        <Font name="Arial Black" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btMain" contentDisplay="RIGHT" layoutX="35.0" layoutY="219.0" mnemonicParsing="false" onAction="#irParaMain" prefHeight="48.0" prefWidth="105.0" style="-fx-background-color: #283b70;" text="Home" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Arial Black" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btCadFornecedor" contentDisplay="RIGHT" layoutX="27.0" layoutY="365.0" mnemonicParsing="false" onAction="#irParaFornecedor" prefHeight="48.0" prefWidth="126.0" style="-fx-background-color: #283b70;" text="Produto" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Arial Black" size="22.0" />
+                     </font>
                   </Button>
                </children>
             </AnchorPane>

@@ -35,16 +35,20 @@
             </Button>
          </children>
       </AnchorPane>
-      <Label layoutX="195.0" layoutY="28.0" prefHeight="62.0" prefWidth="124.0" text="Ajuda:">
-         <font>
-            <Font size="42.0" />
-         </font>
-      </Label>
-      <Label layoutX="313.0" layoutY="79.0" prefHeight="51.0" prefWidth="300.0" text="Pesquisa Aqui" wrapText="true">
+      <Label layoutX="321.0" layoutY="62.0" prefHeight="51.0" prefWidth="300.0" text="Pesquisa Aqui" wrapText="true">
          <font>
             <Font size="47.0" />
          </font>
       </Label>
-      <Accordion layoutX="184.0" layoutY="167.0" prefHeight="409.0" prefWidth="600.0" />
+      <Label layoutX="248.0" layoutY="218.0" text="Ao executar o software exibirá os mercados/atacados cadastrados no sistema.&#10;Para ver os produtos cadastrado em cada um deles, é preciso clicar em algum&#10;de sua escolha. Uma tabela sera exibida na tela com nome, descrição e preço&#10;dos produtos individualmente.&#10;&#10;&#10;Dúvida ou problema? Contate-nos: sac@pesquisa.com.br" textAlignment="JUSTIFY">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="396.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resouces/img/240_F_121212019_8NPYOh984Suy7TABVXEtJjTtTQHHQGpP.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

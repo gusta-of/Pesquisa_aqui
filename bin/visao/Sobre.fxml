@@ -9,19 +9,17 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InicioController">
+<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SobreController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
          <children>
-            <Button fx:id="btInicioS" layoutX="63.0" layoutY="237.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Inicio" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Button>
-            <Button fx:id="btAjudaS" layoutX="62.0" layoutY="300.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Ajuda" textFill="WHITE">
+            <Button fx:id="btVoltar" layoutX="42.0" layoutY="290.0" mnemonicParsing="false" onAction="#irParaInicio" style="-fx-background-color: #283b70;" text="Voltar" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font size="23.0" />
+               </font>
             </Button>
             <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
             <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
@@ -30,11 +28,6 @@
                   <Image url="@../resouces/img/logopa2.png" />
                </image>
             </ImageView>
-            <Button layoutX="62.0" layoutY="367.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Sobre" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
          </children>
       </AnchorPane>
       <Label layoutX="184.0" layoutY="21.0" prefHeight="46.0" prefWidth="356.0" text="Sobre o Pesquisa Aqui">
@@ -55,5 +48,11 @@
          <font>
             <Font size="14.0" />
          </font></Label>
+      <Label layoutX="226.0" layoutY="372.0" text="Dúvida ou problema? Contate-nos&#10;sac@pesquisa.com.br" textAlignment="CENTER" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="512.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resouces/img/suporte_online.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

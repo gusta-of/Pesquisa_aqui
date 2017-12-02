@@ -116,6 +116,15 @@ public class MainAdminController implements Initializable, Serializable {
 		acPane.getChildren().clear();
 		acPane.getChildren().add(fxmlParent);
 	}
+	
+	public void irParaInicio() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
+
 
 	public void sairParaLogin() throws IOException {
 		URL arquivoFxml;
