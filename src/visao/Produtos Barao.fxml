@@ -11,7 +11,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ListaProdControllerMakro">
+<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ListaProdControllerBarao">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
          <children>
@@ -24,7 +24,7 @@
                <graphic>
                   <ImageView fx:id="btAjuda2" fitHeight="48.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resouces/img/btajuda.png" />
+                        <Image url="@../../Workspace/Pesquisa_aqui/src/resouces/img/btajuda.png" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -41,7 +41,13 @@
                </cursor></Button>
             <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
             <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
-            <Button fx:id="btInicio" layoutX="36.0" layoutY="209.0" mnemonicParsing="false" onAction="#IrParaInicio" prefHeight="56.0" prefWidth="103.0" style="-fx-background-color: #283b70;" text="Inicio" textFill="WHITE">
+            <Button layoutX="36.0" layoutY="209.0" mnemonicParsing="false" style="-fx-background-color: #283b70;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnLogin" layoutX="58.0" layoutY="561.0" mnemonicParsing="false" onAction="#irParaLogin" text="Login" />
+            <Button fx:id="btInicio" layoutX="41.0" layoutY="206.0" mnemonicParsing="false" onAction="#IrParaInicio" prefHeight="56.0" prefWidth="103.0" style="-fx-background-color: #283b70;" text="Inicio" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>

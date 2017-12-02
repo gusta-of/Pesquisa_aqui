@@ -41,22 +41,14 @@
                </cursor></Button>
             <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
             <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
-            <Button layoutX="36.0" layoutY="209.0" mnemonicParsing="false" style="-fx-background-color: #283b70;">
+            <Button fx:id="btInicio" layoutX="36.0" layoutY="209.0" mnemonicParsing="false" onAction="#IrParaInicio" prefHeight="56.0" prefWidth="103.0" style="-fx-background-color: #283b70;" text="Inicio" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
-               <graphic>
-                  <ImageView fx:id="btAjuda1" fitHeight="48.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
-                     <cursor>
-                        <Cursor fx:constant="NONE" />
-                     </cursor>
-                     <image>
-                        <Image url="@../resouces/img/btinicio.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
             </Button>
-            <Button fx:id="btnLogin" layoutX="58.0" layoutY="561.0" mnemonicParsing="false" onAction="#irParaLogin" text="Login" />
          </children>
       </AnchorPane>
       <TableView fx:id="tbProd" layoutX="174.0" layoutY="163.0" prefHeight="437.0" prefWidth="626.0">

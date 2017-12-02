@@ -21,10 +21,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import model.Vinculo;
 
-public class ListaProdControllerMakro implements Initializable {
+public class ListaProdControllerBretas implements Initializable {
 
 	private VinculoDao vd = new VinculoDao();
-	private List<Vinculo> vinculoList = vd.listarVinculoTabelaMakro();
+	private List<Vinculo> vinculoList = vd.listarVinculoTabelaBretas();
 	private ObservableList<Vinculo> listaVinculo = FXCollections.observableArrayList();
 
 	Vinculo v = new Vinculo();
@@ -52,7 +52,7 @@ public class ListaProdControllerMakro implements Initializable {
 	// private TableColumn<Vinculo, String> colValue;
 
 	@FXML
-	private Button btAjuda;
+	private Button btAjuda, btInicio;
 
 	@FXML
 	private Label lbMercado;
@@ -64,7 +64,7 @@ public class ListaProdControllerMakro implements Initializable {
 	private TableColumn<Vinculo, String> colNome;
 
 	@FXML
-	private Button btnLogin, btInicio;
+	private Button btnLogin;
 
 	@FXML
 	private TableColumn<Vinculo, Double> colvalor;
@@ -102,7 +102,7 @@ public class ListaProdControllerMakro implements Initializable {
 		tbProd.setItems(listaVinculo);
 
 	}
-
+	
 	public void irParaInicio() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Inicio.fxml");

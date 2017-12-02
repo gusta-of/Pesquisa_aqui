@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class InicioController {
 	
@@ -16,13 +17,40 @@ public class InicioController {
 	private AnchorPane acPane;
 	
 	@FXML
+	private Pane P;
+	
+	@FXML
 	private ImageView imgLogo, imgInicio, btAjuda1;
 	
 	@FXML
-	private Button btnMercado1, btAjuda, btnLogin, btSobre, btCu;
+	private Button btnMercado1, btAjuda, btnLogin, btSobre, btMakro, btAssai, btBretas, btBarao;
 	
 	
-	public void irParaListaProduto() throws IOException {
+	public void irParaListaProdutoMakro() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Produtos.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
+	
+	public void irParaListaProdutoAssai() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Produtos.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
+	
+	public void irParaListaProdutoBretas() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/Produtos.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
+	
+	public void irParaListaProdutoBarao() throws IOException {
 		URL arquivoFxml;
 		arquivoFxml = getClass().getResource("/visao/Produtos.fxml");
 		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
