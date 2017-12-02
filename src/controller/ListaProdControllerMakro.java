@@ -18,7 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import model.Vinculo;
 
-public class ListaProdController implements Initializable {
+public class ListaProdControllerMakro implements Initializable {
 
 	private VinculoDao vd = new VinculoDao();
 	private List<Vinculo> vinculoList = vd.listarVinculoTabela1();
