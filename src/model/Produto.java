@@ -68,7 +68,7 @@ public class Produto {
 	
 	@Override
 	public String toString() {
-	    return this.nomeProduto + this.descricao;
+	    return this.nomeProduto + " " +this.descricao;
 	}
 
 }

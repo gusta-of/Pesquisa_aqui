@@ -34,40 +34,16 @@ public class VinculoDao {
 		try {
 			if (con != null) {
 				stm = con.createStatement();
-				res = stm.executeQuery("SELECT produto.nomeProduto, produto.descricao FROM vinculo "
+				res = stm.executeQuery("SELECT produto.nomeProduto, produto.descricao, vinculo.marca, vinculo.valor FROM vinculo "
 						+ "INNER JOIN produto ON produto.id = vinculo.idProduto;");
 				while (res.next()) {
 					Vinculo vinculo = new Vinculo();
 					Produto p = new Produto();
-					
+
 					p.setNomeProduto(res.getString("nomeProduto"));
-					listP.add(p);
-					vinculo.setIdProduto(p);
-					list.add(vinculo);
-				}
-			}
-		} catch (SQLException e) {
-			System.out.println("Erro ao listar" + e.getMessage());
-		}
-
-		return list;
-
-	}
-	
-	public List<Vinculo> listarVinculoTabela1() {
-		List<Vinculo> list = new ArrayList<>();
-		List<Produto> listP = new ArrayList<>();
-		ResultSet res = null;
-		try {
-			if (con != null) {
-				stm = con.createStatement();
-				res = stm.executeQuery("SELECT produto.descricao FROM produto "
-						+ "INNER JOIN vinculo ON produto.id = vinculo.idProduto;");
-				while (res.next()) {
-					Vinculo vinculo = new Vinculo();
-					Produto p = new Produto();
-					
 					p.setDescricao(res.getString("descricao"));
+					vinculo.setMarca(res.getString("marca"));
+					vinculo.setValor(res.getDouble("valor"));
 					listP.add(p);
 					vinculo.setIdProduto(p);
 					list.add(vinculo);

@@ -22,16 +22,14 @@ public class ListaProdController implements Initializable {
 
 	private VinculoDao vd = new VinculoDao();
 	private List<Vinculo> vinculoList = vd.listarVinculoTabela();
-	private List<Vinculo> vinculoList1 = vd.listarVinculoTabela1();
 	private ObservableList<Vinculo> listaVinculo = FXCollections.observableArrayList();
-	private ObservableList<Vinculo> listaVinculo1 = FXCollections.observableArrayList();
+
 	Vinculo v = new Vinculo();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
 		populaView(vinculoList);
-		populaView1(vinculoList1);
 
 	}
 
@@ -66,9 +64,6 @@ public class ListaProdController implements Initializable {
 	private Button btnLogin;
 
 	@FXML
-	private TableColumn<Vinculo, String> colDesc;
-
-	@FXML
 	private TableColumn<Vinculo, Double> colvalor;
 
 	@FXML
@@ -83,7 +78,6 @@ public class ListaProdController implements Initializable {
 	@FXML
 	private Label lbEnd;
 
-
 	public void populaView(List<Vinculo> vinculo) {
 		if (!listaVinculo.isEmpty()) {
 			listaVinculo.clear();
@@ -94,38 +88,15 @@ public class ListaProdController implements Initializable {
 
 		}
 		for (int i = 0; i < listaVinculo.size(); i++) {
+			System.out.println(listaVinculo.get(i).getIdProduto().getNomeProduto());
 			colNome.setCellValueFactory(new PropertyValueFactory<Vinculo, String>("idProduto"));
 		}
-
-		// for(int i = 0; i < listaVinculo1.size(); i++) {
-		// System.out.println(listaVinculo1.get(i));
-		// colDesc.setCellValueFactory(new PropertyValueFactory<Vinculo,
-		// String>("idProduto"));
-		// }
+		
+		colMarca.setCellValueFactory(new PropertyValueFactory<Vinculo, String>("marca"));
+		colvalor.setCellValueFactory(new PropertyValueFactory<Vinculo, Double>("valor"));
 
 		listaVinculo = FXCollections.observableArrayList(vinculo);
 		tbProd.setItems(listaVinculo);
-
-		// listaVinculo1 = FXCollections.observableArrayList(vinculo);
-		// tbProd1.setItems(listaVinculo1);
-	}
-
-	public void populaView1(List<Vinculo> vinculo1) {
-		if (!listaVinculo1.isEmpty()) {
-			listaVinculo1.clear();
-		}
-
-		for (Vinculo vinc1 : vinculoList1) {
-			Vinculo v1 = new Vinculo(vinc1.getIdProduto(), vinc1.getMarca(), vinc1.getValor());
-			listaVinculo1.add(v1);
-
-			for (int i = 0; i < listaVinculo1.size(); i++) {
-				colDesc.setCellValueFactory(new PropertyValueFactory<Vinculo, String>("idProduto"));
-			}
-
-			listaVinculo1 = FXCollections.observableArrayList(vinculo1);
-			tbProd1.setItems(listaVinculo1);
-		}
 
 	}
 
