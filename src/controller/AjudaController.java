@@ -16,7 +16,7 @@ public class AjudaController {
 	private AnchorPane acPane, acPane2;
 	
 	@FXML
-	private Button btAjuda, btLogin, btInicio, btSobre;
+	private Button btVoltar;
 	
 	@FXML
 	private ImageView imgLogo;

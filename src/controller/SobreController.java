@@ -16,7 +16,7 @@ public class SobreController{
 	private AnchorPane acPane, acPane2;
 	
 	@FXML
-	private Button btAjuda, btLogin, btnLogin, btSobre;
+	private Button btVoltar;
 	
 	@FXML
 	private ImageView imgLogo;

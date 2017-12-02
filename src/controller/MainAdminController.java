@@ -117,6 +117,13 @@ public class MainAdminController implements Initializable, Serializable {
 		acPane.getChildren().add(fxmlParent);
 	}
 
+	public void sairParaLogin() throws IOException {
+		URL arquivoFxml;
+		arquivoFxml = getClass().getResource("/visao/LoginAdm.fxml");
+		Parent fxmlParent = (Parent) FXMLLoader.load(arquivoFxml);
+		acPane.getChildren().clear();
+		acPane.getChildren().add(fxmlParent);
+	}
 	/*
 	 * Esse metodo pega um objeto que guarda a lista de admin que vem do banco,
 	 * entra dentro do forEach popula todos os campos com os admins cadastrados no

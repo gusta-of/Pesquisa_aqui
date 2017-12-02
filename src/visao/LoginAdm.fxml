@@ -42,23 +42,7 @@
       </ImageView>
       <AnchorPane fx:id="acBarra" prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
          <children>
-            <Button fx:id="btInicio" contentDisplay="RIGHT" layoutX="36.0" layoutY="210.0" mnemonicParsing="false" onAction="#irParaInicio" prefHeight="56.0" prefWidth="103.0" style="-fx-background-color: #283b70;" text="Inicio" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Arial Black" size="23.0" />
-               </font>
-            </Button>
-            <Button fx:id="btAjuda" layoutX="36.0" layoutY="285.0" mnemonicParsing="false" onAction="#irParaAjuda" prefHeight="56.0" prefWidth="103.0" style="-fx-background-color: #283b70;" text="Ajuda" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Arial Black" size="22.0" />
-               </font>
-            </Button>
-            <Button fx:id="btSobre" layoutX="36.0" layoutY="359.0" mnemonicParsing="false" onAction="#irParaSobre" prefHeight="60.0" prefWidth="103.0" style="-fx-background-color: #283b70;" text="Sobre" textFill="WHITE">
+            <Button fx:id="btVoltar" contentDisplay="RIGHT" layoutX="36.0" layoutY="285.0" mnemonicParsing="false" onAction="#irParaInicio" prefHeight="56.0" prefWidth="105.0" style="-fx-background-color: #283b70;" text="Voltar" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

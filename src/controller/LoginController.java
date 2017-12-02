@@ -25,7 +25,7 @@ public class LoginController {
 	private TextField txtUser, txtSenha;
 
 	@FXML
-	private Button btLoguin, btInicio, btAjuda, btSobre;
+	private Button btLoguin, btVoltar;
 
 	@FXML
 	private ImageView imgBusto, imgCadeado, imgPc, imgLoad2, imgLogo;
