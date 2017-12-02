@@ -9,17 +9,19 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SobreController">
+<AnchorPane fx:id="acPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: dasd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InicioController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
          <children>
-            <Button fx:id="btVoltar" layoutX="28.0" layoutY="280.0" mnemonicParsing="false" onAction="#irParaInicio" prefHeight="67.0" prefWidth="118.0" style="-fx-background-color: #283b70;" text="Voltar" textFill="WHITE">
+            <Button fx:id="btInicioS" layoutX="63.0" layoutY="237.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Inicio" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button fx:id="btAjudaS" layoutX="62.0" layoutY="300.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Ajuda" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-               <font>
-                  <Font name="Arial Black" size="24.0" />
-               </font>
             </Button>
             <Line endX="10.0" layoutX="132.0" layoutY="275.0" startX="-100.0" stroke="WHITE" />
             <Line endX="10.0" layoutX="132.0" layoutY="351.0" startX="-100.0" stroke="WHITE" />
@@ -28,6 +30,11 @@
                   <Image url="@../resouces/img/logopa2.png" />
                </image>
             </ImageView>
+            <Button layoutX="62.0" layoutY="367.0" mnemonicParsing="false" style="-fx-background-color: #283b70;" text="Sobre" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
       <Label layoutX="184.0" layoutY="21.0" prefHeight="46.0" prefWidth="356.0" text="Sobre o Pesquisa Aqui">
@@ -44,7 +51,7 @@
       <Text layoutX="195.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gustavo de O. Fernandes - BackEnd" wrappingWidth="198.0" />
       <Text layoutX="562.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nathan F. A. Arend - Business Analyst" />
       <Text layoutX="562.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gustavo M. Sousa - FrontEnd" />
-      <Label layoutX="184.0" layoutY="102.0" prefHeight="207.0" prefWidth="604.0" text="Compilação 1.0 pt-br&#10;Copyright © 2017 Pesquisa Aqui corporation. Todos os direitos reservados&#10;&#10;&#10;Este software surgiu como forma de sanar a necessidade de buscar preços melhores (por &#10;um meio eficiente) de itens que estão contidos em uma cesta básica,  visando economia &#10;ao efetuar uma compra no mercado/atacado escolhido e tempo.&#10;Buscamos somente produtos de cesta básica por serem os mais comuns dentre todos&#10;disponíveis" textOverrun="LEADING_WORD_ELLIPSIS">
+      <Label layoutX="184.0" layoutY="102.0" prefHeight="207.0" prefWidth="611.0" text="Compilação 1.0 pt-br&#10;Copyright © 2017 Pesquisa Aqui corporation. Todos os direitos reservados&#10;&#10;&#10;Este software surgiu para sanar a necessidade de buscar preços de forma rápida e eficaz de &#10;itens que estão contidos em uma cesta básica, visando economia de tempo e dinheiro, ao &#10;efetuar uma pesquisa de preço no mercado/atacado. &#10;Buscamos somente produtos de cesta básica por serem os mais consumidos.&#10;" textAlignment="JUSTIFY" textOverrun="LEADING_WORD_ELLIPSIS">
          <font>
             <Font size="14.0" />
          </font></Label>
