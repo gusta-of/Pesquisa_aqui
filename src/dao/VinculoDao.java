@@ -27,15 +27,16 @@ public class VinculoDao {
 
 	String sqlSalvar = "INSERT INTO vinculo (idProduto, idFornecedor, valor, marca) VALUES(?,?,?,?)";
 
-	public List<Vinculo> listarVinculoTabela() {
+	public List<Vinculo> listarVinculoTabela1() {
 		List<Vinculo> list = new ArrayList<>();
 		List<Produto> listP = new ArrayList<>();
 		ResultSet res = null;
 		try {
 			if (con != null) {
 				stm = con.createStatement();
-				res = stm.executeQuery("SELECT produto.nomeProduto, produto.descricao, vinculo.marca, vinculo.valor FROM vinculo "
-						+ "INNER JOIN produto ON produto.id = vinculo.idProduto;");
+				res = stm.executeQuery("SELECT produto.nomeProduto, produto.descricao, vinculo.valor, vinculo.marca, fornecedores.nome FROM vinculo "
+						+ "INNER JOIN produto ON produto.id = vinculo.idProduto"
+						+ " INNER JOIN fornecedores ON fornecedores.id = idFornecedor AND fornecedores.nome = 'Makro';");
 				while (res.next()) {
 					Vinculo vinculo = new Vinculo();
 					Produto p = new Produto();

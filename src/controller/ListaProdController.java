@@ -21,7 +21,7 @@ import model.Vinculo;
 public class ListaProdController implements Initializable {
 
 	private VinculoDao vd = new VinculoDao();
-	private List<Vinculo> vinculoList = vd.listarVinculoTabela();
+	private List<Vinculo> vinculoList = vd.listarVinculoTabela1();
 	private ObservableList<Vinculo> listaVinculo = FXCollections.observableArrayList();
 
 	Vinculo v = new Vinculo();
