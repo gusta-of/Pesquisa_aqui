@@ -30,8 +30,8 @@
             </TableView>
             <Button fx:id="btSalvar" layoutX="242.0" layoutY="201.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
             <Button fx:id="btCancelar" layoutX="304.0" layoutY="201.0" mnemonicParsing="false" text="Cancelar" />
-            <Label fx:id="lbMsgNome" layoutX="567.0" layoutY="104.0" prefHeight="25.0" prefWidth="220.0" />
-            <Label fx:id="lbMsgEndereco" layoutX="568.0" layoutY="139.0" prefHeight="25.0" prefWidth="220.0" />
+            <Label fx:id="lbMsgNome" layoutX="567.0" layoutY="104.0" prefHeight="25.0" prefWidth="220.0" textFill="RED" />
+            <Label fx:id="lbMsgEndereco" layoutX="568.0" layoutY="139.0" prefHeight="25.0" prefWidth="220.0" textFill="RED" />
             <AnchorPane layoutX="-2.0" prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #283b70;">
                <children>
                   <ImageView fx:id="imgLogo" fitHeight="101.0" fitWidth="149.0" layoutX="15.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">

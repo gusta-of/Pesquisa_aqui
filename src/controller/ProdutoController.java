@@ -106,18 +106,13 @@ public class ProdutoController implements Serializable, Initializable {
 			validar = validarCampos(produto);
 			if (validar == false) {
 				validarCampos(produto);
-				lbMsgCod.setVisible(true);
-				lbMsgProduto.setVisible(true);
-				lbMsgDesc.setVisible(true);
 			} else {
 				if (pn.salvar(produto).equals("salvo")) {
+					listarProduto();
 					produtos.add(produto);
 					pn.salvar(produto);
-					listarProduto();
+
 				} else {
-					lbMsgCod.setVisible(false);
-					lbMsgProduto.setVisible(false);
-					lbMsgDesc.setVisible(false);
 					limparCampos();
 				}
 			}
@@ -131,17 +126,6 @@ public class ProdutoController implements Serializable, Initializable {
 	}
 
 	public void setarDadosProd() {
-		// produto.setIdFornecedor(cbFornecedores.getValue());
-		// if (cbFornecedores.getValue() != null) {
-		// FornecedorNegocio fn = new FornecedorNegocio();
-		// List<Fornecedor> forn = new ArrayList<>();
-		// forn = fn.listarFornecedor();
-		// for (int i = 0; i < forn.size(); i++) {
-		// if (forn.get(i).getNome().equals(cbFornecedores.getValue().toString())) {
-		// produto.setIdFornecedor(forn.get(i));
-		// }
-		// }
-		// }
 
 		produto.setNomeProduto(txproduto.getText());
 		produto.setCodigo(Integer.parseInt(txcodigo.getText()));
@@ -183,29 +167,24 @@ public class ProdutoController implements Serializable, Initializable {
 		if (produto.getCodigo() <= 0) {
 			inconsistencias.append("\nO produto n�o pode ser cadastrado com um codigo menor ou igual a 0.");
 			lbMsgCod.setText("Campo Obrigatório");
+			lbMsgCod.setVisible(true);
 		}
 		if (produto.getNomeProduto().equals("") || produto.getNomeProduto() == null) {
 			inconsistencias.append("\nO nome do produto � obrigat�rio.");
 			lbMsgProduto.setText("Campo Obrigatório");
+			lbMsgProduto.setVisible(true);
 		}
 		if (produto.getDescricao().equals("") || produto.getDescricao() == null) {
 			inconsistencias.append("\nA descri��o do produto � obrigat�rio.");
 			lbMsgDesc.setText("Campo Obrigatório");
+			lbMsgDesc.setVisible(true);
 		}
 		System.out.println(inconsistencias.toString());
-		return true;
+		if (inconsistencias.length() == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
-
-	// FornecedorNegocio fn = new FornecedorNegocio();
-	//
-	// public void selecionarFornecedor() {
-	// List<Fornecedor> list = fn.listarFornecedorNome();
-	// cbFornecedores.getItems().clear();
-	// for (int i = 0; i < list.size(); i++) {
-	// System.out.println(list.get(i).toString());
-	// cbFornecedores.getItems().addAll(list.get(i));
-	// }
-	//
-	// }
 
 }

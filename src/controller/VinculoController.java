@@ -65,10 +65,15 @@ public class VinculoController implements Serializable, Initializable {
 
 	@FXML
 	public void salvar() {
+		if(validarCampos(vinculo) == true) {
 		setarDadosVinculo();
 		vinculos.add(vinculo);
 		vn.salvar(vinculo);
 		limparCampos();
+		}else {
+			validarCampos(vinculo);
+		}
+		
 	}
 	
 	public void limparCampos() {
@@ -124,5 +129,26 @@ public class VinculoController implements Serializable, Initializable {
 		cbProduto.getItems().clear();
 		cbProduto.getItems().addAll(listP);
 	}
+	
+	public Boolean validarCampos(Vinculo vinculo) {
+		StringBuilder inconsistencias = new StringBuilder();
+		if (vinculo.getValor() <= 0) {
+			inconsistencias.append("\nO produto n�o pode ser cadastrado com um codigo menor ou igual a 0.");
+			lbValor.setText("Valor Inválido!");
+			lbValor.setVisible(true);
+		}
+		if (vinculo.getMarca() == null || vinculo.getMarca().equals("")  ) {
+			inconsistencias.append("\nO nome do produto � obrigat�rio.");
+			lbMarca.setText("Campo obrigatório!");
+			lbMarca.setVisible(true);
+		}
+		
+		System.out.println(inconsistencias.toString());
+		if (inconsistencias.length() == 0) {
+			return true;
+		} else {
+			return false;
+		}
 
+	}
 }

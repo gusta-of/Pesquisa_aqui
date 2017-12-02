@@ -147,9 +147,13 @@ public class FornecedorController implements Initializable, Serializable {
 		StringBuilder inconsistencias = new StringBuilder();
 		if (fornecedor.getNome() == null || fornecedor.getNome().equals("")) {
 			inconsistencias.append("Campo Nome é obrigatório!\n");
+			lbMsgNome.setText("Campo Nome é obrigatório!");
+			lbMsgNome.setVisible(true);
 		}
 		if (fornecedor.getEndereco() == null || fornecedor.getEndereco().equals("")) {
 			inconsistencias.append("Campo endereço é obrigatório!");
+			lbMsgEndereco.setText("Campo endereço é obrigatório!");
+			lbMsgEndereco.setVisible(true);
 		}
 		// Verifica se incinsistencias não recebe valor!
 		if (inconsistencias.length() == 0) {
