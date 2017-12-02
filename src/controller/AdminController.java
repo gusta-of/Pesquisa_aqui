@@ -80,19 +80,6 @@ public class AdminController implements Serializable {
 
 	}
 
-	// private void setaValores(Admin admin) {
-	//
-	// txnome.setText(admin.getNome());
-	// txsobrenome.setText(admin.getSobrenome());
-	// txCpf.setText(admin.getCpf());
-	// dpData.setUserData(admin.getDataNascimento());
-	// txuser.setText(admin.getUsuario());
-	// txemail.setText(admin.getEmail());
-	// txsenha.setText(admin.getSenha());
-	// txsConfirm.setText(admin.getConfirmarSenha());
-	//
-	// }
-
 	MainAdminController mainADM = new MainAdminController();
 
 	@FXML
@@ -104,21 +91,15 @@ public class AdminController implements Serializable {
 			validar = validarCampos(admin);
 			if (validar == false) {
 				validarCampos(admin);
-				lbMsg.setVisible(validar);
+				lbMsg.setVisible(true);
+//				lbMsg.setText(validarCampos(admin);
 			} else {
 				if (adminN.salvar(admin).equals("salvo")) {
 					admins.add(admin);
 					limparCampos();
 					lbMsg.setVisible(false);
 					// validarCampos(admin);
-				} else
-				// if(adminN.salvar(admin).equals("1")){
-				// lbMsgData.setText("Precisa ter mais de 18 anos");
-				// }
-				// if(adminN.salvar(admin).equals("2")){
-				// lbMsgCpf.setText("CPF Inválido");
-				// }
-				{
+				} else {
 
 					lbMsg.setText(adminN.salvar(admin).toString());
 					lbMsg.setVisible(true);
@@ -181,9 +162,15 @@ public class AdminController implements Serializable {
 		if (admin.getDataNascimento() == null) {
 			inconsistencias.append("\n Campo Data obrigat�rio");
 		}
-
-		System.out.println(inconsistencias.toString());
-		return true;
+		if (inconsistencias.length() == 0) {
+			return true;
+		} else {
+			System.out.println(inconsistencias.toString());
+//			lbMsg.setVisible(true);
+			lbMsg.setText(inconsistencias.toString());
+			return false;
+		}
+		
 	}
 
 	public void logar() throws IOException {
