@@ -94,7 +94,6 @@ public class ListaProdController implements Initializable {
 
 		}
 		for (int i = 0; i < listaVinculo.size(); i++) {
-			System.out.println(listaVinculo.get(i));
 			colNome.setCellValueFactory(new PropertyValueFactory<Vinculo, String>("idProduto"));
 		}
 
@@ -121,7 +120,6 @@ public class ListaProdController implements Initializable {
 			listaVinculo1.add(v1);
 
 			for (int i = 0; i < listaVinculo1.size(); i++) {
-				System.out.println(listaVinculo1.get(i));
 				colDesc.setCellValueFactory(new PropertyValueFactory<Vinculo, String>("idProduto"));
 			}
 
